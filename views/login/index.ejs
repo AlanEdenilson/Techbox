@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TCI</title>
+    <link rel='stylesheet' href='/stylesheets/Stye.css' />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">services</a>
+            <a href="#">contact</a>
+        </nav>
+
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="search...">
+            <button type="submit"><i class='bx bx-search'></i></button>
+        </form>
+    </header>
+    
+    <div class="background"></div>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo"><i class='bx bx-cube'></i>TECHBOX</h2>
+
+            <div class="text-sci">
+                <h2>BIENVENIDO!<br><span>TCI 'TOLL CONTROL INVENTORY'</span></h2>
+                <p>Total control, inventario perfecto</p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                </div>
+            </div>
+
+            <div class="logreg-box">
+
+                <!-- Formulario de inicio de sesión -->
+                <div class="form-box login">
+                    <form action="" method="post">
+                        <center><img src="/images/logonsino2023orillablanca.png" alt="" width="75" height="75"></center>
+                        <h2>Iniciar sesión</h2>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-envelope'></i></span>
+                            <input type="email" id="email-login" name="email" required>
+                            <label for="email-login">Email</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                            <input type="password" id="password-login" name="contraseña" required>
+                            <label for="password-login">Contraseña</label>
+                        </div>
+
+                        <div class="remenber-forgot">
+                            <label><input type="checkbox" id="remember-me"> Recordar</label>
+                            <a href="">Has olvidado tu contraseña?</a>
+                        </div>
+                        <button type="submit" class="btn">Iniciar sesión</button>
+                        <div class="login-register">
+                            <p>No tienes una cuenta? <a href="#" class="register-link">Registrarse</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Formulario de registro -->
+                <div class="form-box register">
+                    <form action="/registrar" method="post">
+                        <h2>Registrarse</h2>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-envelope'></i></span>
+                            <input type="email" id="email-register" name="email" required>
+                            <label for="email-register">Email</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-user'></i></span>
+                            <input type="text" id="name-register" name="Nombre" required>
+                            <label for="name-register">Nombre</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                            <input type="password" id="password-register" name="Contraseña" required>
+                            <label for="password-register">Contraseña</label>
+                        </div>
+
+                        <div class="remenber-forgot">
+                            <label><input type="checkbox" id="terms-conditions"> I agree to the terms & conditions</label>
+                            <a href="">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn">Sign Up</button>
+                        <div class="login-register">
+                            <p>Already have an account? <a href="#" class="login-link">Sign In</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const logregbox = document.querySelector('.logreg-box');
+            const loginLink = document.querySelector('.login-link');
+            const registerLink = document.querySelector('.register-link');
+
+            if (loginLink && registerLink && logregbox) {
+                registerLink.addEventListener('click', () => {
+                    logregbox.classList.add('active');
+                });
+
+                loginLink.addEventListener('click', () => {
+                    logregbox.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
