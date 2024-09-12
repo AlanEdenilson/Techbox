@@ -5,6 +5,7 @@ const tallerControllers = require("../controllers/tallerControllers")
 
 /* GET home page. */
 router.get('/',tallerControllers.index);
- 
+
 
 module.exports = router;
+
