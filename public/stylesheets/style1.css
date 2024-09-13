@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url(../images/image.png);
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+
+.nav {
+    width: 300px;
+    overflow: hidden;
+    transition: height .4s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #051350;
+    z-index: 1000; 
+}
+
+.nav.collapsed {
+    height: 50px;
+}
+
+.nav.expanded {
+    height: 100vh;
+}
+
+.nav_toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.toggle_icon {
+    width: 24px;
+    height: 24px;
+    transition: transform .3s;
+}
+
+.nav.expanded .toggle_icon {
+    transform: rotate(180deg);
+}
+
+.list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list_item {
+    list-style: none;
+    width: 100%;
+}
+
+.list_item--click {
+    cursor: pointer;
+}
+
+.list_button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    margin-top: 30px; 
+}
+
+.nav_link {
+    color: #ecf0f1;
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.nav_link--inside {
+    font-size: 14px;
+}
+
+.nav_link--inside:hover {
+    background-color: #F9CD16;
+    border-radius: 4px;
+}
+
+.list_arrow {
+    margin-left: auto;
+    transition: transform .4s;
+}
+
+.list_arrow.rotate {
+    transform: rotate(90deg);
+}
+
+.list_show {
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #F9CD16;
+    list-style: none;
+    overflow: hidden;
+    transition: height .4s ease;
+    height: 0;
+    padding: 0;
+}
+
+.list_show li {
+    text-align: center;
+}
+
+.list_inside {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list_inside .nav_link {
+    font-family: 'Helvetica, Arial, sans-serif';
+    margin-top: 10px;
+}
+
+main {
+    margin-left: 320px;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.welcome-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.philosophy-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.contact-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px; 
+}
+
+.contact-section ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.contact-section li {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.2em; 
+}

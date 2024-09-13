@@ -1,9 +1,14 @@
 var express = require('express');
+const tallerControllers = require('../controllers/tallerControllers');
 var router = express.Router();
-const tallerControllers = require("../controllers/tallerControllers")
 
 /* GET home page. */
-router.get('/',tallerControllers.index);
+router.get('/', function (req,res,next) {
+  res.send('Bienvenido')
+});
+
+router.post('/menu',tallerControllers.insertardatos);
+
 
 
 module.exports = router;
