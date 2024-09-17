@@ -7,7 +7,7 @@ module.exports={
        conexion.query("SELECT*FROM registrar", funcion);
    },
     buscar:function(conexion, usaurio, contraseña, funcion) {
-       conexion.query(`SELECT * FROM registrar WHERE EMAIL=${usaurio} AND CONTRASEÑA =${contraseña}`, funcion);
+       conexion.query(`SELECT * FROM usuario WHERE EMAIL=${usaurio} AND CONTRASEÑA =${contraseña}`, funcion);
    
    },
 

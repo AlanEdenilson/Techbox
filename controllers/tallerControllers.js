@@ -1,18 +1,12 @@
 var conexion = require('../config/conexion');
 var menu = require("../model/taller")
 
-
-
 module.exports={
 
     index:function (req, res) {
         console.log(req.body);
-       res.render('login/index', { title: 'Techbox' });
+       //res.render('login/index', { title: 'Techbox' });
 
-
-        menu.obtener(con, function (err,datos) {
-            console.log(datos);
-            res.render('login/index', { title: 'TECHBOX' });
 
             const consult=`SELECT * FROM registrar WHERE EMAIL='${req.body.email}' AND CONTRASEÑA = '${req.body.contraseña}'`;
             conexion.query(consult,function (error,resultado) {
@@ -27,7 +21,6 @@ module.exports={
                 res.send("errror")
              }
             });
-        });
 
     },
     
@@ -39,8 +32,6 @@ module.exports={
         var Nombre = req.body.Nombre;
         var Contraseña = req.body.Contraseña;
 
-
-       
 
        // const consulta=`INSERT * FROM usuarios WHERE NOMBRE = '${nombre}' AND CONTRASENA ='${contraseña}'`;
        const consulta=`INSERT INTO registrar (Email,Nombre,Contraseña)  VALUES ('${email}','${Nombre}','${Contraseña}')`;
