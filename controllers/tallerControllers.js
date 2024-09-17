@@ -38,7 +38,7 @@ module.exports={
                 console.log("error en la base de datos")    
                 throw error;
             }else{
-                console.log('datos insertados correctamente')
+                console.log('datos insertados wi correctamente')
                 res.render('login/menu');
             }
             
