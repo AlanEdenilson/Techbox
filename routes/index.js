@@ -9,9 +9,5 @@ router.get('/', function (req,res,next) {
 
 router.post('/menu',tallerControllers.insertardatos);
 
-router.get('/menu',(req,res)=>{
-   res.render('login/menu')
-});
-
 module.exports = router;
 

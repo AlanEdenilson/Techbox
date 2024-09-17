@@ -8,6 +8,7 @@ module.exports={
        //res.render('login/index', { title: 'Techbox' });
 
 
+
             const consult=`SELECT * FROM registrar WHERE EMAIL='${req.body.email}' AND CONTRASEÑA = '${req.body.contraseña}'`;
             conexion.query(consult,function (error,resultado) {
              if (error) {
@@ -46,6 +47,6 @@ module.exports={
         }
         });
 
-    },
+    }
 };
 
