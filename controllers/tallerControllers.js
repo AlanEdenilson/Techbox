@@ -1,9 +1,14 @@
 var conexion = require('../config/conexion');
 var menu = require("../model/taller")
 
+
+
 module.exports={
 
-    index:function (req,res) {
+    index:function (req, res) {
+        console.log(req.body);
+       //res.render('login/index', { title: 'Techbox' });
+
 
         menu.obtener(con, function (err,datos) {
             console.log(datos);
@@ -23,25 +28,33 @@ module.exports={
              }
             });
         });
+
     },
-    registrardatos:function (req,res) {
-        var registrar = req.body
-        console.log(registrar)
+    
+    insertardatos:function (req,res) {
+        var datos = req.body
+        console.log(datos)
 
         var email= req.body.email;
-        var Nombre= req.body.Nombre;
+        var Nombre = req.body.Nombre;
         var Contraseña = req.body.Contraseña;
 
-        const consulta=`INSERT INTO registrar (ID_Registro,Email,Nombre,Contraseña)VALUES ('','${email}','${Nombre}','${Contraseña}')`;
-        conexion.query(consulta,function (error, resultado) {
-            if (error) {
-                console.log("error en la base de datos")    
-                throw error;
-            }else{
-                console.log('datos insertados wi correctamente')
-                res.render('login/menu');
-            }
+
+       
+
+       // const consulta=`INSERT * FROM usuarios WHERE NOMBRE = '${nombre}' AND CONTRASENA ='${contraseña}'`;
+       const consulta=`INSERT INTO registrar (Email,Nombre,Contraseña)  VALUES ('${email}','${Nombre}','${Contraseña}')`;
+       conexion.query(consulta,function (error,resultado) {
+        if (error) {
+            console.log("error en la bd")
+            throw error;
             
+        } else {
+            console.log('datos insertados correctamente')
+            res.render('login/menu');
+        }
         });
-    }
+
+    },
 };
+

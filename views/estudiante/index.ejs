@@ -1,0 +1,47 @@
+<%- include ../layouts/cabecera.ejs %>
+        <br/>
+        <br/>
+        <a href="/estudiantes/crear" class="btn btn-warning" type="button">Agregar estudiante</a>
+        <br/>
+        <br/>
+
+        <table class="table table-secondary">
+            <thead class="thead-secondary">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>NIE</th>
+                    <th>Gmail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+    
+                <% for( let estudiante = 0; estudiante < estudiantes.length; estudiante++ ) { %>
+    
+                <tr>
+                    <td> <%=estudiantes[estudiante].id %> </td>
+                    <td> <%=estudiantes[estudiante].nombre %> </td>
+                    <td> <%=estudiantes[estudiante].nie %> </td>
+                    <td> <%=estudiantes[estudiante].gmail %> </td>
+
+                    <td>  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                        <form class="form-inline" method="get" action="/estudiantes/editar/<%=estudiantes[estudiante].id %>">
+                            <button class="btn btn-secondary" type="submit">Editar</button>
+                        </form>
+                    </div> | 
+                        
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="post" action="/estudiantes/eliminar/<%=estudiantes[estudiante].id %>">
+                                <button class="btn btn-secondary" type="submit">Eliminar</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                
+                <% } %>
+    
+            </tbody>
+        </table>
+        <%- include ../layouts/pie.ejs %>
