@@ -5,7 +5,7 @@ module.exports={
 
     index:function (req, res) {
         console.log(req.body);
-       //res.render('login/index', { title: 'Techbox' });
+       res.render('login/index', { title: 'Techbox' });
 
         const consult=`SELECT * FROM registrar WHERE Email='${req.body.email}' AND Contraseña = '${req.body.Contraseña}'`;
         conexion.query(consult,function (error,resultado) {
