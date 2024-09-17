@@ -7,7 +7,7 @@ module.exports={
 
     index:function (req, res) {
         console.log(req.body);
-       //res.render('login/index', { title: 'Techbox' });
+       res.render('login/index', { title: 'Techbox' });
 
 
         menu.obtener(con, function (err,datos) {
