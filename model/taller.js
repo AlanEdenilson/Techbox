@@ -7,5 +7,5 @@ module.exports={
     },
      buscar:function(conexion, usaurio, contraseña, funcion) {
         conexion.query(`SELECT * FROM usuarios WHERE EMAIL=${usaurio} AND CONTRASEÑA =${contraseña}`, funcion);
-    }
+    },
 };
