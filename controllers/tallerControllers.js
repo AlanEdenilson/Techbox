@@ -30,9 +30,7 @@ module.exports={
         var Nombre = req.body.Nombre;
         var Contraseña = req.body.Contraseña;
 
-
-       
-
+        //hola
        // const consulta=`INSERT * FROM usuarios WHERE NOMBRE = '${nombre}' AND CONTRASENA ='${contraseña}'`;
        const consulta=`INSERT INTO registrar (Email,Nombre,Contraseña)  VALUES ('${email}','${Nombre}','${Contraseña}')`;
        conexion.query(consulta,function (error,resultado) {
@@ -46,7 +44,6 @@ module.exports={
         }
         });
 
-    },
-    // holaa
+    }
 };
 
