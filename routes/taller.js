@@ -3,17 +3,16 @@ const tallerControllers = require('../controllers/tallerControllers');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/',tallerControllers.index);
+router.get('/',(req,res)=>{
+   res.render('login/index', { title: 'Techbox' });
+});
 
+router.post('/',tallerControllers.index);
 
-router.post('/datos',tallerControllers.index)
-
-//router.post('/menu',tallerControllers.menudatos);
-router.post('/menu',tallerControllers.insertardatos);
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
-//})
+//});
 module.exports = router;
 
 
