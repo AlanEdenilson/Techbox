@@ -1,6 +1,7 @@
 var conexion = require('../config/conexion');
 var menu = require("../model/taller")
 
+
 module.exports={
 
     index:function (req, res) {
@@ -42,6 +43,9 @@ module.exports={
             }
             
         });
+       
     },
+
+
 };
 
