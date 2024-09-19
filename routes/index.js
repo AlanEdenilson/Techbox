@@ -10,14 +10,18 @@ router.get('/', function (req,res,next) {
 
 router.post('/menu',tallerControllers.registrardatos);
 
-
+//trabaja la vane  crud de herramienta
 router.get('/herramientas',function (req,res) {
   res.render('herramientas/herramienta')
 });
+
+//trabaja la judi crud de prestamo
 router.get('/Prestamos',function (req,res) {
-  res.render('#')
+  res.render('Prestamos/prestamos')
 });
 
+
+//Ruta de devoluciones favor trabajar bajo esta ruta el crud de devolucion
 router.get('/devoluciones',function (req,res) {
   res.render('#')
 });
