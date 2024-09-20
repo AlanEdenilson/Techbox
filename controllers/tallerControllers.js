@@ -54,16 +54,18 @@ module.exports={
              throw error;
          } else if(resultado.length > 0) {
              console.log('datos encontrados')
-             res.render('login/prestamos',{
+             res.render('prestamos/prestamos',{
                 datos:resultado
              });
          }else{
             res.send("error hola")
          }
- 
-   
      });
+    },
+    crear:function (req,res) {
+        res.render('Prestamos/crear');
     }
+
 
 
 };

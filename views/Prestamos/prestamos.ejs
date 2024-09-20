@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Prestamos</title>
+</head>
+<body>
+
+    <div class="container">
+    <br/>
+        <br/>
+        <a href="/Prestamos/crear" class="btn btn-primary" type="button">Crear un Prestamos</a>
+        <br/>
+        <br/>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id_prestamo</th>
+                    <th>Herramienta</th>
+                    <th>Fecha_prestamo</th>
+                    <th>Estudiante</th>
+                    <th>Tipo_herramienta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let prestamo = 0; prestamo < datos.length; prestamo++){%>
+                       <tr>
+                    <td><%= datos[prestamo].Id_prestamos%> </td>
+                    <td> <%= datos[prestamo].Herramienta%> </td>
+                    <td> <%= datos[prestamo].Fecha_prestamo%> </td>
+                    <td> <%= datos[prestamo].Estudiante%> </td>
+                    <td> <%= datos[prestamo].Tipo_herramienta%> </td>
+                    <td>Editar | Borrar </td>
+                </tr>
+             <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
