@@ -16,38 +16,36 @@ router.get('/herramientas',function (req,res) {
 });
 
 //trabaja la judi crud de prestamo
-router.get('/Prestamos',function (req,res) {
-  res.render('login/prestamos')
-});
+router.get('/Prestamos',tallerControllers.presta);
 
 
 //Ruta de devoluciones favor trabajar bajo esta ruta el crud de devolucion
 router.get('/devoluciones',function (req,res) {
-  res.render('#')
+  res.render('login/Devoluciones')
 });
 
 router.get('/Diarios',function (req,res) {
-  res.render('#')
+  res.render('login/Diarios')
 });
 
 router.get('/Semanales',function (req,res) {
-  res.render('#')
+  res.render('login/semanales')
 });
 
 router.get('/Todos',function (req,res) {
-  res.render('#')
+  res.render('login/todos')
 });
 
 router.get('/repote',function (req,res) {
-  res.render('#')
+  res.render('login/Reporte')
 });
 
 router.get('/crearReporte',function (req,res) {
-  res.render('#')
+  res.render('login/ReporteCrear')
 });
 
 router.get('/estudiante',function (req,res) {
-  res.render('estudiante/index')
+  res.render('login/Estudiantes')
 });
 module.exports = router;
 

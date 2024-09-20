@@ -46,6 +46,25 @@ module.exports={
        
     },
 
+    presta:function (req,res){
+        const consult=`SELECT * FROM prestamo`;
+        conexion.query(consult,function (error,resultado) {
+         if (error) {
+             console.log("error en la bd")
+             throw error;
+         } else if(resultado.length > 0) {
+             console.log('usuario encontrado')
+             res.render('login/prestamos',{
+                datos:resultado
+             });
+         }else{
+            res.send("error hola")
+         }
+ 
+   
+     });
+    }
+
 
 };
 
