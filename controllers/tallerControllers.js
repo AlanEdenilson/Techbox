@@ -53,7 +53,7 @@ module.exports={
              console.log("error en la bd")
              throw error;
          } else if(resultado.length > 0) {
-             console.log('usuario encontrado')
+             console.log('datos encontrados')
              res.render('login/prestamos',{
                 datos:resultado
              });
