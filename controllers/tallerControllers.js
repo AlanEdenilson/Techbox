@@ -65,7 +65,7 @@ module.exports={
      });
     },
 
-    herramient:function (req,res){
+    herramienta:function (req,res){
         const consult=`SELECT * FROM herramientas`;
         conexion.query(consult,function (error,resultado) {
         if (error) {
@@ -77,7 +77,7 @@ module.exports={
                 herra:resultado
             });
         }else{
-            res.send("error hola")
+            res.send("error")
         }
 
 
