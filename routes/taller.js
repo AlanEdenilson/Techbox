@@ -9,7 +9,9 @@ router.get('/',(req,res)=>{
 
 router.post('/',tallerControllers.index);
 
-
+router.get('/zzz',(req,res)=>{
+  res.render('Prestamos/crear')
+})
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});

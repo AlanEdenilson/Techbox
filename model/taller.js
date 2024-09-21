@@ -12,6 +12,9 @@ module.exports={
 
    obtener:function (conexion,funcion) {
     conexion.query("SELECT * FROM presamo",funcion);
+   },
+   obtener:function (conexion,funcion) {
+    conexion.query("SELECT * FROM herramientas",funcion)
    }
 
 }

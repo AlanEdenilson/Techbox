@@ -17,7 +17,10 @@ router.get('/herramientas',function (req,res) {
 
 //trabaja la judi crud de prestamo
 router.get('/Prestamos',tallerControllers.presta);
-router.get('/crear',tallerControllers.crear);
+
+
+
+
 
 //Ruta de devoluciones favor trabajar bajo esta ruta el crud de devolucion
 router.get('/devoluciones',function (req,res) {
