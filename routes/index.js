@@ -12,7 +12,7 @@ router.post('/menu',tallerControllers.registrardatos);
 
 //trabaja la vane  crud de herramienta
 router.get('/herramientas',function (req,res) {
-  res.render('login/herramienta')
+  res.render('login/herramientas', )
 });
 
 //trabaja la judi crud de prestamo
