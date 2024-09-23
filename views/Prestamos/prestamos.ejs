@@ -11,7 +11,7 @@
     <div class="container">
     <br/>
         <br/>
-        <a href="/Prestamos/crear" class="btn btn-primary" type="button">Crear un Prestamos</a>
+        <a href="/prestamos/crear" class="btn btn-primary" type="button">Crear un Prestamos</a>
         <br/>
         <br/>
         <table class="table table-light">
@@ -26,6 +26,7 @@
                 </tr>
             </thead>
             <tbody>
+                
                 <% for(let prestamo = 0; prestamo < datos.length; prestamo++){%>
                     <tr>
                     <td><%= datos[prestamo].Id_prestamos%> </td>

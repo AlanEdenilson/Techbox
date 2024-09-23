@@ -66,7 +66,7 @@ module.exports={
         res.render('prestamos/crear')
     },
 
-    herramienta:function (req,res) {
+    herramientas:function (req,res) {
         const consult=`SELECT * FROM herramientas`;
         conexion.query(consult,function (error,resultado) {
             if(error) {

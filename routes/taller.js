@@ -9,6 +9,7 @@ router.get('/',(req,res)=>{
 
 router.post('/',tallerControllers.index);
 
+router.get('/herramientas',tallerControllers.herramientas);
 
 router.get('/zzz',(req,res)=>{
    res.render('Prestamos/crear')
@@ -18,6 +19,3 @@ router.get('/zzz',(req,res)=>{
    // res.render('login/menu')
 //});
 module.exports = router;
-
-
-

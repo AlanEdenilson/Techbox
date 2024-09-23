@@ -23,14 +23,18 @@
             </tr>
         </thead>
         <tbody>
-
-
-            <tr>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
+            
+            <% if (typeof herramienta !== 'undefined') { %>
+             
+            <% for(let herramientas = 0; herramientas < herramienta.length; herramientas++){%>
+                <tr>
+                <td><%= herramienta[herramientas].id_herramienta%> </td>
+                <td> <%= herramienta[herramientas].Nombre%> </td>
+                <td> <%= herramienta[herramientas].Estado%> </td>
+                <td>Editar | Borrar </td>
             </tr>
+         <% } %>
+         <% } %>
 
         </tbody>
     </table>
