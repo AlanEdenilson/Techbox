@@ -10,7 +10,7 @@ router.get('/',(req,res)=>{
 router.post('/',tallerControllers.index);
 
 
-router.get('/crear',(req,res)=>{
+router.get('/zzz',(req,res)=>{
    res.render('Prestamos/crear')
 });
 
