@@ -1,6 +1,5 @@
 var conexion = require('../config/conexion');
 var menu = require("../model/taller")
-var herramientas = require("../model/taller")
 
 
 module.exports={
@@ -64,21 +63,21 @@ module.exports={
      });
     },
 
-    inven:function (req,res){
-        const consult=`SELECT * FROM prestamo`;
+    herramienta:function (req,res) {
+        const consult=`SELECT * FROM herramientas`;
         conexion.query(consult,function (error,resultado) {
-         if (error) {
-             console.log("error en la bd")
-             throw error;
-         } else if(resultado.length > 0) {
-             console.log('datos encontrados')
-             res.render('login/herramientas',{
-                herramienta:resultado
-             });
-         }else{
-            res.send("error hola")
-         }
-     });
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Inventario/herramientas' ,{
+                    herramienta:resultado
+                });
+            }else{
+                res.send("error")
+            }
+        });
     }
 
 
