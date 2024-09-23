@@ -62,6 +62,9 @@ module.exports={
          }
      });
     },
+    crear:function (req,res) {
+        res.render('prestamos/crear')
+    },
 
     herramienta:function (req,res) {
         const consult=`SELECT * FROM herramientas`;
