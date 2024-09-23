@@ -9,9 +9,11 @@ router.get('/',(req,res)=>{
 
 router.post('/',tallerControllers.index);
 
+router.post('/crear',tallerControllers.crear);
+
 router.get('/zzz',(req,res)=>{
   res.render('Prestamos/crear')
-})
+});
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});

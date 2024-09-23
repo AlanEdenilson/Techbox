@@ -63,6 +63,10 @@ module.exports={
      });
     },
 
+    crear:function (req,res) {
+        res.render('Prestamos/crear')
+    },
+
 
     inven:function (req,res){
         const consult=`SELECT * FROM herramientas`;
@@ -73,7 +77,7 @@ module.exports={
         } else if(resultado.length > 0) {
             console.log('datos encontrados')
             res.render('login/herramienta',{
-                herra:resultado
+                herramientaaa:resultado
             });
         }else{
             res.send("error")
