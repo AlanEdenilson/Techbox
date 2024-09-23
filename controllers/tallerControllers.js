@@ -63,30 +63,23 @@ module.exports={
      });
     },
 
-    crear:function (req,res) {
-        res.render('Prestamos/crear')
-    },
-
-
-    inven:function (req,res){
+    herramienta:function (req,res) {
         const consult=`SELECT * FROM herramientas`;
         conexion.query(consult,function (error,resultado) {
-        if (error) {
-            console.log("error en la bd")
-            throw error;
-        } else if(resultado.length > 0) {
-            console.log('datos encontrados')
-            res.render('login/herramienta',{
-                herramientaaa:resultado
-            });
-        }else{
-            res.send("error")
-        }
-
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Inventario/herramientas' ,{
+                    herramienta:resultado
+                });
+            }else{
+                res.send("error")
+            }
 
         });
-    },
-
+    }
 
 
 };

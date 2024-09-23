@@ -12,7 +12,7 @@ router.post('/menu',tallerControllers.registrardatos);
 
 //trabaja la vane  crud de herramienta
 router.get('/herramientas',function (req,res) {
-  res.render('login/herramienta')
+  res.render('Inventario/herramientas', )
 });
 
 //trabaja la judi crud de prestamo
@@ -43,8 +43,9 @@ router.get('/crearReporte',function (req,res) {
   res.render('login/ReporteCrear')
 });
 
-router.get('/estudiante',function (req,res) {
-  res.render('login/Estudiantes')
+//trabaja la vane  crud de estudiantes
+router.get('/estudiantes',function (req,res) {
+  res.render('Estudiante/Estudiantes')
 });
 module.exports = router;
 

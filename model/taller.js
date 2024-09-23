@@ -14,7 +14,8 @@ module.exports={
     conexion.query("SELECT * FROM presamo",funcion);
    },
    obtener:function (conexion,funcion) {
-    conexion.query("SELECT * FROM herramientas",funcion)
+    conexion.query("SELECT * FROM herramientas",funcion);
    }
+   
 
 }
