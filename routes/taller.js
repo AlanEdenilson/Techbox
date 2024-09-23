@@ -19,6 +19,10 @@ router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
 
+router.get('/agregar',(req,res)=>{
+   res.render('Estudiante/crear')
+});
+
 
 
 //router.get('/menu',(req,res)=>{

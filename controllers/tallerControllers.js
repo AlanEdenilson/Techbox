@@ -92,7 +92,7 @@ module.exports={
             }else if(resultado.length > 0) {
                 console.log('datos encontrados')
                 res.render('Estudiante/Estudiantes' ,{
-                    herramienta:resultado
+                    estudi:resultado
                 });
             }else{
                 res.send("error")
