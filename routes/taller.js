@@ -19,6 +19,8 @@ router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
 
+
+
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});
