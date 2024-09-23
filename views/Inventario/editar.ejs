@@ -1,6 +1,4 @@
-<%- include ../layouts/cabecera.ejs %>
-
-<div class="card">
+<div class="card"></div>
     <div class="card-header">
         
     </div>
@@ -8,7 +6,7 @@
         <h5 class="card-title">Datos de la herramienta</h5>
         <p class="card-text">
 
-<form method="post" action="../actualizar/">
+<form method="post" action="/">
 
     <input type="text" name="id" value="<%=herramienta.id%>">
 
@@ -23,11 +21,10 @@
     </div>
 
     <button class="btn btn-secondary" type="submit">Actualizar</button>
-    <a class="btn btn-secondary" href="/herramientas">Cancelar</a>
+    <a class="btn btn-secondary" href="/">Cancelar</a>
 
 </form>
 
-<%- include ../layouts/pie.ejs %>
 </p>
 </div>
 </div>

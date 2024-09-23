@@ -8,7 +8,14 @@ module.exports={
    },
     buscar:function(conexion, usaurio, contraseña, funcion) {
        conexion.query(`SELECT * FROM usuario WHERE EMAIL=${usaurio} AND CONTRASEÑA =${contraseña}`, funcion);
-   
    },
+
+   obtener:function (conexion,funcion) {
+    conexion.query("SELECT * FROM presamo",funcion);
+   },
+   obtener:function (conexion,funcion) {
+    conexion.query("SELECT * FROM herramientas",funcion);
+   }
+   
 
 }

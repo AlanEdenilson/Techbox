@@ -1,51 +1,89 @@
 var conexion = require('../config/conexion');
 var menu = require("../model/taller")
 
+
 module.exports={
 
     index:function (req, res) {
         console.log(req.body);
-       //res.render('login/index', { title: 'Techbox' });
+       
 
 
-            const consult=`SELECT * FROM registrar WHERE EMAIL='${req.body.email}' AND CONTRASEÑA = '${req.body.contraseña}'`;
-            conexion.query(consult,function (error,resultado) {
-             if (error) {
-                 console.log("error en la bd")
-                 throw error;
-             } else if(resultado.length > 0) {
-                 console.log('usuario encontrado')
-                 res.render('login/menu');
-             }else{
-    
-                res.send("errror")
-             }
-            });
-
-    },
-    
-    insertardatos:function (req,res) {
-        var datos = req.body
-        console.log(datos)
-
-        var email= req.body.email;
-        var Nombre = req.body.Nombre;
-        var Contraseña = req.body.Contraseña;
-
-
-       // const consulta=`INSERT * FROM usuarios WHERE NOMBRE = '${nombre}' AND CONTRASENA ='${contraseña}'`;
-       const consulta=`INSERT INTO registrar (Email,Nombre,Contraseña)  VALUES ('${email}','${Nombre}','${Contraseña}')`;
-       conexion.query(consulta,function (error,resultado) {
+       const consult=`SELECT * FROM registrar WHERE Email='${req.body.email}' AND Contraseña = '${req.body.contraseña}'`;
+       conexion.query(consult,function (error,resultado) {
         if (error) {
             console.log("error en la bd")
             throw error;
-            
-        } else {
-            console.log('datos insertados correctamente')
+        } else if(resultado.length > 0) {
+            console.log('usuario encontrado')
             res.render('login/menu');
+        }else{
+           res.send("error hola")
         }
-        });
 
+  
+    });
     },
+    registrardatos:function (req,res) {
+        var registrar = req.body
+        console.log(registrar)
+
+        var email= req.body.email;
+        var Nombre= req.body.Nombre;
+        var Contraseña = req.body.Contraseña;
+
+        const consulta=`INSERT INTO registrar (ID_Registro,Email,Nombre,Contraseña)VALUES ('','${email}','${Nombre}','${Contraseña}')`;
+        conexion.query(consulta,function (error, resultado) {
+            if (error) {
+                console.log("error en la base de datos")    
+                throw error;
+            }else{
+                console.log('datos insertados correctamente')
+                res.render('login/menu');
+            }
+            
+        });
+       
+    },
+
+    presta:function (req,res){
+        const consult=`SELECT * FROM prestamo`;
+        conexion.query(consult,function (error,resultado) {
+         if (error) {
+             console.log("error en la bd")
+             throw error;
+         } else if(resultado.length > 0) {
+             console.log('datos encontrados')
+             res.render('prestamos/prestamos',{
+                datos:resultado
+             });
+         }else{
+            res.send("error hola")
+         }
+     });
+    },
+    crear:function (req,res) {
+        res.render('prestamos/crear')
+    },
+
+    herramienta:function (req,res) {
+        const consult=`SELECT * FROM herramientas`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Inventario/herramientas' ,{
+                    herramienta:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    }
+
+
 };
 
