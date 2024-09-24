@@ -24,7 +24,7 @@
 
     <br/>
     <br/>
-    <a href="/Estudiante/crear" class="btn btn-primary" type="button">Agregar Estudiante</a>
+    <a href="/taller/Agregar" class="btn btn-primary" type="button">Agregar Estudiante</a>
     <br/>
     <br/>
     
@@ -38,14 +38,21 @@
             </tr>
         </thead>
         <tbody>
+            <% if (typeof herramienta !== 'undefined') { %>
+             
+                <% for(let estudiantes = 0; estudiantes < estudi.length; estudiantes++){%>
+                    <tr>
+                    <td><%= estudi[estudiantes].id%> </td>
+                    <td> <%= estudi[estudiantes].nombre%> </td>
+                    <td> <%= estudi[estudiantes].gmail%> </td>
+                    <td> <%= estudi[estudiantes].activo%> </td>
+                    <td> <%= estudi[estudiantes].inacitivo%> </td>
+                    <td> <%= estudi[estudiantes].nie%> </td>
+                    <td>Editar | Borrar </td>
+                </tr>
+             <% } %>
+             <% } %>
 
-
-            <tr>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-            </tr>
 
         </tbody>
     </table>
