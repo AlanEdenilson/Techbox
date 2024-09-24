@@ -9,7 +9,7 @@
 <body>
     <br/>
 <br/>
-<a href="/taller/herra" class="btn btn-primary" type="button">Agregar nueva herramienta</a>
+<a href="/taller/agregar" class="btn btn-primary" type="button">Agregar nueva herramienta</a>
 <br/>
 <br/>
 
@@ -22,40 +22,23 @@
                 <th>activo</th>
                 <th>inactivo</th>
                 <th>nie</th>
+                <th>Acciones</th>
                 
             </tr>
         </thead>
         <tbody>
             
-            <% if (typeof estudi !== 'undefined') { %>
+            <% if (typeof estudian !== 'undefined') { %>
                 
-            <% for(let estudiantes = 0; estudiantes < estudi.length; estudiantes++){%>
+            <% for(let estudiantes = 0; estudiantes < estudian.length; estudiantes++){%>
                 <tr>
-                <td> <%= estudi[estudiantes].id%> </td>
-                <td> <%= estudi[estudiantes].nombre%> </td>
-                <td> <%= estudi[estudiantes].gmail%> </td>
-                <td> <%= estudi[estudiantes].activo%> </td>
-                <td> <%= estudi[estudiantes].inactivo%> </td>
-                <td> <%= estudi[estudiantes].nie%> </td>
-
-            <td>
-                <div class="btn-group-vertical" role="group" aria-label="b-form">
-
-                    <form class="form-inline" method="get" action="/taller/Editar/<%= herramienta[estudiantes].id_herramienta%>" class="d-inline">
-                        <button class="btn btn-dark" type="submit">Editar</button>
-                    </form>
-                </div>
-
-                |
-            
-            <div class="btn-group-vertical" role="group" aria-label="b-form">
-
-                <form class="form-inline" method="post" action="/taller/Eliminar/<%= herramienta[estudiantes].id_herramienta%>" class="d-inline">
-                    <button class="btn btn-dark" type="submit">Eliminar</button>
-                </form>
-            </div>
-                </td>
-            </tr>
+                <td> <%= estudian[estudiantes].id_estudiante%> </td>
+                <td> <%= estudian[estudiantes].Nombre%> </td>
+                <td> <%= estudian[estudiantes].Gmail%> </td>
+                <td> <%= estudian[estudiantes].Activo%> </td>
+                <td> <%= estudian[estudiantes].Inactivo%> </td>
+                <td> <%= estudian[estudiantes].NIE%> </td>
+                <td>Editar | Borrar</td>
         <% } %>
         <% } %>
     </tbody>

@@ -84,7 +84,7 @@ module.exports={
         });
     },
     estud:function (req,res) {
-        const consult=`SELECT * FROM herramientas`;
+        const consult=`SELECT * FROM estudiantes`;
         conexion.query(consult,function (error,resultado) {
             if(error) {
                 console.log("error en la bd")
@@ -92,7 +92,7 @@ module.exports={
             }else if(resultado.length > 0) {
                 console.log('datos encontrados')
                 res.render('Estudiante/Estudiante' ,{
-                    estudi:resultado
+                    estudian:resultado
                 });
             }else{
                 res.send("error")
