@@ -1,0 +1,16 @@
+body {
+    background: #000;
+    
+}
+
+nav {
+    background: #000;
+}
+
+img {
+    height: 100px;
+}
+
+.nav-item .nav-link {
+    font-size: 1.5rem;
+}
