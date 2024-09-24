@@ -91,7 +91,7 @@ module.exports={
                 throw error;
             }else if(resultado.length > 0) {
                 console.log('datos encontrados')
-                res.render('Estudiante/Estudiantes' ,{
+                res.render('Estudiante/Estudiante' ,{
                     estudi:resultado
                 });
             }else{
