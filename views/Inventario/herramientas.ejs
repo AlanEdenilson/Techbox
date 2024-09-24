@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>Inventario de herramientas</title>
+    <link rel="stylesheet" href="/stylesheets/inventario.css">
+    <title>Inventario</title>
 </head>
 <body>
-    <br/>
-    <br/>
-    <a href="/taller/herra" class="btn btn-primary" type="button">Agregar nueva herramienta</a>
-    <br/>
-    <br/>
-    
-    <table class="table table-light">
-        <thead class="thead-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/images/tci.png" >
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Inventario de herramientas<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br/>
+<br/>
+<a href="/taller/herra" class="btn btn-primary" type="button">Agregar nueva herramienta</a>
+<br/>
+<br/>
+
+    <table class="table table-secondary">
+        <thead class="thead-secondary">
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
@@ -25,19 +40,34 @@
         <tbody>
             
             <% if (typeof herramienta !== 'undefined') { %>
-             
+                
             <% for(let herramientas = 0; herramientas < herramienta.length; herramientas++){%>
                 <tr>
-                <td><%= herramienta[herramientas].id_herramienta%> </td>
+                <td> <%= herramienta[herramientas].id_herramienta%> </td>
                 <td> <%= herramienta[herramientas].Nombre%> </td>
                 <td> <%= herramienta[herramientas].Estado%> </td>
-                <td>Editar | Borrar </td>
+
+            <td>
+                <div class="btn-group-vertical" role="group" aria-label="b-form">
+
+                    <form class="form-inline" method="get" action="/taller/Editar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
+                        <button class="btn btn-dark" type="submit">Editar</button>
+                    </form>
+                </div>
+
+                |
+            
+            <div class="btn-group-vertical" role="group" aria-label="b-form">
+
+                <form class="form-inline" method="post" action="/taller/Eliminar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
+                    <button class="btn btn-dark" type="submit">Eliminar</button>
+                </form>
+            </div>
+                </td>
             </tr>
-         <% } %>
-         <% } %>
-
-        </tbody>
-    </table>
-
+        <% } %>
+        <% } %>
+    </tbody>
+</table>
 </body>
 </html>
