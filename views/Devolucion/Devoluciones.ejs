@@ -29,7 +29,7 @@
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
-                <th>ID_DEVOLUCIONES%</th>
+                <th>ID_DEVOLUCIONES</th>
                 <th>FECHA_DEVOLUCION</th>
                 <th>OBSERVACIONES</th>
                 <th>ESTADO_ENTREGA</th>
@@ -38,22 +38,19 @@
         </thead>
         <tbody>
             
-            <tr>
                 <% if (typeof devo !== 'undefined') { %>
                     
-                <% for(let devoluciones = 0; devoluciones < devo.length; devoluciones++){%>
+                <% for(let devolucioness = 0; devolucioness < devo.length; devolucioness++){%>
 
                 <tr>
-                <td> <%= devo[devoluciones].ID_DEVOLUCIONES%> </td>
-                <td> <%= devo[devoluciones].FECHA_DEVOLUCION%> </td>
-                <td> <%= devo[devoluciones].OBSERVACIONES%> </td>
-                <td> <%= devo[devoluciones].ESTADO_ENTREGA%> </td>
+                <td> <%= devo[devolucioness].ID_DEVOLUCIONES%> </td>
+                <td> <%= devo[devolucioness].FECHA_DEVOLUCION%> </td>
+                <td> <%= devo[devolucioness].OBSERVACIONES%> </td>
+                <td> <%= devo[devolucioness].ESTADO_ENTREGA%> </td>
                 <td>Editar | Borrar </td>
-
-                </td>
-            </tr>
-        <% } %>
-        <% } %>
+                <% } %>
+                <% } %>
+        
         </tbody>
     </table>
 </body>
