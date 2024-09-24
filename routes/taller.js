@@ -23,7 +23,7 @@ router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 
-
+router.get('/estudiantes',tallerControllers.estud)
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')

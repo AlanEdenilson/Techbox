@@ -15,7 +15,10 @@ module.exports={
    },
    obtener:function (conexion,funcion) {
     conexion.query("SELECT * FROM herramientas",funcion);
-   }
+   },
+   obterner:function (conexion,funcion) {
+    conexion.query("SELECT * FROM estudiantes",funcion)
+   },
    
 
 }
