@@ -1,11 +1,39 @@
-<form method="post" action=""></form>
-    <div class="form-group">
-        <label for="my-input">Nombre</label>
-        <input id="my-input" class="form-control" type="text" name="Nombre">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>crear</title>
+</head>
+<body>
+
+
+    <br>
+
+    <div class="card">
+        <div class="card-header">
+            
     </div>
-    <div class="form-group">
-        <label for="my-input">Estado</label>
-        <input id="my-input" class="form-control-file" type="file" name="Archivo">
+        <div class="card-body">
+            <h5 class="card-title">Datos de la herramienta</h5>
+            <p class="card-text">
+                <form method="post" action="/">
+    
+                    <div class="form-group">
+                        <label for="my-input">Nombre</label>
+                        <input id="my-input" class="form-control" type="text" name="nombre">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="my-input">Estado</label>
+                        <input id="my-input" class="form-control" type="text" name="estado">
+                    </div>
+                
+                    <button class="btn btn-secondary" type="submit">Agregar</button>
+                    <a class="btn btn-secondary" href="/herramientas">Cancelar</a>
+                    
+                </form>
+            </p>
+        </div>
     </div>
-    <button class="btn btn-primary" type="submit">Guardar</button>
-</form>

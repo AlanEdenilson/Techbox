@@ -44,8 +44,6 @@ router.get('/crearReporte',function (req,res) {
 });
 
 //trabaja la vane  crud de estudiantes
-router.get('/estudiantes',function (req,res) {
-  res.render('Estudiante/Estudiantes')
-});
+
 module.exports = router;
 
