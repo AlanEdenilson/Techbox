@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Estudiantes</title>
+</head>
+<body>
+    <br/>
+    <br/>
+    <a href="/taller/Agregar" class="btn btn-primary" type="button">Agregar Estudiante</a>
+    <br/>
+    <br/>
+    
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Gmail</th>
+                <th>Activo</th>
+                <th>Inactivo</th>
+                <th>NIE</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (typeof estudi !== 'undefined') { %>
+            <% for( let estudiantes = 0; estudiantes < estudi.length; estudiantes++ ) { %>
+            <tr>
+            <td><%= estudi[estudiantes].id%></td>
+            <td><%= estudi[estudiantes].nombre%></td>
+            <td><%= estudi[estudiantes].gmail%></td>
+            <td><%= estudi[estudiantes].activo%></td>
+            <td><%= estudi[estudiantes].inactivo%></td>
+            <td><%= estudi[estudiantes].nie%></td>
+            <td>Editar | Borrar </td>
+            </tr>
+            <% } %>
+            <% } %>
+
+
+        </tbody>
+    </table>
+
+</body>
+</html>
