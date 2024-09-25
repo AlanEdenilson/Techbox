@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/devolucion.css">
+    <title>Devoluciones</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/images/tci.png" >
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Devoluciones<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<br>
+
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>ID_DEVOLUCIONES</th>
+                <th>FECHA_DEVOLUCION</th>
+                <th>OBSERVACIONES</th>
+                <th>ESTADO_ENTREGA</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <% if (typeof devo !== 'undefined') { %>
+                    
+                <% for(let devolucioness = 0; devolucioness < devo.length; devolucioness++){%>
+
+                <tr>
+                <td> <%= devo[devolucioness].ID_DEVOLUCIONES%> </td>
+                <td> <%= devo[devolucioness].FECHA_DEVOLUCION%> </td>
+                <td> <%= devo[devolucioness].OBSERVACIONES%> </td>
+                <td> <%= devo[devolucioness].ESTADO_ENTREGA%> </td>
+                <td>Editar | Borrar </td>
+                <% } %>
+                <% } %>
+        
+        </tbody>
+    </table>
+</body>
+</html>

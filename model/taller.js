@@ -19,6 +19,10 @@ module.exports={
    obterner:function (conexion,funcion) {
     conexion.query("SELECT * FROM estudiantes",funcion)
    },
+
+   obterner:function (conexion,funcion) {
+    conexion.query("SELECT * FROM devoluciones",funcion)
+   }
    
 
 }
