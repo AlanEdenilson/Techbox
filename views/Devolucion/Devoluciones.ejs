@@ -25,6 +25,7 @@
 
 <br>
 <br>
+<a href="#" class="btn btn-primary" type="button">Mostrar Registro de Devolucion</a>
 
     <table class="table table-light">
         <thead class="thead-light">
@@ -37,19 +38,16 @@
             </tr>
         </thead>
         <tbody>
+            <% if (typeof devo !== 'undefined') { %>
             
-                <% if (typeof devo !== 'undefined') { %>
-                    
-                <% for(let devolucioness = 0; devolucioness < devo.length; devolucioness++){%>
-
-                <tr>
-                <td> <%= devo[devolucioness].ID_DEVOLUCIONES%> </td>
-                <td> <%= devo[devolucioness].FECHA_DEVOLUCION%> </td>
-                <td> <%= devo[devolucioness].OBSERVACIONES%> </td>
-                <td> <%= devo[devolucioness].ESTADO_ENTREGA%> </td>
-                <td>Editar | Borrar </td>
-                <% } %>
-                <% } %>
+            <% for( let devolucioness = 0; devolucioness < devo.length; devolucioness++ ) { %>
+                <td><%=devo [devolucioness].ID_DEVOLUCIONES %></td>
+                <td><%=devo [devolucioness].FECHA_DEVOLUCION %></td>
+                <td><%=devo [devolucioness].OBSERVACIONES %></td>
+                <td><%=devo [devolucioness].ESTADO_ENTREGA %></td>
+                <td>Editar  |  Borrar </td>
+            <% } %>
+            <% } %>
         
         </tbody>
     </table>

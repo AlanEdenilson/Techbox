@@ -24,6 +24,8 @@ router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 
+//trabaja la vane  crud devoluciones
+router.get('/devoluciones',tallerControllers.devol);
 
 
 

@@ -100,7 +100,7 @@ module.exports={
 
         });
     },
-    devo:function (req,res) {
+    devol:function (req,res) {
         const consult=`SELECT * FROM devolucioness`;
         conexion.query(consult,function (error,resultado) {
             if(error) {
