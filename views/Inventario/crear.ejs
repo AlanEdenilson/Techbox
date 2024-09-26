@@ -1,4 +1,3 @@
-
 <center>
     <form method="post" action="">
         <br>
@@ -7,18 +6,22 @@
         <br>
         <br>
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh; width: 100%;">
-            <div class="card" style="width: 50%; box-shadow: 0px 0px 15px hwb(258 84% 9%); border-radius: 10px;">
-                <div class="card-header" style="background-color: #121213; color: rgb(246, 247, 245); font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
-                    Agregar datos de la herramienta
+            <div class="card" style="width: 50%; box-shadow: 0px 0px 15px rgb(245, 245, 243); border-radius: 10px;">
+                <div class="card-header" style="background-color: #010008; color: #e7e7e3; font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
+                    datos de la herramienta
                 </div>
                 <div class="card-body" style="padding: 30px;">
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label for="prestamo" style="font-weight: bold;">Nombre</label>
-                        <input id="prestamo" class="form-control" type="text" name="Nombre" placeholder="Ingresa el nombre del préstamo" style="border-radius: 5px; padding: 10px;">
+                        <input id="prestamo" class="form-control" type="text" name="Nombre" placeholder="Ingresa el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
                     </div>
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label for="herramienta" style="font-weight: bold;">Estado</label>
-                        <input id="herramienta" class="form-control" type="text" name="estado" placeholder="Ingresa el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        <input id="herramienta" class="form-control" type="text" name="Nombre" placeholder="Ingresa el estado de la herramienta" style="border-radius: 5px; padding: 10px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="fecha_prestamo" style="font-weight: bold;">Fecha de Préstamo</label>
+                        <input id="fecha_prestamo" class="form-control" type="text" name="Nombre" placeholder="Fecha del préstamo" style="border-radius: 5px; padding: 10px;">
                     </div>
                     <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar</button>
                 </div>
@@ -29,29 +32,24 @@
     
     <style>
         body {
-            background-color: #16037eea; /*fondo*/
+            background: linear-gradient(#1b1b1b,#070644,#ffee01) ; /*fondo*/
         }
         .card {
-        background-color: hsl(249, 93%, 17%); /* Fondo de el cuadro*/
-        box-shadow: 0px 0px 15px rgba(219, 8, 8, 0.3);
+            background: linear-gradient(#131003,#0e0d61) ;  /* fondo del cuadro */
+            transition: .5s;
     }
 
 .btn:hover {
-    background-color: #a1b8d1; 
+    background-color: #d9f84f; 
 
 }
    /* Cambiar color de texto en el formulario */
-   .card-body label, 
+    .card-body label, 
     .card-body input::placeholder {
         color: #bbbdbe; /* Color de la letra y del placeholder */
     }
 
     .btn:hover {
-        background-color: #a2b5c9;
+        background-color: #bae00d;
     }
-
-    .form-content .box{
-        padding: 40px 50px;
-        border-radius: 20px;
-    }
-    </style>   
+    </style> 
