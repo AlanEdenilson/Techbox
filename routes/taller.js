@@ -24,6 +24,7 @@ router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 
+router.post("/",tallerControllers.guardar)
 
 
 

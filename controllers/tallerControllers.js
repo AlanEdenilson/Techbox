@@ -20,10 +20,8 @@ module.exports={
         }else{
            res.send("error hola")
         }
-
-  
     });
-    },
+},
     registrardatos:function (req,res) {
         var registrar = req.body
         console.log(registrar)
@@ -62,6 +60,7 @@ module.exports={
          }
      });
     },
+
     crear:function (req,res) {
         res.render('prestamos/crear')
     },
@@ -116,10 +115,15 @@ module.exports={
             }
 
         });
-    },
-    
-    
 
+    },
+
+    guardar:function (req,res) {
+        console.log(req.body);
+
+        taller.insertar(conexion,req.body,function (err,datos) {
+            res.redirect('/Inventario');
+        });
+    }
 
 };
-
