@@ -99,22 +99,12 @@ module.exports={
 
         });
     },
-    devolucions:function (req,res) {
-        const consult=`SELECT * FROM devolucion`;
-        conexion.query(consult,function (error,resultado) {
-            if(error) {
-                console.log("error en la bd")
-                throw error;
-            }else if(resultado.length > 0) {
-                console.log('datos encontrados')
-                res.render('Devolucion/devoluciones' ,{
-                    devo:resultado
-                });
-            }else{
-                res.send("error")
-            }
 
+    guardar:function (req,res) {
+        console.log(req.body);
+
+        taller.insertar(conexion,req.body,function (err,datos) {
+            res.redirect('/Inventario');
         });
-    },
+    }
 };
-
