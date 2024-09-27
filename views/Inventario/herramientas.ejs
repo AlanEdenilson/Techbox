@@ -27,7 +27,7 @@
 <a href="/taller/herra" class="btn btn-primary" type="button">Agregar nueva herramienta</a>
 <br/>
 <br/>
-<div class="card" style="width: 100%; box-shadow: 0px 0px 15px rgb(245, 245, 243); border-radius: 10px;">
+
     <table class="table table-secondary">
         <thead class="thead-secondary">
             <tr>
@@ -50,8 +50,8 @@
             <td>
                 <div class="btn-group-vertical" role="group" aria-label="b-form">
 
-                    <form class="form-inline" method="get" action="/taller/Editar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
-                        <button class="btn btn-dark" type="submit">Editar</button>
+                    <form class="form-inline" method="post" action="/taller/Editar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
+                        <button class="btn btn-warning" type="submit">Editar</button>
                     </form>
                 </div>
 
@@ -60,7 +60,7 @@
             <div class="btn-group-vertical" role="group" aria-label="b-form">
 
                 <form class="form-inline" method="post" action="/taller/Eliminar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
-                    <button class="btn btn-dark" type="submit">Eliminar</button>
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
                 </form>
             </div>
                 </td>

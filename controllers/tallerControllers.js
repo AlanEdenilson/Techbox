@@ -20,10 +20,8 @@ module.exports={
         }else{
            res.send("error hola")
         }
-
-  
     });
-    },
+},
     registrardatos:function (req,res) {
         var registrar = req.body
         console.log(registrar)
@@ -62,6 +60,7 @@ module.exports={
          }
      });
     },
+
     crear:function (req,res) {
         res.render('prestamos/crear')
     },
@@ -93,6 +92,23 @@ module.exports={
                 console.log('datos encontrados')
                 res.render('Estudiante/Estudiante' ,{
                     estudian:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+    devolucions:function (req,res) {
+        const consult=`SELECT * FROM devolucion`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Devolucion/devoluciones' ,{
+                    devo:resultado
                 });
             }else{
                 res.send("error")
