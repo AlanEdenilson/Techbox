@@ -21,7 +21,7 @@ module.exports={
    },
 
    obterner:function (conexion,funcion) {
-    conexion.query("SELECT * FROM devolucioness",funcion)
+    conexion.query("SELECT * FROM devolucion",funcion)
    }
    
 
