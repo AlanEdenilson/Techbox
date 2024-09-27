@@ -9,15 +9,17 @@ router.get('/',(req,res)=>{
 
 router.post('/',tallerControllers.index);
 
+//inventaio
 router.get('/herramientas',tallerControllers.herramientas);
-
+router.get('/herra',(req,res)=>{
+   res.render('Inventario/crear')
+});
+//Prestamos
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
 
-router.get('/herra',(req,res)=>{
-   res.render('Inventario/crear')
-});
+//estudiantes
 router.get('/estudiantes',tallerControllers.estud)
 
 router.get('/agregar',(req,res)=>{
@@ -25,6 +27,7 @@ router.get('/agregar',(req,res)=>{
 });
 
 router.post("/",tallerControllers.guardar)
+
 
 
 

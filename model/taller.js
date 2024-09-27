@@ -24,6 +24,10 @@ module.exports={
     conexion.query("SELECT * FROM devoluciones",funcion)
     },
 
+    obterner:function (conexion,funcion) {
+    conexion.query("SELECT * FROM devolucion",funcion)
+    },
+
     insertar:function (conexion,datos,funcion) {
         conexion.query("INSERT INTO herramientas (Nombre, Estado) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion)
     }

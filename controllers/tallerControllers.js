@@ -99,15 +99,15 @@ module.exports={
 
         });
     },
-    devo:function (req,res) {
-        const consult=`SELECT * FROM devolucioness`;
+    devolucions:function (req,res) {
+        const consult=`SELECT * FROM devolucion`;
         conexion.query(consult,function (error,resultado) {
             if(error) {
                 console.log("error en la bd")
                 throw error;
             }else if(resultado.length > 0) {
                 console.log('datos encontrados')
-                res.render('Devolucion/Devoluciones' ,{
+                res.render('Devolucion/devoluciones' ,{
                     devo:resultado
                 });
             }else{
@@ -125,5 +125,4 @@ module.exports={
             res.redirect('/Inventario');
         });
     }
-
 };
