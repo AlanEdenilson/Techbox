@@ -1,5 +1,8 @@
 var conexion = require('../config/conexion');
+const taller1 = require('../model/taller');
+const taller = require('../model/taller');
 var menu = require("../model/taller")
+var borrar = require("fs");
 
 
 module.exports={
@@ -121,8 +124,36 @@ module.exports={
     guardar:function (req,res) {
         console.log(req.body);
 
-        taller.insertar(conexion,req.body,function (err,datos) {
-            res.redirect('/Inventario');
+        taller.guardarr(conexion,req.body,function (err,datos) {
+            res.redirect('/taller/herramientas');
+        });
+    },
+
+    borrar:function (req,res) {
+        console.log("recepcion de datos");
+        console.log(req.params.id_herramienta);
+        taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros) {
+            
+            var Nombre="routes/taller/"+(registros[0].Nombre);
+            var Estado="routes/taller/"+(registros[0].Estado);
+
+            if(borrar.existsSync(Nombre)){
+                borrar.unlinkSync(Nombre);
+
+                if(borrar.existsSync(Estado)){
+                    borrar.unlinkSync(Estado);
+            }}
+            taller.borrar(conexion,req.params.id_herramienta,function (err) {
+                res.redirect('/taller/herramientas');
+            });
         });
     }
-};
+
+    //editar:function (req,res) {
+        //taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros){
+           //* console.log(registros[0]);
+        //*res.render('/taller/herramientas', {taller:registros[0]});
+       // });
+
+   // }
+}

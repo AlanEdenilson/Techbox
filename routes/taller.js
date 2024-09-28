@@ -11,9 +11,15 @@ router.post('/',tallerControllers.index);
 
 //inventaio
 router.get('/herramientas',tallerControllers.herramientas);
+
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
+
+router.get('/edi', (req,res)=>{
+   res.render('Inventario/editar')
+});
+
 //Prestamos
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
@@ -27,6 +33,8 @@ router.get('/agregar',(req,res)=>{
 });
 
 router.post("/",tallerControllers.guardar)
+
+router.post('/borrar/:id_herramienta',tallerControllers.borrar);
 
 
 
