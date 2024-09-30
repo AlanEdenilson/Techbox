@@ -40,6 +40,6 @@ module.exports={
 
     borrar:function (conexion,id_herramienta,funcion) {
         conexion.query("DELETE FROM herramientas WHERE id=?",[id_herramienta], funcion);
-    } 
+    },
 
 }
