@@ -1,3 +1,5 @@
+const con = require("../config/conexion");
+
 module.exports={
     obtener:function (conexion,funcion) {
         conexion.query("SELECT * FROM registrar",funcion);
@@ -23,7 +25,21 @@ module.exports={
     conexion.query("SELECT * FROM devolucion",funcion)
     },
 
+
     insertar:function (conexion,datos,funcion) {
         conexion.query("INSERT INTO herramientas (Nombre, Estado) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion);
-    }
+    },
+
+    guardarr: function (conexion,datos,funcion) {
+        conexion.query("INSERT INTO herramientas (Nombre, Estado) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion)
+    },
+
+    retornarDatosID: function (conexion,id_herramienta,funcion) {
+        conexion.query("SELECT * FROM herramientas WHERE id=? ", [id_herramienta],funcion);
+    },
+
+    borrar:function (conexion,id_herramienta,funcion) {
+        conexion.query("DELETE FROM herramientas WHERE id=?",[id_herramienta], funcion);
+    } 
+
 }
