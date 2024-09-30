@@ -19,9 +19,7 @@ router.get('/herramientas',function (req,res) {
 router.get('/Prestamos',tallerControllers.presta);
 
 //trabaja la vane  crud devoluciones
-router.get('/devoluciones',function (req,res) {
-  res.render('Devolucion/devoluciones')
-});
+router.get('/d',tallerControllers.de);
 
 router.get('/Diarios',function (req,res) {
   res.render('login/Diarios')

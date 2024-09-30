@@ -19,6 +19,10 @@ router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
 
+router.get('/entrega',(req,res)=>{
+   res.render('DEVOLUCIONES/Entrega')
+});
+
 //estudiantes
 router.get('/estudiantes',tallerControllers.estud)
 

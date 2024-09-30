@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Devoluciones</title>
+</head>
+<body>
+    <div class="container">
+    <br/>
+    <br/>
+    <br/>
+    <a href="/taller/entrega" class="btn btn-primary" type="button">Subir entrega</a>
+    <br/>
+    <br/>
+    <table class="table table-secondary">
+    <thead class="thead-secondary">
+    <tr>
+        
+        <th>Id</th>
+        <th>fecha_devolucion</th>
+        <th>observaciones</th>
+        <th>estado_entrega</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
+<tbody>
+    <% if (typeof dev !== 'undefined') { %>
+
+        <% for( let devolucion = 0; devolucion < dev.length; devolucion++ ) { %>
+         <tr>
+            <td><%= dev[devolucion].id_devo  %></td>
+            <td><%= dev[devolucion].fecha_devolucion%></td>
+            <td><%= dev[devolucion].observaciones%></td>
+            <td><%= dev[devolucion].estado_entrega%></td>
+            <td>
+                
+                Editar
+
+                | 
+                
+                Borrar</td>
+         </tr>
+        <% } %>
+    <% } %>
+    
+    </tbody>
+</table>
+</div>
+</body>
+</html>

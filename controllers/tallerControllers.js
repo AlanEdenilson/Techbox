@@ -106,5 +106,22 @@ module.exports={
         taller.insertar(conexion,req.body,function (err,datos) {
             res.redirect('/Inventario');
         });
-    }
+    },
+    de:function (req,res) {
+        const consult=`SELECT * FROM devolucion`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('DEVOLUCIONES/devolu' ,{
+                    dev:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
 };
