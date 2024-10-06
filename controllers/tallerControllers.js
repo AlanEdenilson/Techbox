@@ -59,7 +59,7 @@ module.exports={
                 datos:resultado
              });
          }else{
-            res.send("error hola")
+            res.send("error ")
          }
      });
     },
