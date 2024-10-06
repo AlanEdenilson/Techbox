@@ -7,38 +7,43 @@ router.get('/',(req,res)=>{
    res.render('login/index', { title: 'Techbox' });
 });
 
+//RUTA PRINCIPAL
 router.post('/',tallerControllers.index);
 
-//inventaio
+//RUTAS DE INVENTARIO-----------------------------------------------------//
 router.get('/herramientas',tallerControllers.herramientas);
 
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
+router.post("/taller/herramientas",tallerControllers.guardar);
+
+router.post('/borrar/:id_herramienta',tallerControllers.borrar);
 
 router.get('/edi', (req,res)=>{
    res.render('Inventario/editar')
 });
+
+//--------------------------------------------------------//
 
 //Prestamos
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
 
+//--------------------------------------------------------//
+
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
 
-//estudiantes
+//estudiantes---------------------------------------------//
 router.get('/estudiantes',tallerControllers.estud)
 
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
-
-router.post("/",tallerControllers.guardar);
-
-router.post('/borrar/:id_herramienta',tallerControllers.borrar);
+//--------------------------------------------------------//
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')

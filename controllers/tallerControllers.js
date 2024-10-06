@@ -46,7 +46,55 @@ module.exports={
         });
        
     },
+    // CRUD DE HERRAMIENTAS (INVENTARIO)
 
+    herramientas:function (req,res) {
+        const consult=`SELECT * FROM herramientas`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Inventario/herramientas' ,{
+                    herramienta:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+    
+    guardar:function (req,res) {
+        console.log(req.body);
+
+        taller.guardarr(conexion,req.body,function (err,datos) {
+            res.redirect('/taller/herramientas');
+        });
+    },
+    borrar:function (req,res) {
+        console.log("recepcion de datos");
+        console.log(req.params.id_herramienta);
+        taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros) {
+            
+            var Nombre="routes/taller/"+(registros[0].Nombre);
+            var Estado="routes/taller/"+(registros[0].Estado);
+
+            if(borrar.existsSync(Nombre)){
+                borrar.unlinkSync(Nombre);
+
+                if(borrar.existsSync(Estado)){
+                    borrar.unlinkSync(Estado);
+            }}
+            taller.borrar(conexion,req.params.id_herramienta,function (err) {
+                res.redirect('/taller/herramientas');
+            });
+        });
+
+    },
+
+    // CRUD DE PRESTAMOS 
     presta:function (req,res){
         const consult=`SELECT * FROM prestamo`;
         conexion.query(consult,function (error,resultado) {
@@ -68,69 +116,7 @@ module.exports={
         res.render('prestamos/crear')
     },
 
-    herramientas:function (req,res) {
-        const consult=`SELECT * FROM herramientas`;
-        conexion.query(consult,function (error,resultado) {
-            if(error) {
-                console.log("error en la bd")
-                throw error;
-            }else if(resultado.length > 0) {
-                console.log('datos encontrados')
-                res.render('Inventario/herramientas' ,{
-                    herramienta:resultado
-                });
-            }else{
-                res.send("error")
-            }
-
-        });
-    },
-    estud:function (req,res) {
-        const consult=`SELECT * FROM estudiantes`;
-        conexion.query(consult,function (error,resultado) {
-            if(error) {
-                console.log("error en la bd")
-                throw error;
-            }else if(resultado.length > 0) {
-                console.log('datos encontrados')
-                res.render('Estudiante/Estudiante' ,{
-                    estudian:resultado
-                });
-            }else{
-                res.send("error")
-            }
-
-        });
-    },
-
-    guardar:function (req,res) {
-        console.log(req.body);
-
-        taller.guardarr(conexion,req.body,function (err,datos) {
-            res.redirect('/taller/herramientas');
-        });
-    },
-
-    borrar:function (req,res) {
-        console.log("recepcion de datos");
-        console.log(req.params.id_herramienta);
-        taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros) {
-            
-            var Nombre="routes/taller/"+(registros[0].Nombre);
-            var Estado="routes/taller/"+(registros[0].Estado);
-
-            if(borrar.existsSync(Nombre)){
-                borrar.unlinkSync(Nombre);
-
-                if(borrar.existsSync(Estado)){
-                    borrar.unlinkSync(Estado);
-            }}
-            taller.borrar(conexion,req.params.id_herramienta,function (err) {
-                res.redirect('/taller/herramientas');
-            });
-        });
-
-    },
+    //CRUD DE DEVOLUCIONES 
     de:function (req,res) {
         const consult=`SELECT * FROM devolucion`;
         conexion.query(consult,function (error,resultado) {
@@ -141,6 +127,24 @@ module.exports={
                 console.log('datos encontrados')
                 res.render('DEVOLUCIONES/devolu' ,{
                     dev:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+    //CRUD DE ESTUDIANTES (REGISTROS)
+    estud:function (req,res) {
+        const consult=`SELECT * FROM estudiantes`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Estudiante/Estudiante' ,{
+                    estudian:resultado
                 });
             }else{
                 res.send("error")
