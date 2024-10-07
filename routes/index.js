@@ -6,21 +6,26 @@ var router = express.Router();
 router.get('/', function (req,res,next) {
   res.send('Bienvenido')
 });
-
-
+//RUTA DE MENU-----------------------------------------------------------------//
 router.post('/menu',tallerControllers.registrardatos);
 
-//trabaja la vane  crud de herramienta
+//trabaja la vane  crud de herramienta------------------------------------------//
 router.get('/herramientas',function (req,res) {
   res.render('Inventario/herramientas', )
 });
 
-//trabaja la judi crud de prestamo
+//--------------------------------------------------------------------------//
+
+//trabaja la judi crud de prestamo-----------------------------------------//
 router.get('/Prestamos',tallerControllers.presta);
 
-//trabaja la vane  crud devoluciones
-router.get('/d',tallerControllers.de);
+//------------------------------------------------------------------------//
 
+
+//------------------------------------------------------------------------//
+
+
+// RUTA DE REGISTRO DE PRESTAMOS DIARIOS --------------------------//
 router.get('/Diarios',function (req,res) {
   res.render('login/Diarios')
 });
@@ -32,6 +37,7 @@ router.get('/Semanales',function (req,res) {
 router.get('/Todos',function (req,res) {
   res.render('login/todos')
 });
+//-------------------------------------------------------------------//
 
 router.get('/repote',function (req,res) {
   res.render('login/Reporte')
