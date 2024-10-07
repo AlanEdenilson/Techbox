@@ -134,10 +134,9 @@ module.exports={
 
         });
     },
-    guardar:function (req,res) {
+    guardardev:function (req,res) {
         res.send(req.body);
     },
-    
         
     //CRUD DE ESTUDIANTES (REGISTROS)
     estud:function (req,res) {
