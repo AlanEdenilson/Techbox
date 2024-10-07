@@ -30,12 +30,14 @@ router.get('/edi', (req,res)=>{
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
-
 //--------------------------------------------------------//
 
+//trabaja la vane  crud devoluciones
+router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
+router.post('d',tallerControllers.guardar)
 
 //estudiantes---------------------------------------------//
 router.get('/estudiantes',tallerControllers.estud)

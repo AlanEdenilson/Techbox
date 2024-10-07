@@ -20,8 +20,7 @@ router.get('/herramientas',function (req,res) {
 router.get('/Prestamos',tallerControllers.presta);
 
 //------------------------------------------------------------------------//
-//trabaja la vane  crud devoluciones
-router.get('/d',tallerControllers.de);
+
 
 //------------------------------------------------------------------------//
 

@@ -65,7 +65,7 @@ module.exports={
 
         });
     },
-    
+
     guardar:function (req,res) {
         console.log(req.body);
 
@@ -134,6 +134,11 @@ module.exports={
 
         });
     },
+    guardar:function (req,res) {
+        res.send(req.body);
+    },
+    
+        
     //CRUD DE ESTUDIANTES (REGISTROS)
     estud:function (req,res) {
         const consult=`SELECT * FROM estudiantes`;
