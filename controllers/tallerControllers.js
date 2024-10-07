@@ -8,11 +8,11 @@ module.exports={
 
     index:function (req, res) {
         console.log(req.body);
-       
+    
 
 
        const consult=`SELECT * FROM registrar WHERE Email='${req.body.email}' AND Contraseña = '${req.body.contraseña}'`;
-       conexion.query(consult,function (error,resultado) {
+    conexion.query(consult,function (error,resultado) {
         if (error) {
             console.log("error en la bd")
             throw error;
@@ -20,7 +20,7 @@ module.exports={
             console.log('usuario encontrado')
             res.render('login/menu');
         }else{
-           res.send("error hola")
+        res.send("error hola")
         }
     });
 },
@@ -43,7 +43,7 @@ module.exports={
             }
             
         });
-       
+    
     },
     // CRUD DE HERRAMIENTAS (INVENTARIO)
 
@@ -72,10 +72,7 @@ module.exports={
             res.redirect('/taller/herramientas');
         });
     },
-<<<<<<< HEAD
 
-    
-=======
     borrar:function (req,res) {
         console.log("recepcion de datos");
         console.log(req.params.id_herramienta);
@@ -101,18 +98,18 @@ module.exports={
     presta:function (req,res){
         const consult=`SELECT * FROM prestamo`;
         conexion.query(consult,function (error,resultado) {
-         if (error) {
-             console.log("error en la bd")
-             throw error;
-         } else if(resultado.length > 0) {
-             console.log('datos encontrados')
-             res.render('prestamos/prestamos',{
+        if (error) {
+            console.log("error en la bd")
+            throw error;
+        } else if(resultado.length > 0) {
+            console.log('datos encontrados')
+            res.render('prestamos/prestamos',{
                 datos:resultado
-             });
-         }else{
+            });
+        }else{
             res.send("error ")
-         }
-     });
+        }
+    });
     },
 
     crear:function (req,res) {
@@ -120,7 +117,6 @@ module.exports={
     },
 
     //CRUD DE DEVOLUCIONES 
->>>>>>> 7ca5cb6b9520b64604fb500d9104b04746dad677
     de:function (req,res) {
         const consult=`SELECT * FROM devolucion`;
         conexion.query(consult,function (error,resultado) {

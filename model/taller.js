@@ -16,16 +16,18 @@ module.exports={
     obtener:function (conexion,funcion) {
     conexion.query("SELECT * FROM herramientas",funcion);
     },
-<<<<<<< HEAD
+
     obterner:function (conexion,funcion) {
     conexion.query("SELECT * FROM estudiantes",funcion)
     },
     obterner:function (conexion,funcion) {
     conexion.query("SELECT * FROM devolucion",funcion)
-=======
+
+    }, 
+
     insertar:function (conexion,datos,funcion) {
         conexion.query("INSERT INTO herramientas (Nombre, Estado) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion);
->>>>>>> 7ca5cb6b9520b64604fb500d9104b04746dad677
+
     },
 
     guardarr: function (conexion,datos,funcion) {
