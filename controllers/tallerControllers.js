@@ -1,5 +1,4 @@
 var conexion = require('../config/conexion');
-const taller1 = require('../model/taller');
 const taller = require('../model/taller');
 var menu = require("../model/taller")
 var borrar = require("fs");
@@ -111,26 +110,7 @@ module.exports={
         });
     },
 
-    borrar:function (req,res) {
-        console.log("recepcion de datos");
-        console.log(req.params.id_herramienta);
-        taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros) {
-            
-            var Nombre="routes/taller/"+(registros[0].Nombre);
-            var Estado="routes/taller/"+(registros[0].Estado);
-
-            if(borrar.existsSync(Nombre)){
-                borrar.unlinkSync(Nombre);
-
-                if(borrar.existsSync(Estado)){
-                    borrar.unlinkSync(Estado);
-            }}
-            taller.borrar(conexion,req.params.id_herramienta,function (err) {
-                res.redirect('/taller/herramientas');
-            });
-        });
-
-    },
+    
     de:function (req,res) {
         const consult=`SELECT * FROM devolucion`;
         conexion.query(consult,function (error,resultado) {

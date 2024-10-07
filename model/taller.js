@@ -25,13 +25,8 @@ module.exports={
     conexion.query("SELECT * FROM devolucion",funcion)
     },
 
-
-    insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO herramientas (Nombre, Estado) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion);
-    },
-
     guardarr: function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO herramientas (Nombre, Estado) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion)
+        conexion.query("INSERT INTO herramientas ( Nombre, Estado ) VALUES (?,?) ",[datos.Nombre, datos.Estado], funcion);
     },
 
     retornarDatosID: function (conexion,id_herramienta,funcion) {
