@@ -20,7 +20,7 @@ module.exports={
             console.log('usuario encontrado')
             res.render('login/menu');
         }else{
-        res.send("error hola")
+        //res.send("error")
         }
     });
 },
@@ -129,6 +129,7 @@ module.exports={
                     dev:resultado
                 });
             }else{
+                console.log('datos insertados')
                 res.send("error")
             }
 
