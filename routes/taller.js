@@ -45,13 +45,13 @@ router.get('/estudiantes',tallerControllers.estud)
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
-<<<<<<< HEAD
 
 
 
-=======
+
+
 //--------------------------------------------------------//
->>>>>>> 7ca5cb6b9520b64604fb500d9104b04746dad677
+
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
