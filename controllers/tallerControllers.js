@@ -20,7 +20,7 @@ module.exports={
             console.log('usuario encontrado')
             res.render('login/menu');
         }else{
-        //res.send("error")
+        res.send("error")
         }
     });
 },
@@ -136,7 +136,11 @@ module.exports={
         });
     },
     guardardev:function (req,res) {
-        res.send(req.body);
+        console.log(req.body);
+
+        de.insertar(conexion,req.body,function (err) {
+             res.redirect('/taller/d');
+        });
     },
         
     //CRUD DE ESTUDIANTES (REGISTROS)
