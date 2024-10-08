@@ -35,10 +35,10 @@
     <tr>
         
         <th>Id</th>
+        <th>Herramienta</th>
         <th>fecha_devolucion</th>
         <th>observaciones</th>
         <th>estado_entrega</th>
-        <th>Archivo</th>
         <th>Acciones</th>
     </tr>
 </thead>
@@ -48,10 +48,10 @@
         <% for( let devolucion = 0; devolucion < dev.length; devolucion++ ) { %>
          <tr>
             <td><%= dev[devolucion].id_devo  %></td>
+            <td><%= dev[devolucion].Herramienta  %></td>
             <td><%= dev[devolucion].fecha_devolucion%></td>
             <td><%= dev[devolucion].observaciones%></td>
             <td><%= dev[devolucion].estado_entrega%></td>
-            <td><%= dev[devolucion].Archivo%></td>
             <td>
                 
                 Editar

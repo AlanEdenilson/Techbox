@@ -42,7 +42,7 @@ router.get('/crearp',(req,res)=>{
 });
 //--------------------------------------------------------//
 
-//trabaja la vane  crud devoluciones
+//rutas  crud devoluciones
 router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')

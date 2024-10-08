@@ -47,6 +47,9 @@ module.exports={
     obterner:function (conexion,funcion) {
     conexion.query("SELECT * FROM devolucion",funcion)
     },
+    insertar:function (conexion,datos,funcion) {
+        conexion.query("INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega,Archivo) VALUES (?,?,?,?,?)",[datos.Herramienta,datos.fecha_devolucion,datos.odservaciones,datos.estado_entrega,datos.Archivo],funcion);
+    },
 
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {
