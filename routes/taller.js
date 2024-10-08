@@ -14,6 +14,7 @@ router.get('/contra',(req,res)=>{
    res.render('login/recuperacion')
 });
 
+//Esta es de restablecer contraseña 
 router.get('/establecer',(req,res)=>{
    res.render('login/establecercontra')
 });
