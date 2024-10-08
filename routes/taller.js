@@ -37,7 +37,7 @@ router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
-router.post('d',tallerControllers.guardar)
+router.post("/d",tallerControllers.guardardev)
 
 //estudiantes---------------------------------------------//
 router.get('/estudiantes',tallerControllers.estud)
