@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer contraseña</title>
+    <link rel="stylesheet" href="contras.css">
+</head>
+<body>
+    <center>
+    <br>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh; width: 100%;">
+        <div class="card" style="width: 50%; box-shadow: 0px 0px 15px rgb(245, 245, 243); border-radius: 10px;">
+            <div class="card-header" style="background-color: #010008; color: #e7e7e3; font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
+                Establecer contraseña
+            </div>
+            <br>
+        <form id="reset-form">
+            <label for="password">Nueva contraseña:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <br>
+            <label for="confirm-password">Confirmar contraseña:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <br>
+            <br>
+            <button id="reset-password-btn type="submit" >Restablecer</button>
+        </form>
+    </div>
+</center>
+    
+    <script>
+const form = document.getElementById('reset-form');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    // Verificar que las contraseñas coincidan
+    if (password !== confirmPassword) {
+        //si las contraseñas son diferentes enviara una alert
+        alert('Las contraseñas no coinciden');
+        return;
+    }
+
+    // Enviar solicitud de restablecimiento de contraseña al servidor
+    fetch('/establecer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            password: password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Contraseña restablecida con éxito');
+            // Redirigir al usuario a la página de inicio de sesión
+            window.location.href = '/taller';
+        } else {
+            alert('Error al restablecer contraseña');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert('Error al restablecer contraseña');
+    });
+});
+    </script>
+</body>
+</html>

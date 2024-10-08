@@ -45,6 +45,15 @@ module.exports={
         });
     
     },
+    Restablecer:function name(req,res) {
+        console.log(req.body.Contraseña);
+
+        if(req.body.Contraseña){
+            taller.Restablecer(conexion,req.body,function name(err) {
+                });
+        }
+        res.redirect('/taller');
+    },
     // CRUD DE HERRAMIENTAS (INVENTARIO)
 
     herramientas:function (req,res) {

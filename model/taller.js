@@ -8,6 +8,7 @@ module.exports={
     obtener:function(conexion, funcion) {
         conexion.query("SELECT*FROM registrar", funcion);
     },
+
     //VALIDAR CONTRASEÑA-------------------------------------------------//
     buscar:function(conexion, usaurio, contraseña, funcion) {
        conexion.query(`SELECT * FROM usuario WHERE EMAIL=${usaurio} AND CONTRASEÑA =${contraseña}`, funcion);
@@ -50,6 +51,10 @@ module.exports={
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
-        },
+    },
+
+    Restablecer:function (conexion,datos,funcion) {
+        conexion.query("UPDATE registar SET Contraseña=? WHERE id=?", [datos.Contraseña, datos.ID_Registro], funcion);
+    }
 
 }

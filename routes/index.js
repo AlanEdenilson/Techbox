@@ -8,6 +8,7 @@ router.get('/', function (req,res,next) {
 });
 //RUTA DE MENU-----------------------------------------------------------------//
 router.post('/menu',tallerControllers.registrardatos);
+;
 
 //trabaja la vane  crud de herramienta------------------------------------------//
 router.get('/herramientas',function (req,res) {

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="/stylesheets/contra.css">
+</head>
+<body>
+    <form id="recover-form">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email">
+        <button onclick="window.location.href='/taller/establecer'" type="submit">Enviar</button>
+    </form>
+    <script>
+        const form = document.getElementById('recover-form');
+const emailInput = document.getElementById('email');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = emailInput.value;
+    // Enviar correo electrónico con un enlace de restablecimiento de contraseña
+    // ...
+});
+    </script>
+</body>
+</html>
