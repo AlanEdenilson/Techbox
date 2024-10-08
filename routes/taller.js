@@ -16,7 +16,7 @@ router.get('/herramientas',tallerControllers.herramientas);
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
-router.post("/taller/herramientas",tallerControllers.guardar);
+router.post('/taller/herramientas',tallerControllers.guardar);
 
 router.post('/borrar/:id_herramienta',tallerControllers.borrar);
 
@@ -45,10 +45,6 @@ router.get('/estudiantes',tallerControllers.estud)
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
-
-
-
-
 
 //--------------------------------------------------------//
 
