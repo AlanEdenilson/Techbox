@@ -68,7 +68,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 10px;
     color: #e4e4e4;
     padding-left: 10px;
     padding-left: 10px;
@@ -158,14 +158,14 @@ body {
     font-size: 35px;
 
 }
- 
+
 .text-sci h2{
-    font-size: 35px;
+    font-size: 30px;
     line-height: 1;
 }
 
 .text-sci h2 span{
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .text-sci p{
@@ -190,7 +190,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 58%;
+    width: 66%;
     height: 66%;
     right: 0%;
     background: transparent;
@@ -203,7 +203,7 @@ body {
 
 .logreg-box .form-box.login{
     transform: translateX(0);
-   transition: transform .6s ease;
+    transition: transform .6s ease;
 
 }
 
@@ -242,7 +242,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 10px;
     color: #e4e4e4;
     font-weight: 500;
     padding-right: 28px;

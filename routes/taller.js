@@ -10,6 +10,16 @@ router.get('/',(req,res)=>{
 //RUTA PRINCIPAL
 router.post('/',tallerControllers.index);
 
+router.get('/contra',(req,res)=>{
+   res.render('login/recuperacion')
+});
+
+router.get('/establecer',(req,res)=>{
+   res.render('login/establecercontra')
+});
+
+router.post('/Restablecer',tallerControllers.Restablecer);
+
 //RUTAS DE INVENTARIO-----------------------------------------------------//
 router.get('/herramientas',tallerControllers.herramientas);
 
