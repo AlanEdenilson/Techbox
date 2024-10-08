@@ -47,7 +47,7 @@ router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
-router.post("/d",tallerControllers.guardardev)
+
 
 //estudiantes---------------------------------------------//
 router.get('/estudiantes',tallerControllers.estud)
@@ -62,4 +62,8 @@ router.get('/agregar',(req,res)=>{
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});
+
+// ok 
+// aca estoy asiendo la ruta donde va aresibir esos datos
+router.post('/devolucion',tallerControllers.guardardev)
 module.exports = router;

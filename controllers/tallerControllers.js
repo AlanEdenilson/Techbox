@@ -1,6 +1,6 @@
 var conexion = require('../config/conexion');
 const taller = require('../model/taller');
-var menu = require("../model/taller")
+//var menu = require("../model/taller")
 var borrar = require("fs");
 
 
@@ -140,15 +140,30 @@ module.exports={
                 console.log('datos insertados')
                 res.send("error")
             }
-
+//okis aqui veo
         });
     },
     guardardev:function (req,res) {
         console.log(req.body);
+        var {nombre, fecha, observaciones, Estado}=req.body
 
-        de.insertar(conexion,req.body,function (err) {
-             res.redirect('/taller/d');
+
+//esta consulta es para guardar archivos 
+        var consult =`INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega) VALUES ('${nombre}', '${fecha}', '${observaciones}', '${Estado} ')`;
+      ;  conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+
+            }else{
+                res.redirect('/taller/d')
+            }
+
         });
+    
+        // hola ahorita te digolo que vamos aser esta buena esa consulta judith 
+        // aca primero hay que aser la consulta asi mira
+
     },
         
     //CRUD DE ESTUDIANTES (REGISTROS)
