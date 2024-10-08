@@ -11,7 +11,7 @@ module.exports={
     
 
 
-       const consult=`SELECT * FROM registrar WHERE Email='${req.body.email}' AND Contraseña = '${req.body.contraseña}'`;
+    const consult=`SELECT * FROM registrar WHERE Email='${req.body.email}' AND Contraseña = '${req.body.contraseña}'`;
     conexion.query(consult,function (error,resultado) {
         if (error) {
             console.log("error en la bd")
