@@ -67,7 +67,6 @@ module.exports={
 
     guardar:function (req,res) {
         console.log(req.body);
-
         taller.guardarr(conexion,req.body,function (err,datos) {
             res.redirect('/taller/herramientas');
         });

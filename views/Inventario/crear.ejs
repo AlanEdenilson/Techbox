@@ -1,5 +1,4 @@
 <center>
-    <form method="post" action="/taller/herramientas">
         <br>
         <br>
         <br>
@@ -7,28 +6,31 @@
         <br>
         <br>
         <br>
-        <div class="d-flex justify-content-center align-items-center" style="height: 100vh; width: 100%;">
-            <div class="card" style="width: 50%; box-shadow: 0px 0px 15px rgb(245, 245, 243); border-radius: 10px;">
-                <div class="card-header" style="background-color: #010008; color: #e7e7e3; font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
-                    datos de la herramienta
-                </div>
-                <div class="card-body" style="padding: 30px;">
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="herramientas" style="font-weight: bold;">Nombre</label>
-                        <input id="id_herramienta" class="form-control" type="text" name="Nombre" placeholder="Ingresa el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+            <div class="d-flex justify-content-center align-items-center" style="height: 100vh; width: 100%;">
+                <div class="card" style="width: 50%; box-shadow: 0px 0px 15px rgb(245, 245, 243); border-radius: 10px;">
+                    <div class="card-header" style="background-color: #010008; color: #e7e7e3; font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
+                        datos de la herramienta
                     </div>
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="herramientas" style="font-weight: bold;">Estado</label>
-                        <input id="id_herramienta" class="form-control" type="text" name="Estado" placeholder="Ingresa el estado de la herramienta" style="border-radius: 5px; padding: 10px;">
+                    <form method="post" action="/Inventario/taller/herramientas">
+
+                        
+                    <div class="card-body" style="padding: 30px;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="nombre" style="font-weight: bold;">Nombre</label>
+                            <input id="nombre" class="form-control" type="text" name="Nombre" placeholder="Ingresa el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="estado" style="font-weight: bold;">Estado</label>
+                            <input id="estado" class="form-control" type="text" name="Estado" placeholder="Ingresa el estado de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        </div>
+        
+                        <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar</button>
+                        <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/taller/herramientas'" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Cancelar</button>
                     </div>
-
-                    <button class="btn btn-primary btn-block" type="submit"  style="border-radius: 5px; padding: 10px;  font-weight: bold; width: 100%;">Guardar</button>
-                    <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/taller/herramientas'" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Cancelar</button>
-
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+        
     </center>
     
     <style>
