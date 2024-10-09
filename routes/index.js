@@ -40,13 +40,6 @@ router.get('/Todos',function (req,res) {
 });
 //-------------------------------------------------------------------//
 
-router.get('/repote',function (req,res) {
-  res.render('login/Reporte')
-});
-
-router.get('/crearReporte',function (req,res) {
-  res.render('login/ReporteCrear')
-});
 
 //trabaja la vane  crud de estudiantes
 
