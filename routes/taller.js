@@ -37,7 +37,7 @@ router.get('/edi', (req,res)=>{
 
 //--------------------------------------------------------//
 
-//Prestamos
+//Prestamos yo
 router.get('/prestamo',tallerControllers.prestamo);
 
 router.get('/crearp',(req,res)=>{

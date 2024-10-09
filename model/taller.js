@@ -57,7 +57,7 @@ module.exports={
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
 
-    //Datos de prestamos
+    //Datos de prestamos yo
     obterner:function (conexion,funcion) {
         conexion.query("SELECT * FROM prestamo",funcion)
     },

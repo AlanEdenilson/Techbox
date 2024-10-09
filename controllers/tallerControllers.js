@@ -200,7 +200,7 @@ module.exports={
         });
     },
 
-    //Crud de prestamos
+    //Crud de prestamos yo
     prestamo:function (req,res) {
         const consult=`SELECT * FROM prestamo`;
         conexion.query(consult,function (error,resultado) {
