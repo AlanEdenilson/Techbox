@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/devolucion.css">
     <title>Devoluciones</title>
 </head>
-<body><nav class="navbar navbar-expand-lg navbar-light bg-light ">
-            <a class="navbar-brand">Brand</a>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <img src="/images/tci.png" >
             <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,7 +48,7 @@
     <% if (typeof dev !== 'undefined') { %>
 
         <% for( let devolucion = 0; devolucion < dev.length; devolucion++ ) { %>
-         <tr>
+        <tr>
             <td><%= dev[devolucion].id_devo  %></td>
             <td><%= dev[devolucion].Herramienta  %></td>
             <td><%= dev[devolucion].fecha_devolucion%></td>
@@ -59,7 +61,7 @@
                 | 
                 
                 Borrar</td>
-         </tr>
+        </tr>
         <% } %>
     <% } %>
     

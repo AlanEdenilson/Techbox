@@ -45,6 +45,7 @@ router.get('/crearp',(req,res)=>{
 
 //rutas  crud devoluciones
 router.get('/d',tallerControllers.de);
+
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
@@ -64,7 +65,7 @@ router.get('/agregar',(req,res)=>{
    // res.render('login/menu')
 //});
 
-// ok 
 // aca estoy asiendo la ruta donde va aresibir esos datos
 router.post('/devolucion',tallerControllers.guardardev)
+
 module.exports = router;
