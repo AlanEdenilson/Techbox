@@ -178,7 +178,6 @@ module.exports={
     },
     Eliminardev:function (req,res) {
         console.log("Resepcion de datos");
-        console.log('req.params.id_devo');
     },
         
     //CRUD DE ESTUDIANTES (REGISTROS)
