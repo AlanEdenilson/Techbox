@@ -1,4 +1,5 @@
 const con = require("../config/conexion");
+const { guardarherra } = require("../controllers/tallerControllers");
 
 module.exports={
     obtener:function (conexion,funcion) {
@@ -17,18 +18,11 @@ module.exports={
     obtener:function (conexion,funcion) {
     conexion.query("SELECT * FROM herramientas",funcion);
     },
-
-    obterner:function (conexion,funcion) {
-    conexion.query("SELECT * FROM estudiantes",funcion)
-    },
+    
     obterner:function (conexion,funcion) {
     conexion.query("SELECT * FROM devolucion",funcion)
 
     }, 
-
-    guardarr: function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO herramientas ( Nombre ) VALUES (?) ",[datos.Nombre], funcion);
-    },
 
     retornarDatosID: function (conexion,id_herramienta,funcion) {
         conexion.query("SELECT * FROM herramientas WHERE id=? ", [id_herramienta],funcion);
