@@ -26,7 +26,10 @@ router.get('/Prestamos',tallerControllers.presta);
 //------------------------------------------------------------------------//
 
 
-//------------------------------------------------------------------------//
+//Ruta de devoluciones------------------------------------------------------------------------//
+router.get('/de',function (req,res) {
+  res.render('DEVOLUCIONES/devolu', )
+});
 
 
 // RUTA DE REGISTRO DE PRESTAMOS DIARIOS --------------------------//
@@ -41,15 +44,9 @@ router.get('/Semanales',function (req,res) {
 router.get('/Todos',function (req,res) {
   res.render('login/todos')
 });
+
 //-------------------------------------------------------------------//
 
-router.get('/repote',function (req,res) {
-  res.render('login/Reporte')
-});
-
-router.get('/crearReporte',function (req,res) {
-  res.render('login/ReporteCrear')
-});
 
 
 module.exports = router;

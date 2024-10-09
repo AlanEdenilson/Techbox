@@ -27,8 +27,6 @@ router.get('/herramientas',tallerControllers.herramientas);
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
-
-//guardar herramienta
 router.post('/herramientas',tallerControllers.guardarherra);
 
 router.post('/borrar/:id_herramienta',tallerControllers.borrar);
@@ -47,15 +45,15 @@ router.get('/crearp',(req,res)=>{
 
 //rutas  crud devoluciones
 router.get('/d',tallerControllers.de);
+
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
+//Recepcionar datos en devoluciones 
 
 
 //estudiantes---------------------------------------------//
-
-//guardar datos
-router.post('/estudiantes',tallerControllers.guardarestu);
+router.get('/estudiantes',tallerControllers.estud)
 
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
@@ -68,7 +66,7 @@ router.get('/agregar',(req,res)=>{
    // res.render('login/menu')
 //});
 
-// ok 
 // aca estoy asiendo la ruta donde va aresibir esos datos
 router.post('/devolucion',tallerControllers.guardardev)
+
 module.exports = router;
