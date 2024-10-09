@@ -27,7 +27,9 @@ router.get('/herramientas',tallerControllers.herramientas);
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
-router.post('/taller/herramientas',tallerControllers.guardar);
+
+//guardar herramienta
+router.post('/herramientas',tallerControllers.guardarherra);
 
 router.post('/borrar/:id_herramienta',tallerControllers.borrar);
 
@@ -51,7 +53,9 @@ router.get('/entrega',(req,res)=>{
 
 
 //estudiantes---------------------------------------------//
-router.get('/estudiantes',tallerControllers.estud)
+
+//guardar datos
+router.post('/estudiantes',tallerControllers.guardarestu);
 
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')

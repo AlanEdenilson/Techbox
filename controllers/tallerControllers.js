@@ -74,10 +74,21 @@ module.exports={
         });
     },
 
-    guardar:function (req,res) {
+    // Guardar herramientas 
+    guardarherra:function (req,res) {
         console.log(req.body);
-        taller.guardarr(conexion,req.body,function (err,datos) {
-            res.redirect('/taller/herramientas');
+        var {Nombre, Estado}=req.body
+
+    //esta consulta es para guardar datos
+        var consult =`INSERT INTO herramientas (Nombre,Estado) VALUES ('${Nombre}','${Estado} ')`;
+        ;  conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+
+            }else{
+                res.redirect('/taller/herramientas')
+            }
         });
     },
 
