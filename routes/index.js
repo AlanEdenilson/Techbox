@@ -20,13 +20,7 @@ router.get('/estudiantes',function (req,res) {
   res.render('Estudiante/Estudiante', )
 });
 
-//trabaja la judi crud de prestamo-----------------------------------------//
-router.get('/Prestamos',tallerControllers.presta);
 
-//Ruta de prestamos yo------------------------------------------------------------------------//
-router.get('/prestamo',function (req,res) {
-  res.render('Prestamos/prestamos', )
-});
 
 //Ruta de devoluciones------------------------------------------------------------------------//
 router.get('/de',function (req,res) {

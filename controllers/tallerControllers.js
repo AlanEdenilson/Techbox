@@ -112,29 +112,6 @@ module.exports={
         });
 
     },
-
-    // CRUD DE PRESTAMOS 
-    presta:function (req,res){
-        const consult=`SELECT * FROM prestamo`;
-        conexion.query(consult,function (error,resultado) {
-        if (error) {
-            console.log("error en la bd")
-            throw error;
-        } else if(resultado.length > 0) {
-            console.log('datos encontrados')
-            res.render('prestamos/prestamos',{
-                datos:resultado
-            });
-        }else{
-            res.send("error ")
-        }
-    });
-    },
-
-    crear:function (req,res) {
-        res.render('prestamos/crear')
-    },
-
     //CRUD DE DEVOLUCIONES 
     de:function (req,res) {
         const consult=`SELECT * FROM devolucion`;
@@ -175,9 +152,6 @@ module.exports={
         // hola ahorita te digolo que vamos aser esta buena esa consulta judith 
         // aca primero hay que aser la consulta asi mira
 
-    },
-    Eliminardev:function (req,res) {
-        console.log("Resepcion de datos");
     },
         
     //CRUD DE ESTUDIANTES (REGISTROS)
