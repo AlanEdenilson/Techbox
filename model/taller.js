@@ -45,6 +45,12 @@ module.exports={
     insertar:function (conexion,datos,funcion) {
         conexion.query("INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega,Archivo) VALUES (?,?,?,?,?)",[datos.Herramienta,datos.fecha_devolucion,datos.odservaciones,datos.estado_entrega,datos.Archivo],funcion);
     },
+    retornarDatosID:function (conexion,id_devo,funcion) {
+        conexion.query("SELECT * FROM  devolucion WHERE id_devo=?",[id_devo],funcion);
+    },
+    borrar:function (conexion,id_devo,funcion) {
+        conexion.query("DELETE FROM devolucion WHERE  id_devo=?",[id_devo],funcion);
+    },
 
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {
