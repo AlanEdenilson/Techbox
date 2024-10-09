@@ -51,6 +51,11 @@ module.exports={
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
 
+    //Datos de prestamos
+    obterner:function (conexion,funcion) {
+        conexion.query("SELECT * FROM prestamo",funcion)
+    },
+
     Restablecer:function (conexion,datos,funcion) {
         conexion.query("UPDATE registar SET Contraseña=? WHERE id=?", [datos.Contraseña, datos.ID_Registro], funcion);
     }

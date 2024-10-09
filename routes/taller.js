@@ -38,6 +38,8 @@ router.get('/edi', (req,res)=>{
 //--------------------------------------------------------//
 
 //Prestamos
+router.get('/prestamo',tallerControllers.prestamo);
+
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });

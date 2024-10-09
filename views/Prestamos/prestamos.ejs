@@ -27,17 +27,20 @@
                 </tr>
             </thead>
             <tbody>
+
+                <% if (typeof prest !== 'undefined') { %>
                 
-                <% for(let prestamo = 0; prestamo < datos.length; prestamo++){%>
+                <% for(let prestamo = 0; prestamo < prest.length; prestamo++){%>
                     <tr>
-                    <td><%= datos[prestamo].Id_prestamos%> </td>
-                    <td> <%= datos[prestamo].Herramienta%> </td>
-                    <td> <%= datos[prestamo].Fecha_prestamo%> </td>
-                    <td> <%= datos[prestamo].Estudiante%> </td>
-                    <td> <%= datos[prestamo].Tipo_herramienta%> </td>
+                    <td><%= prest[prestamo].Id_prestamos%> </td>
+                    <td> <%= prest[prestamo].Herramienta%> </td>
+                    <td> <%= prest[prestamo].Fecha_prestamo%> </td>
+                    <td> <%= prest[prestamo].Estudiante%> </td>
+                    <td> <%= prest[prestamo].Tipo_herramienta%> </td>
                     <td>Editar | Borrar </td>
                 </tr>
-             <% } %>
+            <% } %>
+            <% } %>
             </tbody>
         </table>
     </div>

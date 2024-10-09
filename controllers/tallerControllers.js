@@ -196,6 +196,25 @@ module.exports={
         });
     },
 
+    //Crud de prestamos
+    prestamo:function (req,res) {
+        const consult=`SELECT * FROM prestamo`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('Prestamos/prestamos' ,{
+                    prest:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+
     //editar:function (req,res) {
         //taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros){
            //* console.log(registros[0]);
