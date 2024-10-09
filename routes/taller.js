@@ -43,6 +43,8 @@ router.get('/prestamo',tallerControllers.prestamo);
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
+
+router.post('/pre',tallerControllers.guardarpres);
 //--------------------------------------------------------//
 
 //rutas  crud devoluciones

@@ -112,6 +112,38 @@ module.exports={
         });
 
     },
+        //Crud de prestamos yo
+        prestamo:function (req,res) {
+            const consult=`SELECT * FROM prestamo`;
+            conexion.query(consult,function (error,resultado) {
+                if(error) {
+                    console.log("error en la bd")
+                    throw error;
+                }else if(resultado.length > 0) {
+                    console.log('datos encontrados')
+                    res.render('Prestamos/prestamos' ,{
+                        prest:resultado
+                    });
+                }else{
+                    res.send("error")
+                }
+    
+            });
+        },
+        guardarpres:function (req,res) {
+            console.log(req.body);
+            var {Nombre,Fecha,Estudiante,Tipo}= req.body
+
+            var consult=`INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES ('${Nombre}','${Fecha}','${Estudiante}','${Tipo}')`;
+            ; conexion.query(consult,function (error,resultado) {
+                if (error) {
+                    console.log("erroren la bd")
+                    throw error;
+                }else{
+                    res.redirect('/taller/prestamo')
+                }
+            });
+        },
     //CRUD DE DEVOLUCIONES 
     de:function (req,res) {
         const consult=`SELECT * FROM devolucion`;
