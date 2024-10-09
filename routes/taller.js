@@ -49,6 +49,7 @@ router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
+//Recepcionar datos en devoluciones 
 
 
 //estudiantes---------------------------------------------//
