@@ -176,6 +176,10 @@ module.exports={
         // aca primero hay que aser la consulta asi mira
 
     },
+    Eliminardev:function (req,res) {
+        console.log("Resepcion de datos");
+        console.log('req.params.id_devo');
+    },
         
     //CRUD DE ESTUDIANTES (REGISTROS)
     estud:function (req,res) {
