@@ -112,24 +112,6 @@ module.exports={
         });
 
     },
-    //materiales consumibles 
-    material:function (req,res) {
-        const consult=`SELECT * FROM materiales_consumible`;
-        conexion.query(consult,function (error,resultado) {
-            if(error) {
-                console.log("error en la bd")
-                throw error;
-            }else if(resultado.length > 0) {
-                console.log('datos encontrados')
-                res.render('Materiales/consumi' ,{
-                    consum:resultado
-                });
-            }else{
-                res.send("error")
-            }
-
-        });
-    },
         //Crud de prestamos yo
         prestamo:function (req,res) {
             const consult=`SELECT * FROM prestamo`;
@@ -222,6 +204,24 @@ module.exports={
 
         });
     },
+    guardarestu:function (req,res) {
+        console.log(req.body);
+        var {nombre, gmail, nie}=req.body
+
+
+//esta consulta es para guardar archivos 
+        var consult =`INSERT INTO estudiantes (Nombre,Gmail,NIE) VALUES ('${nombre}', '${gmail}', '${nie}')`;
+      ;  conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+
+            }else{
+                res.redirect('/taller/estudiantes')
+            }
+
+        });
+    }
 
 
     //editar:function (req,res) {

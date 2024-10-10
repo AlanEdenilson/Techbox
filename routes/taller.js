@@ -36,11 +36,6 @@ router.get('/edi', (req,res)=>{
 });
 
 //--------------------------------------------------------//
-router.get('/consu',tallerControllers.material);
-
-router.get('/agregar',(req,res)=>{
-   res.render('Materiales/Agregar')
-})
 //Prestamos yo
 router.get('/prestamo',tallerControllers.prestamo);
 
@@ -71,8 +66,8 @@ router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 
-
-//--------------------------------------------------------//
+// ruta para  recibir datos 
+router.post('/estudiante',tallerControllers.guardarestu)
 //ghhajjaja
 
 //router.get('/menu',(req,res)=>{

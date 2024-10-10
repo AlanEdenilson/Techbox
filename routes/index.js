@@ -15,10 +15,6 @@ router.get('/herramientas',function (req,res) {
   res.render('Inventario/herramientas', )
 });
 
-//trabaja la vane crud de estudiantes--------------------------------------------------------------------------//
-router.get('/estudiantes',function (req,res) {
-  res.render('Estudiante/Estudiante', )
-});
 
 
 

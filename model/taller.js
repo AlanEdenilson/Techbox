@@ -31,10 +31,6 @@ module.exports={
     borrar:function (conexion,id_herramienta,funcion) {
         conexion.query("DELETE FROM herramientas WHERE id=?",[id_herramienta], funcion);
     },
-    //materiales consumibles 
-    obterner:function (conexion,funcion) {
-        conexion.query("SELECT * FROM materiales_consumible",funcion);
-    },
 
     //DATOS PARA CRUD DE PRESTAMOS--------------------------------//
     obtener:function (conexion,funcion) {
@@ -57,6 +53,11 @@ module.exports={
     obterner:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
+    insertar:function (conexion,datos,funcion) {
+        conexion.query("INSERT INTO estudiantes (Nombre,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Gmail,datos.NIE],funcion);
+    },
+
+    // restablecer contraseña
 
     Restablecer:function (conexion,datos,funcion) {
         conexion.query("UPDATE registar SET Contraseña=? WHERE id=?", [datos.Contraseña, datos.ID_Registro], funcion);
