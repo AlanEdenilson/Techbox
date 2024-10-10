@@ -218,3 +218,16 @@ section {
     text-align: center;
     font-size: 1.2em; 
 }
+
+.list_img {
+    filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+.toggle_icon {
+    filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+.list_img,
+.list_arrow,
+.toggle_icon {
+    filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+
