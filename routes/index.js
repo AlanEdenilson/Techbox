@@ -20,6 +20,7 @@ router.get('/estudiantes',function (req,res) {
   res.render('Estudiante/Estudiante', )
 });
 
+
 //trabaja la judi crud de prestamo-----------------------------------------//
 router.get('/Prestamos',tallerControllers.presta);
 
