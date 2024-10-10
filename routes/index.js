@@ -43,7 +43,9 @@ router.get('/Todos',function (req,res) {
 
 //-------------------------------------------------------------------//
 
-
+router.get('/consu',function (req,res) {
+  res.render('Materiales/consumi')
+})
 
 module.exports = router;
 

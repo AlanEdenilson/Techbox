@@ -31,6 +31,10 @@ module.exports={
     borrar:function (conexion,id_herramienta,funcion) {
         conexion.query("DELETE FROM herramientas WHERE id=?",[id_herramienta], funcion);
     },
+    //materiales consumibles 
+    obterner:function (conexion,funcion) {
+        conexion.query("SELECT * FROM materiales_consumible",funcion);
+    },
 
     //DATOS PARA CRUD DE PRESTAMOS--------------------------------//
     obtener:function (conexion,funcion) {
