@@ -42,7 +42,7 @@ module.exports={
     },
 
     insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES (?,?,?,?,?)",[datos.Herramienta,datos.Fecha_prestamo,datos.Estudiante,datos.Tipo_herramienta],funcion);
+        conexion.query("INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES (?,?,?,?)",[datos.Herramienta,datos.Fecha_prestamo,datos.Estudiante,datos.Tipo_herramienta],funcion);
     },
     //DATOS PARA CRUD DE DEVOLUCION--------------------------------//
     obterner:function (conexion,funcion) {
@@ -56,6 +56,9 @@ module.exports={
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
+    },
+    insertar:function (conexion,datos,funcion) {
+        conexion.query("INSERT INTO estudantes (Nombre,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Gmail,datos.NIE],funcion);
     },
 
     Restablecer:function (conexion,datos,funcion) {

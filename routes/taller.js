@@ -59,12 +59,19 @@ router.get('/entrega',(req,res)=>{
 });
 
 
+// aca estoy asiendo la ruta donde va aresibir esos datos para guardar los datos
+router.post('/devolucion',tallerControllers.guardardev)
+
+// para borrar 
+
 //estudiantes---------------------------------------------//
-router.get('/estudiantes',tallerControllers.estud)
+router.get('/estudiantes',tallerControllers.estudi)
 
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
+
+router.post('/regestudiante',tallerControllers.guardarestu);
 
 //--------------------------------------------------------//
 //ghhajjaja
@@ -72,8 +79,4 @@ router.get('/agregar',(req,res)=>{
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});
-
-// aca estoy asiendo la ruta donde va aresibir esos datos
-router.post('/devolucion',tallerControllers.guardardev)
-
 module.exports = router;

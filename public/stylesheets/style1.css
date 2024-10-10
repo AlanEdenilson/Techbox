@@ -32,6 +32,36 @@ body {
     height: 50px;
 }
 
+.scrollable {
+    max-height: 620px; /* largo de la barra */
+    overflow-y: auto; /* desplazamiento vertical */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo para la barra de desplazamiento en navegadores WebKit (Chrome, Safari) */
+.scrollable::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: transparent; /* Fondo de la pista de la barra */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5); /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados para el pulgar */
+}
+
+/* Estilo para la barra de desplazamiento en Firefox */
+.scrollable {
+    scrollbar-width: thin; /* Hace que la barra de desplazamiento sea delgada */
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Color del pulgar y del fondo */
+}
+
+
+
 .nav.expanded {
     height: 100vh;
 }

@@ -37,26 +37,26 @@
                 <th>id</th>
                 <th>nombre</th>
                 <th>gmail</th>
-                <th>activo</th>
-                <th>inactivo</th>
                 <th>nie</th>
                 <th>Acciones</th>
                 
             </tr>
         </thead>
         <tbody>
+            <% if (typeof estud !== 'undefined') { %>
+             
             
-            <% if (typeof estudian !== 'undefined') { %>
-                
-            <% for(let estudiantes = 0; estudiantes < estudian.length; estudiantes++){%>
-                <tr>
-                <td> <%= estudian[estudiantes].id_estudiante%> </td>
-                <td> <%= estudian[estudiantes].Nombre%> </td>
-                <td> <%= estudian[estudiantes].Gmail%> </td>
-                <td> <%= estudian[estudiantes].NIE%> </td>
-                <td>Editar | Borrar</td>
-        <% } %>
-        <% } %>
+            <% for( let estudiantes = 0; estudiantes < estud.length; estudiantes++ ) { %>
+
+            <td><%=estud[estudiantes].id_estudiante  %></td>
+            <td><%=estud[estudiantes].Nombre %></td>
+            <td><%=estud[estudiantes].Gmail %></td>
+            <td><%=estud[estudiantes].NIE %></td>
+            <td>Editar|Borrar</td>
+
+            <% } %>
+            <% } %>
+            
     </tbody>
 </table>
 </div>
