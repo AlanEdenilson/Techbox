@@ -71,7 +71,6 @@ router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 
-router.post('/regestudiante',tallerControllers.guardarestu);
 
 //--------------------------------------------------------//
 //ghhajjaja

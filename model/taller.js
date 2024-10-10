@@ -57,9 +57,6 @@ module.exports={
     obterner:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
-    insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO estudantes (Nombre,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Gmail,datos.NIE],funcion);
-    },
 
     Restablecer:function (conexion,datos,funcion) {
         conexion.query("UPDATE registar SET Contraseña=? WHERE id=?", [datos.Contraseña, datos.ID_Registro], funcion);
