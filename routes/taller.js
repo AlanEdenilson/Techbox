@@ -70,6 +70,14 @@ router.get('/agregar',(req,res)=>{
 router.post('/estudiante',tallerControllers.guardarestu)
 //ghhajjaja
 
+//ruta para materiales consumibles
+router.get('/material',tallerControllers.materialconsu);
+
+router.get('/nuevo',(req,res)=>{
+   res.render('material/crearnue')
+});
+
+
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});

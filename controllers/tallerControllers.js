@@ -221,7 +221,25 @@ module.exports={
             }
 
         });
-    }
+    },
+    materialconsu:function (req,res) {
+        const consult=`SELECT * FROM materiales_consumible`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('material/materiales' ,{
+                    mate:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+    
 
 
     //editar:function (req,res) {
