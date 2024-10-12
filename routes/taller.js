@@ -29,7 +29,7 @@ router.get('/herra',(req,res)=>{
 });
 router.post('/herramientas',tallerControllers.guardarherra);
 
-router.post('/borrar/:id_herramienta',tallerControllers.borrar);
+router.post('/herramientas',tallerControllers.eliminarherra);
 
 router.get('/edi', (req,res)=>{
    res.render('Inventario/editar')

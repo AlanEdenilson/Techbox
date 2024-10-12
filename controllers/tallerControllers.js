@@ -92,26 +92,6 @@ module.exports={
         });
     },
 
-    borrar:function (req,res) {
-        console.log("recepcion de datos");
-        console.log(req.params.id_herramienta);
-        taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros) {
-            
-            var Nombre="routes/taller/"+(registros[0].Nombre);
-            var Estado="routes/taller/"+(registros[0].Estado);
-
-            if(borrar.existsSync(Nombre)){
-                borrar.unlinkSync(Nombre);
-
-                if(borrar.existsSync(Estado)){
-                    borrar.unlinkSync(Estado);
-            }}
-            taller.borrar(conexion,req.params.id_herramienta,function (err) {
-                res.redirect('/taller/herramientas');
-            });
-        });
-
-    },
         //Crud de prestamos yo
         prestamo:function (req,res) {
             const consult=`SELECT * FROM prestamo`;
@@ -239,6 +219,23 @@ module.exports={
 
         });
     },
+
+    eliminar:function(req,res){
+        console.log("Recepcion de datos");
+        console.log(req.params.id);
+
+        var consult =`SELECT * FROM herramientas WHERE id=? ('${id_herramienta}' )`;
+        conexion.query(consult,req.params.id,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+
+            }else{
+                res.redirect('/taller/estudiantes')
+            }
+
+        });
+    }
     
 
 
