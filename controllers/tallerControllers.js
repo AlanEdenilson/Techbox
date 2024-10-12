@@ -165,6 +165,22 @@ module.exports={
         // aca primero hay que aser la consulta asi mira
 
     },
+    //boton de borrar 
+    eliminar: function (req, res) {
+        console.log("Recepción de datos");
+        console.log(req.params.id_devo);
+
+         // esto es  para  borrar los registros  d
+        taller.borrar(conexion, req.params.id_devo, function (error) {
+            if (error) {
+                console.error("Error al eliminar:", error);
+                return res.status(500).send("Error al eliminar el elemento.");
+            }
+            res.redirect('/taller/d');
+        });
+    },
+    
+    
         
     //CRUD DE ESTUDIANTES (REGISTROS)
     estudi:function (req,res) {
@@ -215,23 +231,6 @@ module.exports={
                 });
             }else{
                 res.send("error")
-            }
-
-        });
-    },
-
-    eliminar:function(req,res){
-        console.log("Recepcion de datos");
-        console.log(req.params.id);
-
-        var consult =`SELECT * FROM herramientas WHERE id=? ('${id_herramienta}' )`;
-        conexion.query(consult,req.params.id,function (error,resultado) {
-            if(error) {
-                console.log("error en la bd")
-                throw error;
-
-            }else{
-                res.redirect('/taller/estudiantes')
             }
 
         });

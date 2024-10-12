@@ -4,35 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/estudiantes.css">
     <title>Estudiante</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">Brand</a>
-        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="my-nav" class="collapse navbar-collapse">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/images/tci.png" >
+    <div id="my-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Item 1 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Item 2</a>
+                    <a class="nav-link" > 3° Mantenimiento automotriz <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container">
-    
-    <br/>
+
+<br/>
 <br/>
 <a href="/taller/agregar" class="btn btn-primary" type="button">Agregar nueva herramienta</a>
 <br/>
 <br/>
 
-    <table class="table table-secondary">
-        <thead class="thead-secondary">
+    <table class="table table-light">
+        <thead class="thead-light">
             <tr>
                 <th>id</th>
                 <th>nombre</th>
@@ -52,13 +46,28 @@
             <td><%=estud[estudiantes].Nombre %></td>
             <td><%=estud[estudiantes].Gmail %></td>
             <td><%=estud[estudiantes].NIE %></td>
-            <td>Editar|Borrar</td>
 
-            <% } %>
-            <% } %>
+            <td>   
+                <div class="btn-group-vertical" role="group" aria-label="b-form">
+
+                    <form class="form-inline" method="post" action="/taller/Editar/<%=estud[estudiantes].id_estudiante  %>" class="d-inline">
+                        <button class="btn btn-warning" type="submit">Editar</button>
+                    </form>
+                </div>
+
+
+
+                <div class="btn-group-vertical" role="group" aria-label="b-form">
+
+                    <form class="form-inline" method="post" action="/taller/Eliminar/<%=estud[estudiantes].id_estudiante  %>" class="d-inline">
+                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                    </form>
+                </div>
+                    </td>
                 </tr>
+            <% } %>
+            <% } %>
     </tbody>
 </table>
-</div>
 </body>
 </html>

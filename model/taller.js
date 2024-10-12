@@ -48,6 +48,10 @@ module.exports={
     insertar:function (conexion,datos,funcion) {
         conexion.query("INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega,Archivo) VALUES (?,?,?,?,?)",[datos.Herramienta,datos.fecha_devolucion,datos.odservaciones,datos.estado_entrega,datos.Archivo],funcion);
     },
+    //funcion de borrar      aqui va lo del id de la tabla  en [va el id nada mas para que no se confundan]
+    borrar:function (conexion,id,funcion) {
+        conexion.query("DELETE FROM devolucion WHERE id_devo=?",[id],funcion)
+    },
 
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {

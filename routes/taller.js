@@ -29,8 +29,6 @@ router.get('/herra',(req,res)=>{
 });
 router.post('/herramientas',tallerControllers.guardarherra);
 
-router.post('/herramientas',tallerControllers.eliminarherra);
-
 router.get('/edi', (req,res)=>{
    res.render('Inventario/editar')
 });
@@ -55,9 +53,12 @@ router.get('/entrega',(req,res)=>{
 
 
 // aca estoy asiendo la ruta donde va aresibir esos datos para guardar los datos
-router.post('/devolucion',tallerControllers.guardardev)
+router.post('/devolucion',tallerControllers.guardardev);
 
-// para borrar 
+// ruta para borrar registros del CRUD devoluciones
+router.post('/eliminar/:id_devo', tallerControllers.eliminar);
+
+
 
 //estudiantes---------------------------------------------//
 router.get('/estudiantes',tallerControllers.estudi)
