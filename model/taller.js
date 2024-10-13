@@ -18,18 +18,17 @@ module.exports={
     obtener:function (conexion,funcion) {
     conexion.query("SELECT * FROM herramientas",funcion);
     },
-    
-    obterner:function (conexion,funcion) {
-    conexion.query("SELECT * FROM devolucion",funcion)
-
-    }, 
-
-    retornarDatosID: function (conexion,id_herramienta,funcion) {
-        conexion.query("SELECT * FROM herramientas WHERE id=? ", [id_herramienta],funcion);
-    },
-    //funcion para borrar datos de herramientas
+     //funcion para borrar datos de herramientas
     borrarh:function (conexion,id,funcion) {
         conexion.query("DELETE FROM herramientas WHERE id_herramienta=?",[id], funcion);
+    },
+     // esto es para retornar los datos de Id 
+    retornarDatosID: function (conexion, id, callback) {
+        const query = "SELECT * FROM herramientas WHERE id_herramienta = ?";
+        conexion.query(query, [id], callback);
+    },
+    actualizarh:function (conexion,datos,funcion) {
+        conexion.query("UPDATE herramientas SET Nombre = ?, Estado = ? WHERE id_herramienta = ?", [datos.Nombre, datos.Estado, datos.id], funcion);
     },
 
     //DATOS PARA CRUD DE PRESTAMOS--------------------------------//
@@ -62,8 +61,6 @@ module.exports={
     actualizar:function (conexion,datos,funcion) {
         conexion.query("UPDATE devolucion SET Herramienta = ?, fecha_devolucion = ?, observaciones = ?, estado_entrega = ? WHERE id_devo = ?", [datos.nombre, datos.fecha, datos.observaciones, datos.Estado, datos.id], funcion);
     },
-
-    
 
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {

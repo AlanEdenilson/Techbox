@@ -96,7 +96,7 @@ module.exports={
         console.log("Recepción de datos");
         console.log(req.params.id_herramienta);
 
-         // esto es  para  borrar los registros  d
+         // esto es  para  borrar los registros  
         taller.borrarh(conexion, req.params.id_herramienta, function (error) {
             if (error) {
                 console.error("Error al eliminar:", error);
@@ -105,10 +105,37 @@ module.exports={
             res.redirect('/taller/herramientas');
         });
     },
-    editar:function (req,res) {
-        res.render('/taller/editardev')
-    },
+    //boton para editar herramientas
+    editarherra: function (req, res) {
+        const id_herramienta = req.params.id_herramienta;
+
+        taller.retornarDatosID(conexion, id_herramienta, function (err, registros) {
+            if (err) {
+                console.error("Error al recuperar los datos:", err);
+                return res.status(500).send("Error al recuperar los datos.");
+            }
     
+            if (!registros || registros.length === 0) {
+                return res.status(404).send("No se encontraron datos.");
+            }
+    
+            console.log("Datos recuperados:", registros[0]);
+            res.render('inventario/editar', { taller: registros[0] });
+        });
+    
+    },
+    actualizarh:function (req,res) {
+        console.log(req.body.Nombre);
+        console.log(req.body.Estado);
+
+        taller.actualizarh(conexion, req.body, function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al actualizar los datos");
+            }
+            res.redirect('/taller/herramientas');
+        });
+    },
 
         //Crud de prestamos yo
         prestamo:function (req,res) {

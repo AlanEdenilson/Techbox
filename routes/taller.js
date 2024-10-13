@@ -27,9 +27,14 @@ router.get('/herramientas',tallerControllers.herramientas);
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
+// ruta para guardar registros en CRUD herramientas
 router.post('/herramientas',tallerControllers.guardarherra);
-
+// ruta para eliminar registros en CRUD herramientas
 router.post('/eliminar/:id_herramienta', tallerControllers.eliminarherra);
+// ruta para editar registros en CRUD herramientas
+router.get('/editar/:id_herramienta',tallerControllers.editarherra);
+// ruta para actualizar datos
+router.post('/actualizarhr',tallerControllers.actualizarh);
 
 router.get('/edi', (req,res)=>{
    res.render('Inventario/editar')
