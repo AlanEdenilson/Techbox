@@ -30,15 +30,14 @@ router.get('/herra',(req,res)=>{
 // ruta para guardar registros en CRUD herramientas
 router.post('/herramientas',tallerControllers.guardarherra);
 // ruta para eliminar registros en CRUD herramientas
-router.post('/eliminar/:id_herramienta', tallerControllers.eliminarherra);
+router.post('/eliminarh/:id_herramienta', tallerControllers.eliminarherra);
 // ruta para editar registros en CRUD herramientas
-router.get('/editar/:id_herramienta',tallerControllers.editarherra);
+router.get('/Editarh/:id_herramienta',tallerControllers.Editarh);
 // ruta para actualizar datos
-router.post('/actualizarhr',tallerControllers.actualizarh);
+router.post('/actualizarh',tallerControllers.Actualizarh);
 
-router.get('/edi', (req,res)=>{
-   res.render('Inventario/editar')
-});
+
+
 
 //--------------------------------------------------------//
 //Prestamos yo
@@ -49,6 +48,7 @@ router.get('/crearp',(req,res)=>{
 });
 
 router.post('/pre',tallerControllers.guardarpres);
+
 //--------------------------------------------------------//
 
 //rutas  crud devoluciones
@@ -57,7 +57,6 @@ router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
-
 
 // aca estoy asiendo la ruta donde va aresibir esos datos para guardar los datos
 router.post('/devolucion',tallerControllers.guardardev);
