@@ -233,7 +233,7 @@ module.exports={
         
 
         
-//sera que va tocar hacer una funcion de actualiza para cada uno 
+
     },
     
     
