@@ -1,5 +1,5 @@
 const con = require("../config/conexion");
-const { guardarherra } = require("../controllers/tallerControllers");
+const { guardarherra, actualizar } = require("../controllers/tallerControllers");
 
 module.exports={
     obtener:function (conexion,funcion) {
@@ -27,9 +27,9 @@ module.exports={
     retornarDatosID: function (conexion,id_herramienta,funcion) {
         conexion.query("SELECT * FROM herramientas WHERE id=? ", [id_herramienta],funcion);
     },
-
-    borrar:function (conexion,id_herramienta,funcion) {
-        conexion.query("DELETE FROM herramientas WHERE id=?",[id_herramienta], funcion);
+    //funcion para borrar datos de herramientas
+    borrarh:function (conexion,id,funcion) {
+        conexion.query("DELETE FROM herramientas WHERE id_herramienta=?",[id], funcion);
     },
 
     //DATOS PARA CRUD DE PRESTAMOS--------------------------------//
@@ -42,7 +42,7 @@ module.exports={
     },
     //DATOS PARA CRUD DE DEVOLUCION--------------------------------//
     obterner:function (conexion,funcion) {
-    conexion.query("SELECT * FROM devolucion",funcion)
+    conexion.query("SELECT * FROM devolucion ",funcion)
     },
     
     insertar:function (conexion,datos,funcion) {
@@ -53,12 +53,24 @@ module.exports={
         conexion.query("DELETE FROM devolucion WHERE id_devo=?",[id],funcion)
     },
 
+    // esto es para retornar los datos de Id 
+    retornarDatosID: function (conexion, id, callback) {
+        const query = "SELECT * FROM devolucion WHERE id_devo = ?";
+        conexion.query(query, [id], callback);
+    },
+    // para los datos de actualizar hay quetenr cuidado con los campo [estos campos deben de ir tal cual esta en name=""en el formulario editar de lo contrario no funcionara ]
+    actualizar:function (conexion,datos,funcion) {
+        conexion.query("UPDATE devolucion SET Herramienta = ?, fecha_devolucion = ?, observaciones = ?, estado_entrega = ? WHERE id_devo = ?", [datos.nombre, datos.fecha, datos.observaciones, datos.Estado, datos.id], funcion);
+    },
+
+    
+
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
     obterner:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
     insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO estudiantes (Nombre,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Gmail,datos.NIE],funcion);
+        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Apellido,datos.Gmail,datos.NIE],funcion);
     },
 
     // restablecer contraseña

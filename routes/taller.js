@@ -29,6 +29,8 @@ router.get('/herra',(req,res)=>{
 });
 router.post('/herramientas',tallerControllers.guardarherra);
 
+router.post('/eliminar/:id_herramienta', tallerControllers.eliminarherra);
+
 router.get('/edi', (req,res)=>{
    res.render('Inventario/editar')
 });
@@ -57,6 +59,12 @@ router.post('/devolucion',tallerControllers.guardardev);
 
 // ruta para borrar registros del CRUD devoluciones
 router.post('/eliminar/:id_devo', tallerControllers.eliminar);
+// ruta para editar registros en CRUD devoluciones 
+router.get('/editar/:id_devo',tallerControllers.editar);
+// ruta para actualizar datos
+router.post('/actualizar',tallerControllers.actualizar);
+
+
 
 
 
