@@ -27,20 +27,28 @@ router.get('/herramientas',tallerControllers.herramientas);
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
+// ruta para guardar registros en CRUD herramientas
 router.post('/herramientas',tallerControllers.guardarherra);
+// ruta para eliminar registros en CRUD herramientas
+router.post('/eliminarh/:id_herramienta', tallerControllers.eliminarherra);
+// ruta para editar registros en CRUD herramientas
+router.get('/Editarh/:id_herramienta',tallerControllers.Editarh);
+// ruta para actualizar datos
+router.post('/actualizarh',tallerControllers.Actualizarh);
 
-router.post('/borrar/:id_herramienta',tallerControllers.borrar);
 
-router.get('/edi', (req,res)=>{
-   res.render('Inventario/editar')
-});
+
 
 //--------------------------------------------------------//
+//Prestamos yo
+router.get('/prestamo',tallerControllers.prestamo);
 
-//Prestamos
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
+
+router.post('/pre',tallerControllers.guardarpres);
+
 //--------------------------------------------------------//
 
 //rutas  crud devoluciones
@@ -49,24 +57,41 @@ router.get('/d',tallerControllers.de);
 router.get('/entrega',(req,res)=>{
    res.render('DEVOLUCIONES/Entrega')
 });
-//Recepcionar datos en devoluciones 
+
+// aca estoy asiendo la ruta donde va aresibir esos datos para guardar los datos
+router.post('/devolucion',tallerControllers.guardardev);
+
+// ruta para borrar registros del CRUD devoluciones
+router.post('/eliminar/:id_devo', tallerControllers.eliminar);
+// ruta para editar registros en CRUD devoluciones 
+router.get('/editar/:id_devo',tallerControllers.editar);
+// ruta para actualizar datos
+router.post('/actualizar',tallerControllers.actualizar);
+
+
+
 
 
 //estudiantes---------------------------------------------//
-router.get('/estudiantes',tallerControllers.estud)
+router.get('/estudiantes',tallerControllers.estudi)
 
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 
-//--------------------------------------------------------//
+// ruta para  recibir datos 
+router.post('/estudiante',tallerControllers.guardarestu)
+//ghhajjaja
+
+//ruta para materiales consumibles
+router.get('/material',tallerControllers.materialconsu);
+
+router.get('/nuevo',(req,res)=>{
+   res.render('material/crearnue')
+});
 
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')
 //});
-
-// aca estoy asiendo la ruta donde va aresibir esos datos
-router.post('/devolucion',tallerControllers.guardardev)
-
 module.exports = router;

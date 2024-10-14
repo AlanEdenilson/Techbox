@@ -10,13 +10,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <img src="/images/tci.png" >
-    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
     <div id="my-nav" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="">Inventario de herramientas<span class="sr-only">(current)</span></a>
+                <a class="nav-link" >Inventario de herramientas<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
@@ -24,10 +21,9 @@
 
 <br/>
 <br/>
-<a href="/taller/herra" class="btn btn-primary" type="button">Agregar nueva herramienta</a>   
+<a href="/taller/herra" class="btn btn-primary" type="button">Agregar nueva herramienta</a>   <a href="/taller/herra" class="btn btn-primary" style="text-align: right;" type="button">Salir</a>  
 <br/>
-<br/>
-
+<br>
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
@@ -50,7 +46,7 @@
             <td>
                 <div class="btn-group-vertical" role="group" aria-label="b-form">
 
-                    <form class="form-inline" method="post" action="/taller/editar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
+                    <form class="form-inline" method="get" action="/taller/Editarh/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
                         <button class="btn btn-warning" type="submit">Editar</button>
                     </form>
                 </div>
@@ -59,7 +55,7 @@
             
                 <div class="btn-group-vertical" role="group" aria-label="b-form">
 
-                <form class="form-inline" method="post" action="/taller/eliminar/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
+                <form class="form-inline" method="post" action="/taller/eliminarh/<%= herramienta[herramientas].id_herramienta%>" class="d-inline">
                     <button class="btn btn-danger" type="submit">Eliminar</button>
                 </form>
             </div>

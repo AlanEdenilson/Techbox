@@ -91,49 +91,90 @@ module.exports={
             }
         });
     },
-
-    borrar:function (req,res) {
-        console.log("recepcion de datos");
+    // eliminar datos de la herramiena
+    eliminarherra: function (req, res) {
+        console.log("Recepción de datos");
         console.log(req.params.id_herramienta);
-        taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros) {
-            
-            var Nombre="routes/taller/"+(registros[0].Nombre);
-            var Estado="routes/taller/"+(registros[0].Estado);
 
-            if(borrar.existsSync(Nombre)){
-                borrar.unlinkSync(Nombre);
+         // esto es  para  borrar los registros  
+        taller.borrar(conexion, req.params.id_herramienta, function (error) {
+            if (error) {
+                console.error("Error al eliminar:", error);
+                return res.status(500).send("Error al eliminar el elemento.");
+            }
+            res.redirect('/taller/herramientas');
+        });
+    },
+    //boton para editar herramientas
+    Editarh : function(req,res){
+        const id_herramienta = req.params.id_herramienta;
 
-                if(borrar.existsSync(Estado)){
-                    borrar.unlinkSync(Estado);
-            }}
-            taller.borrar(conexion,req.params.id_herramienta,function (err) {
-                res.redirect('/taller/herramientas');
-            });
+        taller.RetornarDatosID(conexion, id_herramienta, function (err, registros) {
+            if (err) {
+                console.error("Error al recuperar los datos:", err);
+                return res.status(500).send("Error al recuperar los datos.");
+            }
+    
+            if (!registros || registros.length === 0) {
+                return res.status(404).send("No se encontraron datos.");
+            }
+    
+            console.log("Datos recuperados:", registros[0]);
+            res.render('Inventario/cambiar', { taller: registros[0] });
+        });
+    
+    },
+    Actualizarh:function (req,res){
+        console.log(req.body);
+        
+        console.log(req.body.Nombre);
+        console.log(req.body.Estado);
+
+        taller.Actualizar(conexion,req.body, function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al actualizar los datos");
+            }
+            res.redirect('/taller/herramientas');
         });
 
     },
 
-    // CRUD DE PRESTAMOS 
-    presta:function (req,res){
-        const consult=`SELECT * FROM prestamo`;
-        conexion.query(consult,function (error,resultado) {
-        if (error) {
-            console.log("error en la bd")
-            throw error;
-        } else if(resultado.length > 0) {
-            console.log('datos encontrados')
-            res.render('prestamos/prestamos',{
-                datos:resultado
+        //Crud de prestamos yo
+        prestamo:function (req,res) {
+            const consult=`SELECT * FROM prestamo`;
+            conexion.query(consult,function (error,resultado) {
+                if(error) {
+                    console.log("error en la bd")
+                    throw error;
+                }else if(resultado.length > 0) {
+                    console.log('datos encontrados')
+                    res.render('Prestamos/prestamos' ,{
+                        prest:resultado
+                    });
+                }else{
+                    res.send("error")
+                }
+    
             });
-        }else{
-            res.send("error ")
-        }
-    });
-    },
+        },
+        guardarpres:function (req,res) {
+            console.log(req.body);
+            var {herramienta,Fecha,Estudiante,Tipo}= req.body
 
-    crear:function (req,res) {
-        res.render('prestamos/crear')
-    },
+            var consult=`INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES ('${herramienta}','${Fecha}','${Estudiante}','${Tipo}')`;
+            ; conexion.query(consult,function (error,resultado) {
+                if (error) {
+                    console.log("erroren la bd")
+                    throw error;
+                }else{
+                    res.redirect('/taller/prestamo')
+                }
+            });
+        },
+     
+
+
 
     //CRUD DE DEVOLUCIONES 
     de:function (req,res) {
@@ -176,9 +217,63 @@ module.exports={
         // aca primero hay que aser la consulta asi mira
 
     },
+    //boton de borrar 
+    eliminar: function (req, res) {
+        console.log("Recepción de datos");
+        console.log(req.params.id_devo);
+
+         // esto es  para  borrar los registros  d
+        taller.borrar(conexion, req.params.id_devo, function (error) {
+            if (error) {
+                console.error("Error al eliminar:", error);
+                return res.status(500).send("Error al eliminar el elemento.");
+            }
+            res.redirect('/taller/d');
+        });
+    },
+
+    //  esto es para  mostrar el boton de editar de devolucion 
+    editar: function (req, res) {
+        const id_devo = req.params.id_devo;
+    
+        taller.retornarDatosID(conexion, id_devo, function (err, registros) {
+            if (err) {
+                console.error("Error al recuperar los datos:", err);
+                return res.status(500).send("Error al recuperar los datos.");
+            }
+    
+            if (!registros || registros.length === 0) {
+                return res.status(404).send("No se encontraron datos.");
+            }
+    
+            console.log("Datos recuperados:", registros[0]);
+            res.render('DEVOLUCIONES/editar', { taller: registros[0] });
+        });
+    
+    },
+    actualizar:function (req,res) {
+        console.log(req.body.nombre);
+        console.log(req.body.fecha);
+        console.log(req.body.observaciones);
+        console.log(req.body.Estado);
+
+        taller.actualizar(conexion, req.body, function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al actualizar los datos");
+            }
+            res.redirect('/taller/d');
+        });
+        
+
+        
+
+    },
+    
+    
         
     //CRUD DE ESTUDIANTES (REGISTROS)
-    estud:function (req,res) {
+    estudi:function (req,res) {
         const consult=`SELECT * FROM estudiantes`;
         conexion.query(consult,function (error,resultado) {
             if(error) {
@@ -187,7 +282,7 @@ module.exports={
             }else if(resultado.length > 0) {
                 console.log('datos encontrados')
                 res.render('Estudiante/Estudiante' ,{
-                    estudian:resultado
+                    estud:resultado
                 });
             }else{
                 res.send("error")
@@ -195,6 +290,43 @@ module.exports={
 
         });
     },
+    guardarestu:function (req,res) {
+        console.log(req.body);
+        var {nombre,apellido, gmail, nie}=req.body
+
+
+//esta consulta es para guardar archivos 
+        var consult =`INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES ('${nombre}','${apellido}, '${gmail}', '${nie}')`;
+      ;  conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+
+            }else{
+                res.redirect('/taller/estudiantes')
+            }
+
+        });
+    },
+    materialconsu:function (req,res) {
+        const consult=`SELECT * FROM materiales_consumible`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.render('material/materiales' ,{
+                    mate:resultado
+                });
+            }else{
+                res.send("error")
+            }
+
+        });
+    }
+    
+
 
     //editar:function (req,res) {
         //taller.retornarDatosID(conexion,req.params.id_herramienta,function (err,registros){

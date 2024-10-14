@@ -29,7 +29,7 @@
     <br/>
     <br/>
     <br/>
-    <a href="/taller/entrega" class="btn btn-primary" type="button">Subir entrega</a>
+    <a href="/taller/nuevo" class="btn btn-primary" type="button">Subir entrega</a>
     <br/>
     <br/>
     <table class="table table-secondary">
@@ -45,38 +45,15 @@
     </tr>
 </thead>
 <tbody>
-    <% if (typeof dev !== 'undefined') { %>
 
-        <% for( let devolucion = 0; devolucion < dev.length; devolucion++ ) { %>
-        <tr>
-            <td><%= dev[devolucion].id_devo  %></td>
-            <td><%= dev[devolucion].Herramienta  %></td>
-            <td><%= dev[devolucion].fecha_devolucion%></td>
-            <td><%= dev[devolucion].observaciones%></td>
-            <td><%= dev[devolucion].estado_entrega%></td>
-            <td>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    
-                <form class="form-inline" method="get" action="/taller/editar/<%= dev[devolucion].id_devo  %>">
-                    
-                    <button class="btn btn-warning" type="submit">Editar</button>
-                    
-                </form>
-            </div>
-
-            |
-        
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    
-                    <form class="form-inline" method="post" action="/taller/eliminar/<%= dev[devolucion].id_devo  %>">
-
-                        <button class="btn btn-danger" type="submit">Borrar</button>
-                        
-                    </form>
-                </div>
-                </td>
-         </tr>
-        <% } %>
+    <% if (typeof mate !== undefined) { %>
+     
+    <% for( let materiales_consumible = 0; materiales_consumible < mate.length; materiales_consumible++ ) { %>
+    <tr>
+        <td><%=mate[materiales_consumible].ID_MATERIALES_CONSUMIBLES %></td>
+        <td></td>
+    </tr>
+    <% } %>
     <% } %>
     
     </tbody>

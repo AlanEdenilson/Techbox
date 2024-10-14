@@ -15,16 +15,15 @@ router.get('/herramientas',function (req,res) {
   res.render('Inventario/herramientas', )
 });
 
-//trabaja la vane crud de estudiantes--------------------------------------------------------------------------//
-router.get('/estudiantes',function (req,res) {
-  res.render('Estudiante/Estudiante', )
-});
 
+<<<<<<< HEAD
 
 //trabaja la judi crud de prestamo-----------------------------------------//
 router.get('/Prestamos',tallerControllers.presta);
 
 //------------------------------------------------------------------------//
+=======
+>>>>>>> 23ecc25ad0b499611b56f6acb8b2636aabbe3e8f
 
 
 //Ruta de devoluciones------------------------------------------------------------------------//
@@ -48,7 +47,9 @@ router.get('/Todos',function (req,res) {
 
 //-------------------------------------------------------------------//
 
-
+router.get('/consu',function (req,res) {
+  res.render('Materiales/consumi')
+})
 
 module.exports = router;
 
