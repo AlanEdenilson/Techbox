@@ -160,9 +160,9 @@ module.exports={
         },
         guardarpres:function (req,res) {
             console.log(req.body);
-            var {herramienta,Fecha,Estudiante,Tipo}= req.body
+            var {herra,prestamo,Estudiante,Tipo}= req.body
 
-            var consult=`INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES ('${herramienta}','${Fecha}','${Estudiante}','${Tipo}')`;
+            var consult=`INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES ('${herra}','${prestamo}','${Estudiante}','${Tipo}')`;
             ; conexion.query(consult,function (error,resultado) {
                 if (error) {
                     console.log("erroren la bd")
@@ -172,10 +172,52 @@ module.exports={
                 }
             });
         },
-     
+        eliminarpres:function (req,res) {
+            console.log("Recepción de datos");
+            console.log(req.params.Id_prestamos);
+            
+            taller.borrarr(conexion, req.params.Id_prestamos, function (error) {
+                if (error) {
+                    console.error("Error al eliminar:", error);
+                    return res.status(500).send("Error al eliminar el elemento.");
+                }
+                res.redirect('/taller/prestamo');
+            });
+        },
 
+        editarpres:function(req,res){
+            const Id_prestamos = req.params.Id_prestamos;
 
+            taller.RetornarDatosId(conexion, Id_prestamos, function (err, registros) {
+                if (err) {
+                    console.error("Error al recuperar los datos:", err);
+                    return res.status(500).send("Error al recuperar los datos.");
+                }
+        
+                if (!registros || registros.length === 0) {
+                    return res.status(404).send("No se encontraron datos.");
+                }
+        
+                console.log("Datos recuperados:", registros[0]);
+                res.render('Prestamos/editarp', { taller: registros[0] });
+            });
+        },
 
+        actualizarprest:function(req, res) {
+            console.log(req.body.NameHerra)
+            console.log(req.body.FechaPres)
+            console.log(req.body.nameEstudi)
+            console.log(req.body.Tipohpres)
+
+            taller.actualizarpres(conexion,req.body, function (err) {
+                if(err){
+                    console.error(err);
+                    return res.status(500).send("Error al actualizar los datos");
+                }
+                 res.redirect('/taller/prestamo');
+            });
+        },
+        
     //CRUD DE DEVOLUCIONES 
     de:function (req,res) {
         const consult=`SELECT * FROM devolucion`;
@@ -197,11 +239,11 @@ module.exports={
     },
     guardardev:function (req,res) {
         console.log(req.body);
-        var {nombre, fecha, observaciones, Estado}=req.body
+        var {nombree, fechaa, observaciones, Estado}=req.body
 
 
 //esta consulta es para guardar archivos 
-        var consult =`INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega) VALUES ('${nombre}', '${fecha}', '${observaciones}', '${Estado} ')`;
+        var consult =`INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega) VALUES ('${nombree}', '${fechaa}', '${observaciones}', '${Estado} ')`;
       ;  conexion.query(consult,function (error,resultado) {
             if(error) {
                 console.log("error en la bd")
@@ -217,61 +259,49 @@ module.exports={
         // aca primero hay que aser la consulta asi mira
 
     },
-    //boton de borrar 
-    eliminar: function (req, res) {
-        console.log("Recepción de datos");
+    eliminarde:function (req,res) {
+        console.log("Resepcion de datos");
         console.log(req.params.id_devo);
 
-         // esto es  para  borrar los registros  d
-        taller.borrar(conexion, req.params.id_devo, function (error) {
+        taller.Borrar(conexion,req.params.id_devo,function (error) {
             if (error) {
-                console.error("Error al eliminar:", error);
-                return res.status(500).send("Error al eliminar el elemento.");
+                console.error("Error al eliminar:",error);
+                return res.status(500).send("Error al eliminar elemento");
             }
             res.redirect('/taller/d');
         });
     },
-
-    //  esto es para  mostrar el boton de editar de devolucion 
-    editar: function (req, res) {
+    editarde:function (req,res) {
         const id_devo = req.params.id_devo;
-    
-        taller.retornarDatosID(conexion, id_devo, function (err, registros) {
-            if (err) {
-                console.error("Error al recuperar los datos:", err);
-                return res.status(500).send("Error al recuperar los datos.");
+
+        taller.RetornarDatosID(conexion,id_devo, function (error,registros) {
+            if (error) {
+                console.error("Error al recuperar datos:", error);
+                return res.status(500).send("Error al recuperar los datos");
             }
-    
             if (!registros || registros.length === 0) {
-                return res.status(404).send("No se encontraron datos.");
+                return res.status(404).send("No se encontraron datos.")
             }
-    
-            console.log("Datos recuperados:", registros[0]);
-            res.render('DEVOLUCIONES/editar', { taller: registros[0] });
+            console.log("Datos recuperados:",registros[0]);
+            res.render('DEVOLUCIONES/editardevo',{taller:registros[0]});
         });
-    
     },
-    actualizar:function (req,res) {
-        console.log(req.body.nombre);
-        console.log(req.body.fecha);
+    actualizarde:function (req,res) {
+        console.log(req.body.nombree);
+        console.log(req.body.fechaa);
         console.log(req.body.observaciones);
         console.log(req.body.Estado);
 
-        taller.actualizar(conexion, req.body, function (err) {
-            if (err) {
-                console.error(err);
+        taller.Actualizar(conexion, req.body, function (error) {
+            if (error) {
+                console.error(error);
                 return res.status(500).send("Error al actualizar los datos");
             }
             res.redirect('/taller/d');
         });
-        
-
-        
-
     },
-    
-    
-        
+   
+     
     //CRUD DE ESTUDIANTES (REGISTROS)
     estudi:function (req,res) {
         const consult=`SELECT * FROM estudiantes`;
@@ -293,8 +323,6 @@ module.exports={
     guardarestu:function (req,res) {
         console.log(req.body);
         var {nombre,apellido, gmail, nie}=req.body
-
-
 //esta consulta es para guardar archivos 
         var consult =`INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES ('${nombre}','${apellido}, '${gmail}', '${nie}')`;
       ;  conexion.query(consult,function (error,resultado) {
@@ -308,23 +336,69 @@ module.exports={
 
         });
     },
-    materialconsu:function (req,res) {
-        const consult=`SELECT * FROM materiales_consumible`;
-        conexion.query(consult,function (error,resultado) {
-            if(error) {
-                console.log("error en la bd")
-                throw error;
-            }else if(resultado.length > 0) {
-                console.log('datos encontrados')
-                res.render('material/materiales' ,{
-                    mate:resultado
-                });
-            }else{
-                res.send("error")
-            }
+    eliminarEstu:function (req,res){
+        console.log("Recepción de datos");
+        console.log(req.params.id_estudiante);
 
+        taller.borrar(conexion,req.params.id_estudiante, function (error) {
+            if (error) {
+                console.error("Error al eliminar:", error);
+                return res.status(500).send("Error al eliminar el elemento.");
+            }
+            res.redirect('/taller/estudiantes');
         });
-    }
+    },
+    editarEstu:function(req,res){
+        const id_estudiante = req.params.id_estudiante;
+
+        taller.retornarDatosID(conexion, id_estudiante, function (err, registros) {
+            if (err) {
+                console.error("Error al recuperar los datos:", err);
+                return res.status(500).send("Error al recuperar los datos.");
+            }
+    
+            if (!registros || registros.length === 0) {
+                return res.status(404).send("No se encontraron datos.");
+            }
+    
+            console.log("Datos recuperados:", registros[0]);
+            res.render('Estudiante/editarEst', { taller: registros[0] });
+        });
+    },
+    actualizarEstu:function (req,res) {
+        console.log(req.body.estudiat);
+        console.log(req.body.apellido);
+        console.log(req.body.Gmail);
+        console.log(req.body.Nie);
+
+        taller.actualizar(conexion, req.body, function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al actualizar los datos");
+            }
+            res.redirect('/taller/estudiantes');
+        });
+        
+    },
+
+ //CRUD DE MATERIALES CONSUMIBLE (REGISTROS)
+    //materialconsu:function (req,res) {
+        //const consult=`SELECT * FROM materiales_consumible`;
+        //conexion.query(consult,function (error,resultado) {
+            //if(error) {
+               // console.log("error en la bd")
+               // throw error;
+            //}else if(resultado.length > 0) {
+                //console.log('datos encontrados')
+                //res.render('material/materiales' ,{
+                   // mate:resultado
+              //  });
+           // }else{
+                //res.send("error")
+           // }
+
+       // });
+   // }
     
 
 

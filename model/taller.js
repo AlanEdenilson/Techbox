@@ -36,45 +36,61 @@ module.exports={
 
     //DATOS PARA CRUD DE PRESTAMOS--------------------------------//
     obtener:function (conexion,funcion) {
-        conexion.query("SELECT * FROM presamo",funcion);
+        conexion.query("SELECT * FROM prestamo",funcion);
     },
-
     insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES (?,?,?,?)",[datos.Herramienta,datos.Fecha_prestamo,datos.Estudiante,datos.Tipo_herramienta],funcion);
+        conexion.query("INSERT INTO prestamo (Herramienta,Fecha_prestamo,estudiante,Tipo_Herramienta) VALUES (?,?,?,?)",[datos.herra,datos.prestamo,datos.Estudiante,datos.Tipo],funcion);
     },
-
-
+    borrarr:function (conexion,id,funcion){
+        conexion.query("DELETE FROM prestamo WHERE Id_prestamos = ?",[id],funcion);
+    },
+    RetornarDatosId:function (conexion, id, callback) {
+        const query = "SELECT * FROM prestamo WHERE Id_prestamos = ?";
+        conexion.query(query, [id], callback);
+    },
+    actualizarpres:function(conexion,datos,funcion){
+        const query="UPDATE prestamo SET Herramienta=?, Fecha_prestamo=?, Estudiante=?, Tipo_herramienta=? WHERE Id_prestamos=?";
+        conexion.query(query,[datos.NameHerra,datos.FechaPres,datos.nameEstudi,datos.Tipohpres,datos.id],funcion);
+    },
     //DATOS PARA CRUD DE DEVOLUCION--------------------------------//
-    obterner:function (conexion,funcion) {
+    obtener:function (conexion,funcion) {
     conexion.query("SELECT * FROM devolucion ",funcion)
     },
     
     insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega,Archivo) VALUES (?,?,?,?,?)",[datos.Herramienta,datos.fecha_devolucion,datos.odservaciones,datos.estado_entrega,datos.Archivo],funcion);
-    },
-    //funcion de borrar      aqui va lo del id de la tabla  en [va el id nada mas para que no se confundan]
-    borrar:function (conexion,id,funcion) {
-        conexion.query("DELETE FROM devolucion WHERE id_devo=?",[id],funcion)
+        conexion.query("INSERT INTO devolucion (Herramienta,fecha_devolucion,observaciones,estado_entrega,Archivo) VALUES (?,?,?,?,?)",[datos.nombree,datos.fechaa,datos.observaciones,datos.Estado],funcion);
     },
 
-    // esto es para retornar los datos de Id 
-    retornarDatosID: function (conexion, id, callback) {
-        const query = "SELECT * FROM devolucion WHERE id_devo = ?";
-        conexion.query(query, [id], callback);
+    Borrar:function (conexion,id,funcion) {
+        conexion.query("DELETE FROM devolucion WHERE id_devo = ?",[id],funcion);
     },
-    // para los datos de actualizar hay quetenr cuidado con los campo [estos campos deben de ir tal cual esta en name=""en el formulario editar de lo contrario no funcionara ]
-    actualizar:function (conexion,datos,funcion) {
-        conexion.query("UPDATE devolucion SET Herramienta = ?, fecha_devolucion = ?, observaciones = ?, estado_entrega = ? WHERE id_devo = ?", [datos.nombre, datos.fecha, datos.observaciones, datos.Estado, datos.id], funcion);
+    //para retornar datos de id devoluon 
+    RetornarDatosID:function (conexion,id,callback) {
+        const query="SELECT * FROM devolucion WHERE id_devo = ? ";
+        conexion.query(query, [id],callback);
     },
-
+    Actualizar: function (conexion, datos, funcion) {
+        const query = "UPDATE devolucion SET Herramienta = ?, fecha_devolucion = ?, observaciones = ?, estado_entrega = ? WHERE id_devo = ?";
+        conexion.query(query, [datos.nombree, datos.fechaa, datos.observaciones, datos.Estado, datos.id], funcion);
+    },
+    
     // DATOS CRUD PARA ESTUDIANTES----------------------------------//
-    obterner:function (conexion,funcion) {
+    obtener:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
     insertar:function (conexion,datos,funcion) {
         conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Apellido,datos.Gmail,datos.NIE],funcion);
     },
-
+    borrar:function(conexion,id,funcion){
+        conexion.query("DELETE FROM estudiantes WHERE id_estudiante=?",[id],funcion)
+    },
+    retornarDatosID:function(conexion, id, callback){
+        const query = "SELECT * FROM estudiantes WHERE id_estudiante = ?";
+        conexion.query(query, [id], callback);
+    },
+    actualizar:function(conexion,datos,funcion){
+        conexion.query("UPDATE estudiantes SET Nombre=?, Apellido=?, Gmail=?, NIE=? WHERE id_estudiante=?", [datos.estudiant,datos.apellido,datos.Gmail,datos.Nie, datos.id],funcion);
+    },
     // restablecer contraseña
 
     Restablecer:function (conexion,datos,funcion) {

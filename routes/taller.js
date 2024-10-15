@@ -38,16 +38,21 @@ router.post('/actualizarh',tallerControllers.Actualizarh);
 
 
 
-
 //--------------------------------------------------------//
-//Prestamos yo
+//Prestamos
 router.get('/prestamo',tallerControllers.prestamo);
 
 router.get('/crearp',(req,res)=>{
    res.render('Prestamos/crear')
 });
-
-router.post('/pre',tallerControllers.guardarpres);
+// ruta para guardar registros en CRUD prestamos
+router.post('/prestamo',tallerControllers.guardarpres);
+// ruta para eliminar registros en CRUD prestamos
+router.post('/eliminarpres/:Id_prestamos',tallerControllers.eliminarpres);
+// ruta para editar registros en CRUD prestamos
+router.get('/editarpres/:Id_prestamos',tallerControllers.editarpres);
+// ruta para actualizar datos
+router.post('/actualizarpres',tallerControllers.actualizarprest);
 
 //--------------------------------------------------------//
 
@@ -61,15 +66,14 @@ router.get('/entrega',(req,res)=>{
 // aca estoy asiendo la ruta donde va aresibir esos datos para guardar los datos
 router.post('/devolucion',tallerControllers.guardardev);
 
-// ruta para borrar registros del CRUD devoluciones
-router.post('/eliminar/:id_devo', tallerControllers.eliminar);
-// ruta para editar registros en CRUD devoluciones 
-router.get('/editar/:id_devo',tallerControllers.editar);
-// ruta para actualizar datos
-router.post('/actualizar',tallerControllers.actualizar);
+//ruta para eliminar datos de devolucion 
+router.post('/eliminard/:id_devo',tallerControllers.eliminarde);
+//ruta para editar devolucion 
 
+router.get('/Editard/:id_devo',tallerControllers.editarde);
 
-
+//ruta para actualizar datos 
+router.post('/Actualizard',tallerControllers.actualizarde);
 
 
 //estudiantes---------------------------------------------//
@@ -78,17 +82,19 @@ router.get('/estudiantes',tallerControllers.estudi)
 router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
-
 // ruta para  recibir datos 
 router.post('/estudiante',tallerControllers.guardarestu)
-//ghhajjaja
+// ruta para borrar registros del CRUD estudiantes
+router.post('/eliminarEstu/:id_estudiante', tallerControllers.eliminarEstu);
+// ruta para editar registros del CRUD estudiantes
+router.get('/editarEstu/:id_estudiante',tallerControllers.editarEstu);
+router.post('/actualizarEstu',tallerControllers.actualizarEstu);
 
+
+//Materiales consumibles---------------------------------------------//
 //ruta para materiales consumibles
-router.get('/material',tallerControllers.materialconsu);
 
-router.get('/nuevo',(req,res)=>{
-   res.render('material/crearnue')
-});
+
 
 
 //router.get('/menu',(req,res)=>{

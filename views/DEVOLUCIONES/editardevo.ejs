@@ -1,10 +1,9 @@
 
 <center>
     <!-- aca estaria la nueva ruta -->
-    <form method="post" action="/taller/actualizar">
+    <form method="post" action="/taller/Actualizard">
 
-        <input type="text" name="id" value="<%=taller.id_devo %>">
-
+        <input type="hidden" name="id" value="<%=taller.id_devo %>">
         <br>
         <br>
         <br>
@@ -16,21 +15,24 @@
                     Subir Archivo
                 </div>
                 <div class="card-body" style="padding: 30px;">
-                    <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 20px;">
                         <label for="devolucion" style="font-weight: bold;">Herramienta</label>
-                        <input id="devolucion" value="<%=taller.Herramienta %>" class="form-control" type="text" name="nombre" placeholder="Ingrese el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        <input id="devolucion" value="<%=taller.Herramienta %>" class="form-control" type="text" name="nombree" placeholder="Ingrese el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+                    </div>
 
-                    </div>
                 <div class="card-body" style="padding: 30px;">
-                    <div class="form-group" style="margin-bottom: 20px;">
+
+                    <div class="form-group">
                         <label for="devolucion" style="font-weight: bold;">fecha_devolucion</label>
-                        <input id="devolucion" value="<%=taller.fecha_devolucion %>" class="form-control" type="text" name="fecha" placeholder="Ingrese fecha " style="border-radius: 5px; padding: 10px;">
+                        <input id="devolucion" value="<%=taller.fecha_devolucion %>" class="form-control" type="text" name="fechaa" placeholder="Ingrese fecha " style="border-radius: 5px; padding: 10px;">
                     </div>
+
                     <div class="card-body" style="padding: 30px;">
                         <div class="form-group" style="margin-bottom: 20px;">
                             <label for="devolucion" style="font-weight: bold;">observaciones </label>
                             <input id="devolucion" value="<%=taller.observaciones %>" class="form-control" type="text" name="observaciones" placeholder="Ingrese la observacion" style="border-radius: 5px; padding: 10px;">
                         </div>
+
                         <div class="card-body" style="padding: 30px;">
                             <div class="form-group" style="margin-bottom: 20px;">
                                 <label for="devolucion" style="font-weight: bold;">estado_entrega</label>
@@ -38,13 +40,12 @@
                             </div>
                     
 
-                    <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar Archivo</button>
+                    <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar</button>
                 </div>
             </div>
         </div>
     </form>
     </center>
-    
 
     <style>
         body {
@@ -69,4 +70,3 @@
         background: linear-gradient(150deg, #b3b3b3,#000000);
     }
     </style>  
-    

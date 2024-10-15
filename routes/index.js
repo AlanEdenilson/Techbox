@@ -15,9 +15,6 @@ router.get('/herramientas',function (req,res) {
   res.render('Inventario/herramientas', )
 });
 
-
-
-
 //Ruta de devoluciones------------------------------------------------------------------------//
 router.get('/de',function (req,res) {
   res.render('DEVOLUCIONES/devolu', )
@@ -37,11 +34,10 @@ router.get('/Todos',function (req,res) {
   res.render('login/todos')
 });
 
-//-------------------------------------------------------------------//
-
-router.get('/consu',function (req,res) {
-  res.render('Materiales/consumi')
-})
+//RUTA DE MATERIAL CONSUMIBLE-------------------------------------------------------------------//
+router.get('/Material',function (req,res) {
+  res.render('material/materiales', )
+});
 
 module.exports = router;
 

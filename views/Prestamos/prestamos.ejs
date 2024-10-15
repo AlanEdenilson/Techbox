@@ -55,7 +55,7 @@
                         
                         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                     
-                        <form class="form-inline" method="get" action="/taller/Editar1/<%= prest[prestamo].Id_prestamos%>">
+                        <form class="form-inline" method="get" action="/taller/editarpres/<%= prest[prestamo].Id_prestamos%>">
         
                             <button class="btn btn-warning" type="submit">Editar</button>
                             
@@ -65,10 +65,8 @@
                     | 
                         
                     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    
-                        <form class="form-inline" method="post" action="/taller/eliminarpresta/<%= prest[prestamo].Id_prestamos%>">
-    
-                            <button class="btn btn-danger" type="submit">Borrar</button>
+                        <form class="form-inline" method="post" action="/taller/eliminarpres/<%= prest[prestamo].Id_prestamos%>">
+                            <button class="btn btn-danger" type="submit">Eliminar</button>
                             
                         </form>
                     </div>
