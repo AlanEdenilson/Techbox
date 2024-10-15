@@ -16,12 +16,6 @@ router.get('/herramientas',function (req,res) {
 });
 
 
-//trabaja la judi crud de prestamo-----------------------------------------//
-router.get('/Prestamos',tallerControllers.presta);
-
-//------------------------------------------------------------------------//
-
-
 
 
 //Ruta de devoluciones------------------------------------------------------------------------//
