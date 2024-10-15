@@ -42,5 +42,18 @@ router.get('/Material',function (req,res) {
   res.render('material/materiales', )
 });
 
+
+router.get('/about',function (req,res) {
+  res.render('login/about')
+});
+
+router.get('/servicio',function (req,res) {
+  res.render('login/servicio')
+});
+
+router.get('/contacto',function (req,res) {
+  res.render('login/contacto')
+});
+
 module.exports = router;
 
