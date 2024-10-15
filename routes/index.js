@@ -15,6 +15,15 @@ router.get('/herramientas',function (req,res) {
   res.render('Inventario/herramientas', )
 });
 
+
+//trabaja la judi crud de prestamo-----------------------------------------//
+router.get('/Prestamos',tallerControllers.presta);
+
+//------------------------------------------------------------------------//
+
+
+
+
 //Ruta de devoluciones------------------------------------------------------------------------//
 router.get('/de',function (req,res) {
   res.render('DEVOLUCIONES/devolu', )
