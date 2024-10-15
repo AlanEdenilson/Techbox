@@ -97,7 +97,7 @@ module.exports={
         console.log(req.params.id_herramienta);
 
          // esto es  para  borrar los registros  
-        taller.borrar(conexion, req.params.id_herramienta, function (error) {
+        taller.borrarh(conexion, req.params.id_herramienta, function (error) {
             if (error) {
                 console.error("Error al eliminar:", error);
                 return res.status(500).send("Error al eliminar el elemento.");
@@ -109,7 +109,7 @@ module.exports={
     Editarh : function(req,res){
         const id_herramienta = req.params.id_herramienta;
 
-        taller.RetornarDatosID(conexion, id_herramienta, function (err, registros) {
+        taller.RetornarDatosid(conexion, id_herramienta, function (err, registros) {
             if (err) {
                 console.error("Error al recuperar los datos:", err);
                 return res.status(500).send("Error al recuperar los datos.");
@@ -130,7 +130,7 @@ module.exports={
         console.log(req.body.Nombre);
         console.log(req.body.Estado);
 
-        taller.Actualizar(conexion,req.body, function (err) {
+        taller.Actualizarher(conexion,req.body, function (err) {
             if (err) {
                 console.error(err);
                 return res.status(500).send("Error al actualizar los datos");
@@ -322,9 +322,9 @@ module.exports={
     },
     guardarestu:function (req,res) {
         console.log(req.body);
-        var {nombre,apellido, gmail, nie}=req.body
+        var {estudiat,apellido, Gmail, Nie}=req.body
 //esta consulta es para guardar archivos 
-        var consult =`INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES ('${nombre}','${apellido}, '${gmail}', '${nie}')`;
+        var consult =`INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES ('${estudiat}','${apellido}', '${Gmail}', '${Nie}')`;
       ;  conexion.query(consult,function (error,resultado) {
             if(error) {
                 console.log("error en la bd")

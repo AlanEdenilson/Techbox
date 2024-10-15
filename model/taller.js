@@ -22,16 +22,17 @@ module.exports={
         conexion.query("INSERT INTO herramientas (Nombre,Estado) VALUES (?,?)",[datos.Nombre,datos.Estado],funcion);
     },
      //funcion para borrar datos de herramientas
-    borrar:function (conexion,id,funcion) {
+    borrarh:function (conexion,id,funcion) {
         conexion.query("DELETE FROM herramientas WHERE id_herramienta=?",[id], funcion);
     },
      // esto es para retornar los datos de Id 
-    RetornarDatosID: function (conexion, id, callback) {
+    RetornarDatosid: function (conexion, id, callback) {
         const query = "SELECT * FROM herramientas WHERE id_herramienta = ?";
         conexion.query(query, [id], callback);
     },
-    Actualizar:function (conexion,datos,funcion) {
-        conexion.query("UPDATE herramientas SET Nombre=?, Estado=? WHERE id_herramienta=?", [datos.Nombre, datos.Estado, datos.id], funcion);
+    Actualizarher: function (conexion,datos,funcion) {
+        const query = "UPDATE herramientas SET Nombre=?, Estado=? WHERE id_herramienta=? ";
+        conexion.query(query, [datos.Nombre, datos.Estado, datos.id], funcion);
     },
 
     //DATOS PARA CRUD DE PRESTAMOS--------------------------------//
@@ -79,7 +80,7 @@ module.exports={
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
     insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?)",[datos.Nombre,datos.Apellido,datos.Gmail,datos.NIE],funcion);
+        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?,?)",[datos.Nombre,datos.Apellido,datos.Gmail,datos.NIE],funcion);
     },
     borrar:function(conexion,id,funcion){
         conexion.query("DELETE FROM estudiantes WHERE id_estudiante=?",[id],funcion)

@@ -83,7 +83,7 @@ router.get('/agregar',(req,res)=>{
    res.render('Estudiante/crear')
 });
 // ruta para  recibir datos 
-router.post('/estudiante',tallerControllers.guardarestu)
+router.post('/estudiantes',tallerControllers.guardarestu)
 // ruta para borrar registros del CRUD estudiantes
 router.post('/eliminarEstu/:id_estudiante', tallerControllers.eliminarEstu);
 // ruta para editar registros del CRUD estudiantes
@@ -93,6 +93,7 @@ router.post('/actualizarEstu',tallerControllers.actualizarEstu);
 
 //Materiales consumibles---------------------------------------------//
 //ruta para materiales consumibles
+router.get('/',)
 
 
 
