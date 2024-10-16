@@ -80,7 +80,7 @@ module.exports={
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
     insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?,?)",[datos.Nombre,datos.Apellido,datos.Gmail,datos.NIE],funcion);
+        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?,?)",[datos.estudiant,datos.Apellido,datos.Gmail,datos.NIE],funcion);
     },
     borrar:function(conexion,id,funcion){
         conexion.query("DELETE FROM estudiantes WHERE id_estudiante=?",[id],funcion)
