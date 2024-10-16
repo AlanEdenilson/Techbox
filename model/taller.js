@@ -92,10 +92,12 @@ module.exports={
     actualizar:function(conexion,datos,funcion){
         conexion.query("UPDATE estudiantes SET Nombre=?, Apellido=?, Gmail=?, NIE=? WHERE id_estudiante=?", [datos.estudiant,datos.apellido,datos.Gmail,datos.Nie, datos.id],funcion);
     },
-    // restablecer contraseña
 
-    Restablecer:function (conexion,datos,funcion) {
-        conexion.query("UPDATE registar SET Contraseña=? WHERE id=?", [datos.Contraseña, datos.ID_Registro], funcion);
+
+    // restablecer contraseña aca esta el modelo va pruebo ya 
+    //  aca usaremos el correo para actualizar la contraseña si ahorita probaremos
+    Restablecer:function (conexion,contraseña,correo,funcion) {
+        conexion.query("UPDATE registrar SET Contraseña=? WHERE Email=? AND EXISTS (SELECT 1 FROM registrar WHERE Email=? ); ", [contraseña, correo, correo], funcion);
     }
 
 }

@@ -27,6 +27,7 @@ module.exports={
     registrardatos:function (req,res) {
         var registrar = req.body
         console.log(registrar)
+        
 
         var email= req.body.email;
         var Nombre= req.body.Nombre;
@@ -40,12 +41,14 @@ module.exports={
             }else{
                 console.log('datos insertados correctamente')
                 res.render('login/menu');
-            }
-            
+             }
+            // y este para que es  ok introduce uns contraseña aver lo voy aver aca en la terminal
+            //para no dejar pasar al usuario si no puso bien la contraseña vaa
         });
     
-    },
-    Restablecer:function name(req,res) {
+    },//este es si este de restableces 
+    // ese es elde arriiba aya este de hhkjjjhghhhh
+    Restablecer:function (req,res) {
         console.log(req.body.Contraseña);
 
         if(req.body.Contraseña){
@@ -382,23 +385,7 @@ module.exports={
     },
 
  //CRUD DE MATERIALES CONSUMIBLE (REGISTROS)
-    //materialconsu:function (req,res) {
-        //const consult=`SELECT * FROM materiales_consumible`;
-        //conexion.query(consult,function (error,resultado) {
-            //if(error) {
-               // console.log("error en la bd")
-               // throw error;
-            //}else if(resultado.length > 0) {
-                //console.log('datos encontrados')
-                //res.render('material/materiales' ,{
-                   // mate:resultado
-              //  });
-           // }else{
-                //res.send("error")
-           // }
-
-       // });
-   // }
+ 
     
 
 

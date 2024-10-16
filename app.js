@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 
 var indexRouter = require('./routes/index');
@@ -12,6 +13,16 @@ var tallerRouter = require('./routes/taller');
 
 
 var app = express();
+
+app.use(session({
+  secret: 'mysecret_key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+
+
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="/stylesheets/contra.css">
 </head>
 <body>
-    <form id="recover-form">
+        <!-- <button  type="submit">Enviar</button> -->
+        <!-- aca va la ruta en el form donde esta el action proba -->
+    <form id="recover-form" action="/users/correo" method="post">
+        
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email">
-        <button onclick="window.location.href='/taller/establecer'" type="submit">Enviar</button>
+        <!-- aca no se ocupa onclik solo se pone de tipo sunmit y hay que poerle la action al formulario en la acion va la ruta -->
+        <button type="submit">Enviar</button>
     </form>
-    <script>
+    <!-- <script>
         const form = document.getElementById('recover-form');
 const emailInput = document.getElementById('email');
 
@@ -22,6 +26,6 @@ form.addEventListener('submit', (e) => {
     // Enviar correo electrónico con un enlace de restablecimiento de contraseña
     // ...
 });
-    </script>
+    </script> -->
 </body>
 </html>

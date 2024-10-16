@@ -8,7 +8,6 @@ router.get('/', function (req,res,next) {
 });
 //RUTA DE MENU-----------------------------------------------------------------//
 router.post('/menu',tallerControllers.registrardatos);
-;
 
 //trabaja la vane  crud de herramienta------------------------------------------//
 router.get('/herramientas',function (req,res) {
@@ -37,10 +36,6 @@ router.get('/Todos',function (req,res) {
   res.render('login/todos')
 });
 
-//RUTA DE MATERIAL CONSUMIBLE-------------------------------------------------------------------//
-router.get('/Material',function (req,res) {
-  res.render('material/materiales', )
-});
 
 
 router.get('/about',function (req,res) {

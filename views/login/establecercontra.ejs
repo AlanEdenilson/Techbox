@@ -15,7 +15,7 @@
                 Establecer contraseña
             </div>
             <br>
-        <form id="reset-form">
+        <form id="reset-form" action="/users/Restablecer" method="post">
             <label for="password">Nueva contraseña:</label>
             <input type="password" id="password" name="password">
             <br>
@@ -24,18 +24,20 @@
             <input type="password" id="confirm-password" name="confirm-password">
             <br>
             <br>
-            <button id="reset-password-btn type="submit" >Restablecer</button>
+            <!-- aca si es de quitarle el tipo de boton y dejarlo normal -->
+            <button id="btn" >Restablecer</button>
         </form>
     </div>
 </center>
+<!-- donde resibis loS datos -->
     
     <script>
-const form = document.getElementById('reset-form');
+const form = document.getElementById('btn');
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm-password');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+form.addEventListener('click', (e) => {
+   
     const password = passwordInput.value;
     const confirmPassword = confirmPasswordInput.value;
 
@@ -44,32 +46,37 @@ form.addEventListener('submit', (e) => {
         //si las contraseñas son diferentes enviara una alert
         alert('Las contraseñas no coinciden');
         return;
+    }else{
+
+        fetch('/users/Restablecer', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ password: password }) // Datos que quieres enviar al servidor
+})
+.then(response => response.json())
+.then(data => {
+  if (data.success) {
+     alert('actualizado correctamente')
+    window.location.href='/taller' // Contraseña restablecida con éxito
+  } else {
+    alert('no acrualizado')
+    console.error(data.message); // Error al restablecer contraseña
+  }
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
+        
     }
 
     // Enviar solicitud de restablecimiento de contraseña al servidor
-    fetch('/establecer', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            password: password
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Contraseña restablecida con éxito');
-            // Redirigir al usuario a la página de inicio de sesión
-            window.location.href = '/taller';
-        } else {
-            alert('Error al restablecer contraseña');
-        }
-    })
-    .catch(error => {
-        console.error(error);
-        alert('Error al restablecer contraseña');
-    });
+    //cambia la ruta judith la que me mandaste 
+    //creo que es la ruta que tu isiste en users 
+    //es la ultima andave te falta el users acordate entonces probemos ya
+    
 });
     </script>
 </body>
