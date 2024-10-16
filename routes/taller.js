@@ -93,9 +93,7 @@ router.post('/actualizarEstu',tallerControllers.actualizarEstu);
 
 //Materiales consumibles---------------------------------------------//
 //ruta para materiales consumibles
-router.get('/consumibles',function (req,res) {
-   res.render('material/materiales', )
- });
+ router.get('/consu',tallerControllers.materiales);
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')

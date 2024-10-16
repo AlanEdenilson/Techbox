@@ -98,6 +98,10 @@ module.exports={
     //  aca usaremos el correo para actualizar la contraseña si ahorita probaremos
     Restablecer:function (conexion,contraseña,correo,funcion) {
         conexion.query("UPDATE registrar SET Contraseña=? WHERE Email=? AND EXISTS (SELECT 1 FROM registrar WHERE Email=? ); ", [contraseña, correo, correo], funcion);
+    },
+
+    obtener:function (conexion,funcion) {
+        conexion.query("SELECT * FROM materiales_consu",funcion);
     }
 
 }

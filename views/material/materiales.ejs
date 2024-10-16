@@ -4,22 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/material.css">
     <title>Material Consumible</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+        <img src="/images/tci.png">
+            <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">sugerencias <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Recomendaciones</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <div class="container">
     
+        <a href="#" class="btn btn-primary" type="button">Agregar</a>
+    <br/>
+    <br/>
+    <br/>
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
-                <th>#</th>
+                <th>ID_MATERIALES_CONSUMIBLES </th>
+                <th>NOMBRE_MATERIAL</th>
+                <th>CANTIDAD</th>
+                <th>ACCIONES</th>
+                
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
+            <% if (typeof materi !== 'undefined') { %>
+             
+            
+                <% for( let materiales_consu = 0; materiales_consu < materi.length; materiales_consu++ ) { %>
+                <tr>
+                <td><%=materi[materiales_consu].id_mater %></td>
+                <td><%=materi[materiales_consu].nombre_mater %></td>
+                <td><%=materi [materiales_consu].cantidad< %></td>
+                <td>Editar  | Borrar</td>
+                <% } %>
+                <% } %>
             </tr>
         </tbody>
     </table>
-
+    </div>
 </body>
 </html>

@@ -11,7 +11,12 @@
         <!-- aca va la ruta en el form donde esta el action proba -->
     <form id="recover-form" action="/users/correo" method="post">
         
-        <label for="email">Correo electrónico:</label>
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh; width: 100%;">
+            <div class="card" style="width: 50%; box-shadow: 0px 0px 15px rgb(245, 245, 243); border-radius: 10px;">
+                <div class="card-header" style="background-color: #010008; color: #e7e7e3; font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
+                    Correo electrónico:
+                </div>
+        
         <input type="email" id="email" name="email">
         <!-- aca no se ocupa onclik solo se pone de tipo sunmit y hay que poerle la action al formulario en la acion va la ruta -->
         <button type="submit">Enviar</button>
@@ -29,3 +34,4 @@ form.addEventListener('submit', (e) => {
     </script> -->
 </body>
 </html>
+

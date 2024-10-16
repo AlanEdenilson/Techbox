@@ -386,7 +386,22 @@ module.exports={
 
  //CRUD DE MATERIALES CONSUMIBLE (REGISTROS)
  
-    
+    materiales:function (req,res) {
+        const consult=`SELECT * FROM materiales_consu`;
+        conexion.query(consult,function (error,resultado) {
+            if (error) {
+                console.log('Error en la base de datos');
+                throw error;  
+            }else if (resultado.length > 0) {
+                console.log('datos encontrados');
+                res.render('material/materiales' ,{
+                    materi:resultado
+                });
+            }else{
+                res.send("error");
+            }
+        });
+    }
 
 
     //editar:function (req,res) {
