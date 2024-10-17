@@ -82,6 +82,20 @@ module.exports={
             var estudaiante  = await Model.BUSCAR_estudiante(conexion,Estudiante)
             console.log(estudaiante[0].id)
 
+            const resultado = await Model.INSERTAR_prestamo(conexion,estudaiante[0].id,herramienta[0].id,estado)
+            console.log('prestamo: '+ resultado.insertId)
+
+            Model.DEVOLVER_herramienta(conexion,resultado.insertId,function (err,result) {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).send("Error al insertar los datos");
+                }
+                else if (result.affectedRows===1){
+                    console.log(result)
+                    res.render('Prestamos/prestamos')
+                }
+             })
+
         } catch(error) {
             res.send(error)
 
@@ -107,9 +121,8 @@ module.exports={
     //devolver
     devolver:function(req,res){
         var {prestamo_id, observaciones} =req.body
-
         console.log(req.body)
-         Model.DEVOLVER_herramienta(conexion,prestamo_id,observaciones,function (err,result) {
+         Model.ACTUALIZAR_devolucion(conexion,observaciones,prestamo_id,function (err,result) {
             if (err) {
                 console.error(err);
                 return res.status(500).send("Error al insertar los datos");
@@ -117,9 +130,10 @@ module.exports={
             else if (result.affectedRows===1){
                 console.log(result)
                 res.redirect('/One_T/devoluciones');
+            }else{
+                res.send('a ocurirido un error')
             }
          })
-       
     },
     verdevoluciones:function (req,res) {
         Model.VER_devoluciones(conexion,function (err,result) {
