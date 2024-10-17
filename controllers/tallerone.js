@@ -102,6 +102,9 @@ module.exports={
             res.send(error)
 
         }
+    },
+    ver_Pretamos:function (params) {
+        
     }
 
 }
