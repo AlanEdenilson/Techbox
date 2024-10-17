@@ -29,6 +29,7 @@ router.post('/insertHerramienta',controller.herramientaInsert)
 router.get('/prestamo',(req,res)=>{
     res.render('Prestamos/prestamos')
 })
+router.get('/verPrestamo',controller.ver_Pretamos)
 
 //insertar prestamo
 router.post('/prestamo',controller.prestamo)

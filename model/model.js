@@ -68,5 +68,25 @@ module.exports={
     INSERTAR_prestamo:function(conexion,estudiante,herramienta,estado, funcion) {
         conexion.query("INSERT INTO prestamos (perfil_estudiante_id, herramienta_id, estado) VALUES (?,?,?)",[estudiante,herramienta,estado],funcion);
     },
+    //Ver los prestamos
+    VER_prestamos:function(conexion,funcion) {
+       var consulta = `
+        SELECT 
+            p.id as prestamo_id,
+            p.fecha_prestamo,
+            p.estado as estado_prestamo,
+            e.nie,
+            e.nombre as nombre_estudiante,
+            e.especialidad,
+            h.nombre as nombre_herramienta,
+            h.estado as estado_herramienta,
+            t.nombre as tipo_herramienta
+        FROM prestamos p
+        INNER JOIN perfil_estudiante e ON p.perfil_estudiante_id = e.id
+        INNER JOIN herramientas h ON p.herramienta_id = h.id
+        INNER JOIN tipo t ON h.id_tipo = t.id_tipo
+        `
+        conexion.query(consulta,funcion);
+    }
 
 }

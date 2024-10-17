@@ -29,7 +29,7 @@
         <a href="/taller/crearp" class="btn btn-primary" type="button">Crear un Prestamos</a>
         <br/>
         <br/>
-        <table class="table table-light">
+        <table id="table" class="table table-light">
             <thead class="thead-light">
                 <tr>
                     <th>Id_prestamo</th>
@@ -41,41 +41,51 @@
                 </tr>
             </thead>
             <tbody>
-
-                <% if (typeof prest !== 'undefined') { %>
-                
-                <% for(let prestamo = 0; prestamo < prest.length; prestamo++){%>
-                    <tr>
-                    <td><%= prest[prestamo].Id_prestamos%> </td>
-                    <td> <%= prest[prestamo].Herramienta%> </td>
-                    <td> <%= prest[prestamo].Fecha_prestamo%> </td>
-                    <td> <%= prest[prestamo].Estudiante%> </td>
-                    <td> <%= prest[prestamo].Tipo_herramienta%> </td>
-                    <td>
-                        
-                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    
-                        <form class="form-inline" method="get" action="/taller/editarpres/<%= prest[prestamo].Id_prestamos%>">
-        
-                            <button class="btn btn-warning" type="submit">Editar</button>
-                            
-                        </form>
-                    </div>
-                    
-                    | 
-                        
-                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                        <form class="form-inline" method="post" action="/taller/eliminarpres/<%= prest[prestamo].Id_prestamos%>">
-                            <button class="btn btn-danger" type="submit">Eliminar</button>
-                            
-                        </form>
-                    </div>
-                    </td>
-                </tr>
-            <% } %>
-            <% } %>
+           
             </tbody>
         </table>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script >
+        $(document).ready(function(){
+            console.log('buscando prestamo')
+    
+            $.ajax({
+                url: '/One_T/verPrestamo',
+                type: 'GET',
+                success: function(data){
+                    console.log(data)
+                    var html;
+                    for(var i=0; i<data.length; i++){
+                        html=`
+                         <tr>
+                            <td>${data[i].prestamo_id}</td>
+                            <td> ${data[i].nombre_herramienta}</td>
+                            <td> ${data[i].fecha_prestamo}</td>
+                            <td>${data[i].nombre_estudiante}</td>
+                            <td>${data[i].tipo_herramienta}</td>
+                            <td>
+                                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                    <button class="btn btn-warning" type="submit">Editar</button>
+                            </div>
+                            |   
+                            <div data_id=${data[i].prestamo_id} class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </div>
+                            </td>
+                        </tr>
+                        `
+    
+                        $('#table').append(html)
+                    }
+                    
+                },
+                error: function(error){
+                    console.log(error)
+                }
+            });
+        });
+    
+    </script>
 </body>
 </html>

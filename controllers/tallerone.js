@@ -102,8 +102,21 @@ module.exports={
 
         }
     },
-    ver_Pretamos:function (params) {
-        
+    ver_Pretamos:function (req,res) {
+        console.log('buscando prestamos')
+        Model.VER_prestamos(conexion,function(err,result) {
+            if(err) {
+                console.log(err);
+                return res.status(500).send('Error en la consulta');
+            }
+            else if (result.length>0){
+                console.log(result)
+                res.send(result)
+            }else{
+                res.send(' no se encontraron prestamos')
+
+            }
+        })  
     }
 
 }
