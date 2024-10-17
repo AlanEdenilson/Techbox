@@ -44,7 +44,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/taller',tallerRouter);
 app.use('/One_T', tallersone);
-app.use('/Two_t',tallertwo);
+app.use('/Two_T',tallertwo);
 
 
 // catch 404 and forward to error handler

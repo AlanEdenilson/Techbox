@@ -3,13 +3,13 @@ var con = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'',
-    database:'taller_mecanico'
+    database:'tecbox'
 }
 );
 con.connect(
     (err)=>{
         if (!err) {
-            console.log('conexion establecida');
+            console.log('Conexion exitosa');
         }else{
             console.log('error de conexion');
         }
