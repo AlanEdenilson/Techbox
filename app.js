@@ -10,6 +10,8 @@ const session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tallerRouter = require('./routes/taller');
+var tallersone = require('./routes/tallerone');
+var tallertwo = require('./routes/tallertwo');
 
 
 var app = express();
@@ -41,6 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/taller',tallerRouter);
+app.use('/One_T', tallersone);
+app.use('/Two_t',tallertwo);
 
 
 // catch 404 and forward to error handler
