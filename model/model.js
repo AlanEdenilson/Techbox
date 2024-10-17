@@ -125,6 +125,7 @@ module.exports={
         h.nombre AS nombre_herramienta,
         p.fecha_prestamo,
         d.fecha_devolucion,
+        d.prestamo_id,
         d.estado_entrega,
         d.observaciones
         FROM perfil_estudiante pe

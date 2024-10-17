@@ -71,7 +71,6 @@ module.exports={
         })
         
     },
-
     //REGISTAR PRESTAMO
     prestamo: async function(req,res){
         const {herra ,Estudiante ,estado } = req.body
