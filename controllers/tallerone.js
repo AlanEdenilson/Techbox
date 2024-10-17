@@ -74,33 +74,19 @@ module.exports={
 
     //REGISTAR PRESTAMO
     prestamo: async function(req,res){
-        console.log(req.body)
-
         const {herra ,Estudiante ,estado } = req.body
-
         console.log('herramienta: '+herra+' estudiante: '+Estudiante)
-
         try {
             var herramienta = await Model.BUSCAR_nombre_herramienta(conexion,herra)
             console.log(herramienta[0].id)
             var estudaiante  = await Model.BUSCAR_estudiante(conexion,Estudiante)
             console.log(estudaiante[0].id)
 
-             Model.INSERTAR_prestamo(conexion,estudaiante[0].id,herramienta[0].id,estado,function(err,result) {
-                if(err) {
-                    console.log(err);
-                    return res.status(500).send('Error en la consulta');
-                }
-                else if (result.affectedRows===1){
-                    console.log(result)
-                    res.redirect('/One_T/prestamo');
-                }
-             })
-
         } catch(error) {
             res.send(error)
 
         }
+        
     },
     ver_Pretamos:function (req,res) {
         console.log('buscando prestamos')
@@ -117,6 +103,39 @@ module.exports={
 
             }
         })  
-    }
+    },
+    //devolver
+    devolver:function(req,res){
+        var {prestamo_id, observaciones} =req.body
 
+        console.log(req.body)
+         Model.DEVOLVER_herramienta(conexion,prestamo_id,observaciones,function (err,result) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al insertar los datos");
+            }
+            else if (result.affectedRows===1){
+                console.log(result)
+                res.redirect('/One_T/devoluciones');
+            }
+         })
+       
+    },
+    verdevoluciones:function (req,res) {
+        Model.VER_devoluciones(conexion,function (err,result) {
+            if(err) {
+                console.log(err);
+                return res.status(500).send('Error en la consulta');
+            }
+            else if (result.length>0){
+                console.log(result)
+                res.send(result)
+            }else{
+                res.send(' no se encontraron devoluciones')
+
+            }
+        })
+        
+    }
+    
 }

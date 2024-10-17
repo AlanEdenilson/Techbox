@@ -65,8 +65,25 @@ module.exports={
         });
     },
     //inserta el prestamo
-    INSERTAR_prestamo:function(conexion,estudiante,herramienta,estado, funcion) {
-        conexion.query("INSERT INTO prestamos (perfil_estudiante_id, herramienta_id, estado) VALUES (?,?,?)",[estudiante,herramienta,estado],funcion);
+    INSERTAR_prestamo:function(conexion,estudiante,herramienta,estado) {
+        var consulta =`INSERT INTO prestamos (perfil_estudiante_id, herramienta_id, estado) VALUES (${estudiante},${herramienta},'${estado}')`
+        return new Promise((resolve, reject) => {
+            try {
+                conexion.query(consulta, function (err,result) {
+                    if (err) {
+                        return reject(err);
+                    } else  {
+                        console.log('retornando')
+                        return resolve(result);
+                    }
+                });
+                
+            } catch (error) {
+                
+            }
+                
+                
+              });
     },
     //Ver los prestamos
     VER_prestamos:function(conexion,funcion) {
@@ -87,6 +104,28 @@ module.exports={
         INNER JOIN tipo t ON h.id_tipo = t.id_tipo
         `
         conexion.query(consulta,funcion);
+    },
+    //devolver
+    DEVOLVER_herramienta:function(conexion,prestamo,funcion) {
+        conexion.query("INSERT INTO devolucion (prestamo_id) VALUES (?,?,?)",[prestamo],funcion);
+    },
+    //Ver las devoluciones
+    VER_devoluciones:function(conexion,funcion){
+        var consulta = `
+        SELECT 
+        pe.nie,
+        pe.nombre AS nombre_estudiante,
+        h.nombre AS nombre_herramienta,
+        p.fecha_prestamo,
+        d.fecha_devolucion,
+        d.estado_entrega,
+        d.observaciones
+        FROM perfil_estudiante pe
+        INNER JOIN prestamos p ON pe.id = p.perfil_estudiante_id
+        INNER JOIN herramientas h ON h.id = p.herramienta_id
+        LEFT JOIN devolucion d ON p.id = d.prestamo_id;
+        `
+        conexion.query(consulta,funcion)
     }
 
 }

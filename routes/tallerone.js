@@ -15,8 +15,6 @@ router.post('/iniciar',controller.iniciar)
 //pagina de registro
 router.post('/registrar',controller.registrar)
 
-
-
 router.get('/inventario',(req,res)=>{
     res.render('Inventario/herramientas')
 })
@@ -33,6 +31,14 @@ router.get('/verPrestamo',controller.ver_Pretamos)
 
 //insertar prestamo
 router.post('/prestamo',controller.prestamo)
+
+router.get('/devoluciones',(req,res)=>{
+    res.render('DEVOLUCIONES/devolu')
+})
+
+router.post('/devolver',controller.devolver)
+
+router.get('/verdevoluciones',controller.verdevoluciones)
 
 
 module.exports = router;
