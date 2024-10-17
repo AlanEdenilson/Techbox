@@ -21,7 +21,52 @@ module.exports={
          LEFT JOIN tipo t ON h.id_tipo = t.id_tipo;
         `
         conexion.query(consulta,funcion);
+    },
+    //buscar herramienta por su nombre
+    BUSCAR_nombre_herramienta:function(conexion,nombre) {
+        const consulta = `SELECT id FROM herramientas WHERE nombre = '${nombre}'`;
+        return new Promise((resolve, reject) => {
+            try {
+                conexion.query(consulta, function (error,result) {
+                    if (error) {
+                        return reject(error);
+                    } else if(result.length>0) {
+                        resolve(result);
 
-    
-    }
+                    }else{
+                        reject('no se encontro ninguna herramienta con ese nombre ')
+                    }
+                });
+                
+            } catch (error) {
+                throw error;
+            }
+        });
+    },
+    //buscar estudinate por nie
+    BUSCAR_estudiante:function(conexion,nie) {
+        const consulta = `SELECT id FROM perfil_estudiante WHERE nie = '${nie}'`;
+        return new Promise((resolve, reject) => {
+            try {
+                conexion.query(consulta, function (error,result) {
+                    if (error) {
+                        return reject(error);
+                    } else if(result.length>0) {
+                        resolve(result);
+
+                    }else{
+                        reject('no se encontro ningun estudiante con ese nie ')
+                    }
+                });
+                
+            } catch (error) {
+                throw error;
+            }
+        });
+    },
+    //inserta el prestamo
+    INSERTAR_prestamo:function(conexion,estudiante,herramienta,estado, funcion) {
+        conexion.query("INSERT INTO prestamos (perfil_estudiante_id, herramienta_id, estado) VALUES (?,?,?)",[estudiante,herramienta,estado],funcion);
+    },
+
 }

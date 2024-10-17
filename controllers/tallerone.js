@@ -73,8 +73,35 @@ module.exports={
     },
 
     //REGISTAR PRESTAMO
-    prestamo:function(req,res){
+    prestamo: async function(req,res){
         console.log(req.body)
+
+        const {herra ,Estudiante ,estado } = req.body
+
+        console.log('herramienta: '+herra+' estudiante: '+Estudiante)
+
+        try {
+            var herramienta = await Model.BUSCAR_nombre_herramienta(conexion,herra)
+            console.log(herramienta[0].id)
+            var estudaiante  = await Model.BUSCAR_estudiante(conexion,Estudiante)
+            console.log(estudaiante[0].id)
+
+             Model.INSERTAR_prestamo(conexion,estudaiante[0].id,herramienta[0].id,estado,function(err,result) {
+                if(err) {
+                    console.log(err);
+                    return res.status(500).send('Error en la consulta');
+                }
+                else if (result.affectedRows===1){
+                    console.log(result)
+                    res.redirect('/One_T/prestamo');
+                }
+             })
+
+
+        } catch(error) {
+            res.send(error)
+
+        }
     }
 
 }

@@ -15,17 +15,20 @@
                         <input id="herramienta" class="form-control" type="text" name="herra" placeholder="Ingresa el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
                     </div>
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="fecha_prestamo" style="font-weight: bold;">Fecha de Préstamo</label>
-                        <input id="fecha_prestamo" class="form-control" type="date" name="prestamo" placeholder="Fecha del préstamo" style="border-radius: 5px; padding: 10px;">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="estudiante" style="font-weight: bold;">Estudiante</label>
+                        <label for="estudiante" style="font-weight: bold;">NIE </label>
                         <input id="estudiante" class="form-control" type="text" name="Estudiante" placeholder="Ingresa el nombre del estudiante" style="border-radius: 5px; padding: 10px;">
                     </div>
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="tipo_herramienta" style="font-weight: bold;">Tipo de Herramienta</label>
-                        <input id="tipo_herramienta" class="form-control" type="text" name="Tipo" placeholder="Ingresa el tipo de herramienta" style="border-radius: 5px; padding: 10px;">
+                        <label for="tipo">Estado</label>
+                        <select id="estado" name="estado">
+                            <option value="">Seleccione un tipo</option>
+                            <option value="Bueno ">Bueno</option>
+                            <option value="Deteriorado ">Deteriorado</option>
+                           
+                        </select>
                     </div>
+                   
+                  
                     <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar</button>
                     <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/One_T/prestamo'" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Cancelar</button>
                 </div>
