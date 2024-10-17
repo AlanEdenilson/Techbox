@@ -27,6 +27,7 @@ router.get('/herramientas',tallerControllers.herramientas);
 router.get('/herra',(req,res)=>{
    res.render('Inventario/crear')
 });
+
 // ruta para guardar registros en CRUD herramientas
 router.post('/herramientas',tallerControllers.guardarherra);
 // ruta para eliminar registros en CRUD herramientas

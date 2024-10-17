@@ -1,5 +1,5 @@
 <center>
-    <form method="post" action="/taller/herramientas">
+    <form method="post" action="/One_T/insertHerramienta">
         <br>
         <br>
         <br>
@@ -20,9 +20,22 @@
                             <input id="nombre" class="form-control" type="text" name="Nombre" placeholder="Ingresa el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
                         </div>
                         <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="tipo">Tipo</label>
+                            <select id="tipo" name="tipo">
+                                <option value="">Seleccione un tipo</option>
+                                <option value="1">Electrica </option>
+                                <option value="2">Material Consumible </option>
+                                <option value="3">Manual </option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
                             <label for="estado" style="font-weight: bold;">Estado</label>
                             <input id="estado" class="form-control" type="text" name="Estado" placeholder="Ingresa el estado de la herramienta" style="border-radius: 5px; padding: 10px;">
                         </div>
+                        <!-- <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="estado" style="font-weight: bold;">Cantidad</label>
+                            <input id="cantidad" class="form-control" type="text" name="cantidad" placeholder="Ingresa el estado de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        </div> -->
         
                         <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar</button>
                         <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/taller/herramientas'" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Cancelar</button>

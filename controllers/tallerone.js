@@ -42,10 +42,39 @@ module.exports={
             }
 
         })
-
-
+    },
+    //INGRESAR HERRAMIENTA
+    herramientaInsert:function(req,res) {
+        console.log(req.body)
+        Model.INSERTAR_herramienta(conexion,req.body,function(err,result) {
+            if(err) {
+                console.log(err);
+                return res.status(500).send('Error en la consulta');
+            }
+            else if (result.affectedRows===1){
+                console.log(result)
+                res.redirect('/One_T/inventario');
+            }
+        })
+    },
+    //VER HERRAMIENTAS
+    verHerramienta:function (req,res) {
+        Model.Buscar_herramienta(conexion,function(err,result) {
+            if(err) {
+                console.log(err);
+                return res.status(500).send('Error en la consulta');
+            }
+            else if (result.length>0){
+                console.log(result)
+                res.send(result)
+            }
+        })
         
-      
+    },
+
+    //REGISTAR PRESTAMO
+    prestamo:function(req,res){
+        console.log(req.body)
     }
 
 }
