@@ -26,17 +26,17 @@
         </nav>
     <div class="container">
     
-        <a href="#" class="btn btn-primary" type="button">Agregar</a>
+        <a href="/taller/Crearmat" class="btn btn-primary" type="button">Agregar</a>
     <br/>
     <br/>
     <br/>
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
-                <th>ID_MATERIALES_CONSUMIBLES </th>
-                <th>NOMBRE_MATERIAL</th>
-                <th>CANTIDAD</th>
-                <th>ACCIONES</th>
+                <th>Id</th>
+                <th>Nombre del material</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
                 
             </tr>
         </thead>
@@ -48,11 +48,28 @@
                 <tr>
                 <td><%=materi[materiales_consu].id_mater %></td>
                 <td><%=materi[materiales_consu].nombre_mater %></td>
-                <td><%=materi [materiales_consu].cantidad< %></td>
-                <td>Editar  | Borrar</td>
-                <% } %>
-                <% } %>
+                <td><%=materi [materiales_consu].cantidad %></td>
+                <td> <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    
+                    <form class="form-inline" method="get" action="/taller/editarmater/<%=materi[materiales_consu].id_mater %>">
+    
+                        <button class="btn btn-warning" type="submit">Editar</button>
+                        
+                    </form>
+                </div>
+                
+                | 
+                    
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <form class="form-inline" method="post" action="/taller/eliminarmate/<%=materi[materiales_consu].id_mater %>">
+                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                        
+                    </form>
+                </div></td>
+                
             </tr>
+            <% } %>
+                <% } %>
         </tbody>
     </table>
     </div>

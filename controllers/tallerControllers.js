@@ -325,9 +325,9 @@ module.exports={
     },
     guardarestu:function (req,res) {
         console.log(req.body);
-        var {estudiat,apellido, Gmail, Nie}=req.body
+        var {Estudiat,Apellido, Gmail, Nie}=req.body
 //esta consulta es para guardar archivos 
-        var consult =`INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES ('${estudiat}','${apellido}', '${Gmail}', '${Nie}')`;
+        var consult =`INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES ('${Estudiat}','${Apellido}', '${Gmail}', '${Nie}')`;
       ;  conexion.query(consult,function (error,resultado) {
             if(error) {
                 console.log("error en la bd")
@@ -339,11 +339,11 @@ module.exports={
 
         });
     },
-    eliminarEstu:function (req,res){
+    eliminarEstud:function (req,res){
         console.log("Recepción de datos");
         console.log(req.params.id_estudiante);
 
-        taller.borrar(conexion,req.params.id_estudiante, function (error) {
+        taller.borrarESTU(conexion,req.params.id_estudiante, function (error) {
             if (error) {
                 console.error("Error al eliminar:", error);
                 return res.status(500).send("Error al eliminar el elemento.");
@@ -351,10 +351,10 @@ module.exports={
             res.redirect('/taller/estudiantes');
         });
     },
-    editarEstu:function(req,res){
+    editarEstud:function(req,res){
         const id_estudiante = req.params.id_estudiante;
 
-        taller.retornarDatosID(conexion, id_estudiante, function (err, registros) {
+        taller.RETORNARDATOSID(conexion, id_estudiante, function (err, registros) {
             if (err) {
                 console.error("Error al recuperar los datos:", err);
                 return res.status(500).send("Error al recuperar los datos.");
@@ -368,17 +368,18 @@ module.exports={
             res.render('Estudiante/editarEst', { taller: registros[0] });
         });
     },
-    actualizarEstu:function (req,res) {
-        console.log(req.body.estudiat);
-        console.log(req.body.apellido);
+    actualizarEstud:function (req,res) {
+        console.log(req.body.Estudiant);
+        console.log(req.body.Apellido);
         console.log(req.body.Gmail);
         console.log(req.body.Nie);
 
-        taller.actualizar(conexion, req.body, function (err) {
+        taller.ActualizarEstud(conexion, req.body, function (err) {
             if (err) {
                 console.error(err);
                 return res.status(500).send("Error al actualizar los datos");
             }
+            console.log('redireccionando datos a...')
             res.redirect('/taller/estudiantes');
         });
         
@@ -390,16 +391,72 @@ module.exports={
         const consult=`SELECT * FROM materiales_consu`;
         conexion.query(consult,function (error,resultado) {
             if (error) {
-                console.log('Error en la base de datos');
+                console.log('Error en la base de datos')
                 throw error;  
+
             }else if (resultado.length > 0) {
-                console.log('datos encontrados');
+                console.log('datos encontrados')
                 res.render('material/materiales' ,{
                     materi:resultado
                 });
             }else{
                 res.send("error");
             }
+        });
+    },
+    guardarmater:function (req,res) {
+        console.log(req.body);
+        var {material,cantidad}=req.body
+
+        var consult= `INSERT INTO materiales_consu(nombre_mater,cantidad)VALUES ('${material}','${cantidad}')`;
+        ; conexion.query(consult,function (error,resultado) {
+            if (error) {
+                console.log("Error en la bd")
+                throw error;
+            }else{
+                res.redirect('/taller/consu');
+            }
+        });
+    },
+    eliminarmater:function (req,res) {
+        console.log("Recepcion de datos");
+        console.log(req.params.id_mater);
+
+        taller.borrar(conexion,req.params.id_mater, function (Error) {
+            if (Error) {
+                console.log.error("error al eliminar datos:",Error);
+                return res.status(500).send("error al eliminar registro.");
+            }
+            res.redirect('/taller/consu')
+        });
+    },
+    editarmater:function (req,res) {
+        const id_mater = req.params.id_mater;
+
+        taller.retornarDatosID(conexion,id_mater,function (Error,Registros) {
+            if (Error) {
+                console.error("error al recuperar datos:",Error);
+                return res.status(500).send("error al recuperar datos. ")
+            }
+            if (!Registros || Registros.length === 0) {
+                return res.status(404).send("no se encontraron datos.");
+            }
+            console.log("datos recuperados:",Registros[0]);
+            res.render('material/editarmater',{taller: Registros[0]});
+        });
+    },
+    actualizarmater:function (req,res) {
+        console.log("Datos recibidos:", req.body);
+        console.log(req.body.material);
+        console.log(req.body.cantidad);
+
+        taller.actualizar(conexion,req.body,function (Error) {
+            if (Error) {
+                console.error(Error);
+                return res.status(500).send("error al actualizar datos.");
+            }
+            console.log("redirigiendo a...")
+            res.redirect('/taller/consu');
         });
     }
 

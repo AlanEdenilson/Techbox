@@ -85,15 +85,24 @@ router.get('/agregar',(req,res)=>{
 // ruta para  recibir datos 
 router.post('/estudiantes',tallerControllers.guardarestu)
 // ruta para borrar registros del CRUD estudiantes
-router.post('/eliminarEstu/:id_estudiante', tallerControllers.eliminarEstu);
+router.post('/eliminarEstu/:id_estudiante', tallerControllers.eliminarEstud);
 // ruta para editar registros del CRUD estudiantes
-router.get('/editarEstu/:id_estudiante',tallerControllers.editarEstu);
-router.post('/actualizarEstu',tallerControllers.actualizarEstu);
+router.get('/editarEstu/:id_estudiante',tallerControllers.editarEstud);
+router.post('/actualizarEstu',tallerControllers.actualizarEstud);
 
 
 //Materiales consumibles---------------------------------------------//
 //ruta para materiales consumibles
  router.get('/consu',tallerControllers.materiales);
+
+ router.get('/Crearmat', (req, res) => {
+ res.render('material/crearnue')
+ });
+
+ router.post('/materialconsu',tallerControllers.guardarmater);
+ router.post('/eliminarmate/:id_mater',tallerControllers.eliminarmater);
+ router.get('/editarmater/:id_mater',tallerControllers.editarmater);
+ router.post('/actualizarmater',tallerControllers.actualizarmater);
 
 //router.get('/menu',(req,res)=>{
    // res.render('login/menu')

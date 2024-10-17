@@ -1,5 +1,5 @@
 const con = require("../config/conexion");
-const { guardarherra, actualizar } = require("../controllers/tallerControllers");
+const { guardarherra, actualizar, actualizarEstud } = require("../controllers/tallerControllers");
 
 module.exports={
     obtener:function (conexion,funcion) {
@@ -79,18 +79,19 @@ module.exports={
     obtener:function (conexion,funcion) {
         conexion.query("SELECT * FROM estudiantes",funcion)
     },
-    insertar:function (conexion,datos,funcion) {
-        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?,?)",[datos.estudiant,datos.Apellido,datos.Gmail,datos.NIE],funcion);
+    insertar:function (conexion,Datos,funcion) {
+        conexion.query("INSERT INTO estudiantes (Nombre,Apellido,Gmail,NIE) VALUES (?,?,?,?)",[Datos.Estudiant,Datos.Apellido,Datos.Gmail,Datos.Nie],funcion);
     },
-    borrar:function(conexion,id,funcion){
+    borrarESTU:function(conexion,id,funcion){
         conexion.query("DELETE FROM estudiantes WHERE id_estudiante=?",[id],funcion)
     },
-    retornarDatosID:function(conexion, id, callback){
+    RETORNARDATOSID:function(conexion, id, callback){
         const query = "SELECT * FROM estudiantes WHERE id_estudiante = ?";
         conexion.query(query, [id], callback);
     },
-    actualizar:function(conexion,datos,funcion){
-        conexion.query("UPDATE estudiantes SET Nombre=?, Apellido=?, Gmail=?, NIE=? WHERE id_estudiante=?", [datos.estudiant,datos.apellido,datos.Gmail,datos.Nie, datos.id],funcion);
+    ActualizarEstud:function(conexion,Datos,funcion){
+        const query = "UPDATE estudiantes SET Nombre=?, Apellido=?, Gmail=?, NIE=? WHERE id_estudiante=?";
+        conexion.query(query, [Datos.Estudiant,Datos.Apellido,Datos.Gmail,Datos.Nie, Datos.id],funcion);
     },
 
 
@@ -99,9 +100,22 @@ module.exports={
     Restablecer:function (conexion,contraseña,correo,funcion) {
         conexion.query("UPDATE registrar SET Contraseña=? WHERE Email=? AND EXISTS (SELECT 1 FROM registrar WHERE Email=? ); ", [contraseña, correo, correo], funcion);
     },
-
+    //modelo de materiales consumibles
     obtener:function (conexion,funcion) {
         conexion.query("SELECT * FROM materiales_consu",funcion);
+    },
+    insertar:function (conexion,datos,funcion) {
+        conexion.query("INSERT INTO materiales_consu(nombre_mater,cantidad) VALUES (?,?)",[datos.material,datos.cantidad],funcion);
+    },
+    borrar:function (conexion,Id,funcion) {
+        conexion.query("DELETE FROM materiales_consu WHERE id_mater = ?",[Id],funcion);
+    },
+    retornarDatosID:function (conexion,Id,Callback) {
+        const query="SELECT * FROM materiales_consu WHERE id_mater = ?";
+            conexion.query(query,[Id],Callback);
+    },
+    actualizar:function (conexion,datos,funcion) {
+        conexion.query("UPDATE materiales_consu SET nombre_mater = ?,cantidad = ? WHERE id_mater= ?",[datos.material,datos.cantidad,datos.Id],funcion);
     }
 
 }

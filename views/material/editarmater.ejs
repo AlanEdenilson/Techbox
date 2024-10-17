@@ -1,6 +1,7 @@
 <center>
     <!-- aca estaria la nueva ruta -->
-    <form method="post" action="/taller/materialconsu">
+    <form method="post" action="/taller/actualizarmater">
+        <input type="hidden" name="Id" value="<%= taller.id_mater %>">
         <br>
         <br>
         <br>
@@ -14,17 +15,17 @@
                 <div class="card-body" style="padding: 30px;">
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label for="devolucion" style="font-weight: bold;">Nombre del Material</label>
-                        <input id="devolucion" class="form-control" type="text" name="material" placeholder="Ingrese el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        <input id="devolucion" value="<%= taller.nombre_mater %>" class="form-control" type="text" name="material" placeholder="Ingrese el nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
                     </div>
                 <div class="card-body" style="padding: 30px;">
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label for="devolucion" style="font-weight: bold;">Cantidad</label>
-                        <input id="devolucion" class="form-control" type="text" name="cantidad" placeholder="Ingrese fecha " style="border-radius: 5px; padding: 10px;">
+                        <input id="devolucion" value="<%= taller.cantidad %>" class="form-control" type="text" name="cantidad" placeholder="Ingrese fecha " style="border-radius: 5px; padding: 10px;">
                     </div>
                     
                     
 
-                    <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar Archivo</button>
+                    <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Guardar</button>
                 </div>
             </div>
         </div>
@@ -53,4 +54,4 @@
     .btn:hover {
         background: linear-gradient(150deg, #b3b3b3,#000000);
     }
-    </style> 
+    </style>
