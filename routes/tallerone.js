@@ -6,7 +6,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/',(req,res)=>{
-   res.send('hola mndo')
+   res.render('login/menu')
 });
 
 //pagina de inicio
@@ -14,6 +14,7 @@ router.post('/iniciar',controller.iniciar)
 
 //pagina de registro
 router.post('/registrar',controller.registrar)
+
 
 
 router.get('/inventario',(req,res)=>{
