@@ -25,7 +25,7 @@
 <br/>
 <br/>
 
-    <table class="table table-light">
+    <table id="table" class="table table-light">
         <thead class="thead-light">
             <tr>
                 <th>id</th>
@@ -38,38 +38,96 @@
             </tr>
         </thead>
         <tbody>
-            <% if (typeof estud !== 'undefined') { %>
              
             
-            <% for( let estudiantes = 0; estudiantes < estud.length; estudiantes++ ) { %>
+
                 <tr>
-            <td><%=estud[estudiantes].id_estudiante  %></td>
-            <td><%=estud[estudiantes].Nombre %></td>
-            <td><%=estud[estudiantes].Apellido %></td>
-            <td><%=estud[estudiantes].Gmail %></td>
-            <td><%=estud[estudiantes].NIE %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
 
             <td>   
                 <div class="btn-group-vertical" role="group" aria-label="b-form">
 
-                    <form class="form-inline" method="get" action="/taller/editarEstu/<%=estud[estudiantes].id_estudiante  %>" class="d-inline">
+                   
                         <button class="btn btn-warning" type="submit">Editar</button>
-                    </form>
+                    
                 </div>
 
 
 
                 <div class="btn-group-vertical" role="group" aria-label="b-form">
 
-                    <form class="form-inline" method="post" action="/taller/eliminarEstu/<%=estud[estudiantes].id_estudiante  %>" class="d-inline">
                         <button class="btn btn-danger" type="submit">Eliminar</button>
-                    </form>
+                  
                 </div>
                     </td>
                 </tr>
-            <% } %>
-            <% } %>
+            
     </tbody>
 </table>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script >
+    $(document).ready(function(){
+        console.log('buscando estudiantels')
+
+        $.ajax({
+            url: '/One_T/verestudiantes',
+            type: 'GET',
+            success: function(data){
+                console.log(data)
+                var html;
+                    for(var i=0; i<data.length; i++){
+                        html=`
+                         <tr>
+                            <td>${data[i].id}</td>
+                            <td> ${data[i].nombre}</td>
+                            <td> ${data[i].apellido}</td>
+                            <td>${data[i].correo}</td>
+                            <td>${data[i].nie}</td>
+                            <td>   
+                            <div class="btn-group-vertical" role="group" aria-label="b-form">
+                            <button data-id=${data[i].id} class="btn btn-warning" id="edit">Editar</button>
+                            </div>
+
+
+                                <div class="btn-group-vertical" role="group" aria-label="b-form">
+                                <button id="delete" data-id=${data[i].id} class="btn btn-danger" >Eliminar</button>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        `
+    
+                        $('#table').append(html)
+                    }
+              
+                
+            },
+            error: function(error){
+                console.log(error)
+            }
+        });
+
+
+        $('#table').off('click', '#delete').on('click', '#delete', function() {
+            var id = $(this).data('id')
+           
+
+        })
+
+        
+        $('#table').off('click', '#edit').on('click', '#edit', function() {
+            var id = $(this).data('id')
+            
+            window.location.href="/One_T/editEstudent?id="+id
+
+        })
+    });
+
+</script>
 </body>
 </html>

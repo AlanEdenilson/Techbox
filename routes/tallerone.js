@@ -40,5 +40,23 @@ router.post('/devolver',controller.devolver)
 
 router.get('/verdevoluciones',controller.verdevoluciones)
 
+router.get('/estudiantes',(req,res)=>{
+    res.render('Estudiante/Estudiante')
+
+})
+
+router.post('/estudiantes',controller.guardarestu)
+
+router.get('/verestudiantes',controller.verestudi)
+
+router.get('/editEstudent',(req,res)=>{
+    res.render('Estudiante/editarEst',{value:req.query.id})
+}
+)
+
+router.get('/buscarporidE',controller.buscarestudentporid)
+
+router.post('/updateESt',controller.actualizarEstud)
+
 
 module.exports = router;

@@ -29,7 +29,7 @@
     <br/>
     <br/>
     <br/>
-    <a href="/taller/entrega" class="btn btn-primary" type="button">Subir entrega</a>
+    <a href="/taller/entrega" style="display: none;" class="btn btn-primary" type="button">Subir entrega</a>
     <br/>
     <br/>
     <table id="table" class="table table-secondary">
@@ -41,7 +41,7 @@
         <th>fecha_devolucion</th>
         <th>observaciones</th>
         <th>estado_entrega</th>
-        <th>Acciones</th>
+       
     </tr>
 </thead>
 <tbody>
@@ -68,15 +68,7 @@
                         <td>${data[i].fecha_devolucion}</td>
                         <td>${data[i].observaciones}</td>
                         <td>${data[i].estado_entrega}</td>
-                        <td>
-                         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                          <button class="btn btn-warning" type="submit">Editar</button>
-                         </div>
-                         |
-                         <div data-id=${data[i].prestamo_id} class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                          <button class="btn btn-danger" type="submit">Borrar</button>
-                         </div>
-                         </td>
+                        
                         </tr>
                     `
 

@@ -1,4 +1,5 @@
 var conexion = require('../config/conexion');
+const model = require('../model/model');
 var Model =require('../model/model')
 
 
@@ -149,6 +150,71 @@ module.exports={
             }
         })
         
-    }
+    },
+
+    guardarestu:function (req,res) {
+        console.log(req.body);
+        var {Estudiat,Apellido, Gmail, Nie}=req.body
+//esta consulta es para guardar archivos 
+        var consult =`INSERT INTO estudiantes (nie,nombre,apellido,correo) VALUES ('${Nie}','${Estudiat}', '${Apellido}', '${Gmail}')`;
+      ;  conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+
+            }else{
+                res.redirect('/One_T/estudiantes')
+            }
+
+        });
+    },
+    verestudi:function (req,res) {
+        const consult=`SELECT * FROM estudiantes`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.send(resultado)
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+    buscarestudentporid:function (req,res) {
+        console.log(req.query.id)
+        const consult=`SELECT * FROM estudiantes WHERE id = ${req.query.id}`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.send(resultado)
+            }else{
+                res.send("error")
+            }
+
+        });
+    },
+    actualizarEstud:function (req,res) {
+        console.log(req.body);
+        // console.log(req.body.Apellido);
+        // console.log(req.body.Gmail);
+        // console.log(req.body.Nie);
+
+        model.ActualizarEstud(conexion, req.body, function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al actualizar los datos");
+            }
+            console.log('redireccionando datos a...')
+            res.redirect('/taller/estudiantes');
+        });
+        
+    },
+
     
 }

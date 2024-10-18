@@ -134,6 +134,10 @@ module.exports={
         LEFT JOIN devolucion d ON p.id = d.prestamo_id;
         `
         conexion.query(consulta,funcion)
-    }
+    },
+    ActualizarEstud:function(conexion,Datos,funcion){
+        const query = "UPDATE estudiantes SET nie=?, nombre=?, apellido=?, correo=? WHERE id=?";
+        conexion.query(query, [Datos.Nie,Datos.Estudiant,Datos.Apellido,Datos.Gmail, Datos.id],funcion);
+    },
 
 }

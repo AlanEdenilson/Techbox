@@ -458,7 +458,14 @@ module.exports={
             console.log("redirigiendo a...")
             res.redirect('/taller/consu');
         });
-    }
+    },
+    //agregar estudiante
+    // agregarEstudiante:function (req,res) {
+    //     console.log(req.body)
+    //     // res.render('Estudiante/agregarEstudiante');
+    // },
+   
+
 
 
     //editar:function (req,res) {

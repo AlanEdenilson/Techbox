@@ -26,7 +26,7 @@
         </nav>
     <div class="container">
     
-        <a href="/taller/crearp" class="btn btn-primary" type="button">Crear un Prestamos</a>
+        <a href="/taller/crearp" class="btn btn-primary" style="display: none;" type="button">Crear un Prestamos</a>
         <br/>
         <br/>
         <table id="table" class="table table-light">
@@ -37,7 +37,7 @@
                     <th>Fecha_prestamo</th>
                     <th>Estudiante</th>
                     <th>Tipo_herramienta</th>
-                    <th>Acciones</th>
+                  
                 </tr>
             </thead>
             <tbody>
@@ -63,15 +63,7 @@
                             <td> ${data[i].fecha_prestamo}</td>
                             <td>${data[i].nombre_estudiante}</td>
                             <td>${data[i].tipo_herramienta}</td>
-                            <td>
-                                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                    <button class="btn btn-warning" type="submit">Editar</button>
-                            </div>
-                            |   
-                            <div data_id=${data[i].prestamo_id} class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                    <button class="btn btn-danger" type="submit">Eliminar</button>
-                            </div>
-                            </td>
+                            
                         </tr>
                         `
     
