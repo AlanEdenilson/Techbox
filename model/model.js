@@ -142,5 +142,10 @@ module.exports={
     borrarESTU:function(conexion,id,funcion){
         conexion.query("DELETE FROM estudiantes WHERE id =?",[id],funcion)
     },
+    Actualizarher: function (conexion,datos,funcion) {
+        const query = "UPDATE herramientas SET nombre=?, estado=? WHERE id=? ";
+        conexion.query(query, [datos.Nombre, datos.Estado, datos.id], funcion);
+    },
+
 
 }

@@ -60,5 +60,14 @@ router.post('/updateESt',controller.actualizarEstud)
 
 router.get('/delete',controller.eliminarEstud)
 
+router.get('/editHerra',(req,res)=>{
+    res.render('Inventario/cambiar',{value:req.query.id})
+
+})
+
+router.get('/buscarHerra',controller.verHerra)
+
+router.post('/updateHerra',controller.Actualizarh)
+
 
 module.exports = router;

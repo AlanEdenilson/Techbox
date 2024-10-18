@@ -1,9 +1,9 @@
 
 <center>
     <!-- aca estaria la nueva ruta -->
-    <form method="post" action="/taller/actualizarh">
+    <form method="post" action="/One_T/updateHerra">
 
-        <input type="hidden" name="id" value="<%=taller.id_herramienta %>">
+     
 
         <br>
         <br>
@@ -15,20 +15,21 @@
                 <div class="card-header" style="background-color: #010008; color: #e7e7e3; font-weight: bold; font-size: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center;">
                     Actualizar datos
                 </div>
+                <input id="id" type="text" name="id">
 
                 <div class="card-body" style="padding: 30px;">
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="herramienta" style="font-synthesis-weight: bold;">Nombre de la herramienta</label>
-                        <input id="herramienta" value="<%=taller.Nombre %>" class="form-control" type="text" name="Nombre" placeholder="ingresa nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
+                        <label for="nombre" style="font-synthesis-weight: bold;">Nombre de la herramienta</label>
+                        <input id="nombre"  class="form-control" type="text" name="Nombre" placeholder="ingresa nombre de la herramienta" style="border-radius: 5px; padding: 10px;">
                 </div>
 
                 <div class="card-body" style="padding: 30px;">
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="herramienta" style="font-weight: bold;">Estado de la herramienta</label>
-                        <input id="herramienta" value="<%=taller.Estado %>" class="form-control" type="text" name="Estado" placeholder="Ingrese el estado de herramienta" style="border-radius: 5px; padding: 10px;">
+                        <label for="estado" style="font-weight: bold;">Estado de la herramienta</label>
+                        <input id="estado" class="form-control" type="text" name="Estado" placeholder="Ingrese el estado de herramienta" style="border-radius: 5px; padding: 10px;">
                     </div>
                 
-                    <button class="btn btn-primary btn-block" type="submit" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Actualizar</button>
+                    <button class="btn btn-primary btn-block" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Actualizar</button>
                     <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/taller/herramientas'" style="border-radius: 5px; padding: 10px; font-weight: bold; width: 100%;">Cancelar</button>
                 </div>
             </div>
@@ -59,3 +60,32 @@
         background-color: #bae00d;
     }
     </style> 
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(function () {
+        const renderedValue = '<%= typeof value !== "undefined" ? value : "" %>';
+        console.log(renderedValue)
+
+        $.ajax({
+            url: '/One_T/buscarHerra?id='+renderedValue,
+            type: 'GET',
+            success: function(data){
+                console.log(data)
+                 $('#id').val(data[0].id)
+                 $('#nombre').val(data[0].nombre)
+                 $('#estado').val(data[0].estado)
+                // $('#gmail').val(data[0].correo)
+                // $('#nie').val(data[0].nie)
+             
+                
+            },
+            error: function(error){
+                console.log(error)
+            }
+        });
+            
+        })
+    
+    </script>
+

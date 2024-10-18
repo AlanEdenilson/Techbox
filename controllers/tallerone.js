@@ -151,7 +151,7 @@ module.exports={
         })
         
     },
-
+    //AGREGAR ESTUDIANTES BORRAR EDITAR
     guardarestu:function (req,res) {
         console.log(req.body);
         var {Estudiat,Apellido, Gmail, Nie}=req.body
@@ -227,6 +227,42 @@ module.exports={
             res.redirect('/taller/estudiantes');
         });
     },
+    //AGREGAR HERRAMIENTA BORRAR EDITAR
+    verHerra:function (req,res) {
+        const consult=`SELECT * FROM herramientas WHERE id = ${req.query.id}`;
+        conexion.query(consult,function (error,resultado) {
+            if(error) {
+                console.log("error en la bd")
+                throw error;
+            }else if(resultado.length > 0) {
+                console.log('datos encontrados')
+                res.send(resultado)
+            }else{
+                res.send("error")
+            }
 
+        });
+    },
+    Actualizarh:function (req,res){
+        console.log(req.body);
+        
+        console.log(req.body.Nombre);
+        console.log(req.body.Estado);
+
+        model.Actualizarher(conexion,req.body, function (err,result) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error al actualizar los datos");
+            }else if (result.affectedRows ===1){
+                console.log(result)
+                res.redirect('/One_T/inventario');
+            }else{
+                res.send("error")
+            }
+            
+           
+        });
+
+    },
     
 }
