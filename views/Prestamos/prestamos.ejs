@@ -53,6 +53,7 @@
                 url: '/One_T/verPrestamo',
                 type: 'GET',
                 success: function(data){
+
                     console.log(data)
                     var html;
                     for(var i=0; i<data.length; i++){
@@ -60,7 +61,7 @@
                          <tr>
                             <td>${data[i].prestamo_id}</td>
                             <td> ${data[i].nombre_herramienta}</td>
-                            <td> ${data[i].fecha_prestamo}</td>
+                            <td> ${data[i].fecha}</td>
                             <td>${data[i].nombre_estudiante}</td>
                             <td>${data[i].tipo_herramienta}</td>
                             

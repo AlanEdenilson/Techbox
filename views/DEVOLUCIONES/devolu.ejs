@@ -53,6 +53,15 @@
 <script >
     $(document).ready(function(){
         console.log('buscando devoluciones')
+        function compararFechas(fecha1, fecha2) {
+            if (fecha1 === fecha2) {
+                return 'Esperando...'
+            } else {
+                return fecha2
+                
+            }
+ 
+        }
 
         $.ajax({
             url: '/One_T/verdevoluciones',
@@ -61,11 +70,12 @@
                 console.log(data)
                 var html;
                 for(var i=0; i<data.length; i++){
+                    var comparar =compararFechas(data[i].fechaP,data[i].fechaD)
                     html=`
                     <tr>
                         <td>${data[i].prestamo_id}</td>
                         <td>${data[i].nombre_herramienta}</td>
-                        <td>${data[i].fecha_devolucion}</td>
+                        <td>${comparar}</td>
                         <td>${data[i].observaciones}</td>
                         <td>${data[i].estado_entrega}</td>
                         

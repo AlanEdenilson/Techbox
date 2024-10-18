@@ -90,7 +90,7 @@ module.exports={
        var consulta = `
         SELECT 
             p.id as prestamo_id,
-            p.fecha_prestamo,
+            DATE_FORMAT(p.fecha_prestamo, '%Y-%m-%d %H:%i:%s') AS fecha ,
             p.estado as estado_prestamo,
             e.nie,
             e.nombre as nombre_estudiante,
@@ -123,8 +123,8 @@ module.exports={
         pe.nie,
         pe.nombre AS nombre_estudiante,
         h.nombre AS nombre_herramienta,
-        p.fecha_prestamo,
-        d.fecha_devolucion,
+        DATE_FORMAT(p.fecha_prestamo, '%Y-%m-%d %H:%i:%s') AS fechaP ,
+        DATE_FORMAT(d.fecha_devolucion, '%Y-%m-%d %H:%i:%s') AS fechaD ,
         d.prestamo_id,
         d.estado_entrega,
         d.observaciones
