@@ -107,11 +107,11 @@ module.exports={
     },
     //devolver
     DEVOLVER_herramienta:function(conexion,prestamo,funcion) {
-        conexion.query("INSERT INTO devolucion (prestamo_id,observaciones,estado_entrega) VALUES (?,?,?)",[prestamo,"pendiente...","en espera .."],funcion);
+        conexion.query("INSERT INTO devolucion (prestamo_id,observaciones,estado_entrega) VALUES (?,?,?)",[prestamo,"pendiente...","pendiente"],funcion);
     },
     //ACTUALIZAR DEVOLUCION
     ACTUALIZAR_devolucion:function(conexion,observacion,id,funcion){
-        const query="UPDATE devolucion SET observaciones=?, estado_entrega='entregado' WHERE prestamo_id=? AND estado_entrega = 'en espera'";
+        const query="UPDATE devolucion SET observaciones=?, estado_entrega='entregado' WHERE prestamo_id=? AND estado_entrega = 'pendiente'";
         conexion.query(query,[observacion,id],funcion);
     },
     //buscar devolucion por el id del prestamo
