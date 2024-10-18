@@ -98,7 +98,7 @@ module.exports={
     // restablecer contraseña aca esta el modelo va pruebo ya 
     //  aca usaremos el correo para actualizar la contraseña si ahorita probaremos
     Restablecer:function (conexion,contraseña,correo,funcion) {
-        conexion.query("UPDATE registrar SET Contraseña=? WHERE Email=? AND EXISTS (SELECT 1 FROM registrar WHERE Email=? ); ", [contraseña, correo, correo], funcion);
+        conexion.query("UPDATE usuarios SET Contraseña=? WHERE correo=? AND EXISTS (SELECT 1 FROM usuarios WHERE correo=? ); ", [contraseña, correo, correo], funcion);
     },
     //modelo de materiales consumibles
     obtener:function (conexion,funcion) {
