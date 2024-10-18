@@ -139,5 +139,8 @@ module.exports={
         const query = "UPDATE estudiantes SET nie=?, nombre=?, apellido=?, correo=? WHERE id=?";
         conexion.query(query, [Datos.Nie,Datos.Estudiant,Datos.Apellido,Datos.Gmail, Datos.id],funcion);
     },
+    borrarESTU:function(conexion,id,funcion){
+        conexion.query("DELETE FROM estudiantes WHERE id =?",[id],funcion)
+    },
 
 }

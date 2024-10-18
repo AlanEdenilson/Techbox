@@ -58,5 +58,7 @@ router.get('/buscarporidE',controller.buscarestudentporid)
 
 router.post('/updateESt',controller.actualizarEstud)
 
+router.get('/delete',controller.eliminarEstud)
+
 
 module.exports = router;

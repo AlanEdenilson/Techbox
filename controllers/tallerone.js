@@ -215,6 +215,18 @@ module.exports={
         });
         
     },
+    eliminarEstud:function (req,res){
+        console.log("Recepción de datos");
+        console.log(req.query.id);
+
+        model.borrarESTU(conexion,req.query.id, function (error) {
+            if (error) {
+                console.error("Error al eliminar:", error);
+                return res.status(500).send("Error al eliminar el elemento.");
+            }
+            res.redirect('/taller/estudiantes');
+        });
+    },
 
     
 }
