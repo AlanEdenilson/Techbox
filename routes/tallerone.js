@@ -69,5 +69,7 @@ router.get('/buscarHerra',controller.verHerra)
 
 router.post('/updateHerra',controller.Actualizarh)
 
+router.get('/deleteH',controller.eliminarherra)
+
 
 module.exports = router;

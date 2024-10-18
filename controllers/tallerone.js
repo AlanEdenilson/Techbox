@@ -264,5 +264,19 @@ module.exports={
         });
 
     },
+
+    eliminarherra: function (req, res) {
+        console.log("Recepción de datos");
+        console.log(req.query.id);
+         var consulta =`DELETE FROM herramientas WHERE id = ${req.query.id}`
+         // esto es  para  borrar los registros  
+        conexion.query(consulta, function (error) {
+            if (error) {
+                console.error("Error al eliminar:", error);
+                return res.status(500).send("Error al eliminar el elemento.");
+            }
+            res.redirect('/One_T/inventario');
+        });
+    },
     
 }
